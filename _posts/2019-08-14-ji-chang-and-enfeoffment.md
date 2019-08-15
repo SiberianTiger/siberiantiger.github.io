@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "姬发与封邦建国"
+title:  "姬昌与封邦建国"
 date:   2019-08-14 22:00:00 +0800
 author: 西伯利亚虎
 categories: essay
