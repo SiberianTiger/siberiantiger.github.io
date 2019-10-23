@@ -21,10 +21,10 @@ categories: math
 - [Lecture 2](#lecture-2)
   - [Measure and probability](#measure-and-probability-1)
   - [Continuity of probability measures](#continuity-of-probability-measures)
-  - [Caratheodory theorem and the extension to a probability space](#caratheodory-theorem-and-the-extension-to-a-probability-space)
+  - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space)
     - [Uniform measure on $[0, 1]$](#uniform-measure-on-0-1)
 - [Lecture 3](#lecture-3)
-  - [Caratheodory theorem and the extension to a probability space](#caratheodory-theorem-and-the-extension-to-a-probability-space-1)
+  - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space-1)
     - [Uniform measure on $\{0, 1\}^{\infty}$](#uniform-measure-on-0-1infty)
   - [Conditional probability](#conditional-probability)
   - [Independence](#independence)
@@ -61,7 +61,7 @@ categories: math
   - [Covariance and correlation coefficient](#covariance-and-correlation-coefficient)
   - [Indicator random variables](#indicator-random-variables)
 - [Lecture 8](#lecture-8)
-  - [Memoriless distributions](#memoriless-distributions)
+  - [Memoryless distributions](#memoryless-distributions)
   - [Gaussian distributions](#gaussian-distributions)
     - [Tails](#tails)
   - [Expectations of a continuous random variable](#expectations-of-a-continuous-random-variable)
@@ -131,18 +131,18 @@ Here are some examples of sample spaces.
 
 A **discrete probability space** is a $(\Omega, \mathcal{F}, \mathbb{P})$ where 
 1. $\Omega$ is finite or countable;
-2. $\mathcal{F}$ is the set of all subsets of $\Omega$; let $|\Omega|$ be the cardinality of $\Omega$, then if $|\Omega| < +\infty$, $|\mathcal{F}| = 2^{|\Omega|}$.
+2. $\mathcal{F}$ is the set of all subsets of $\Omega$; let $\lvert\Omega\rvert$ be the cardinality of $\Omega$, then if $\lvert\Omega\rvert < +\infty$, $\lvert\mathcal{F}\rvert = 2^{\lvert\Omega\rvert}$.
 3. $\mathbb{P}$ is a function $\Omega \rightarrow [0, 1]$, such that $\sum_{\omega \in \Omega} \mathbb{P}(w) = 1$.
 
 Here, 'discrete' follows the fact that the sample space is finite or countable.
 
-Before proceeding, we borrow some notations from real analysis, $\forall$ for 'for every', $\exist$ for 'exists' and $\triangleq$ for 'equal by definition'.
+Before proceeding, we borrow some notations from real analysis, $\forall$ for 'for every', $\exists$ for 'exists' and $\triangleq$ for 'equal by definition'.
 Then $\forall A \in \mathcal{F}$ (i.e. $\forall A \subset \Omega$), $\mathbb{P}(A) \triangleq \sum_{\omega\in A} \mathbb{P}(\omega)$.
 
 We now give three examples of discrete probability spaces.
 1. Toss a fair coin twice. Denote heads by 1 and tails by 0. Then 
    - $\Omega = \{(0, 0), (0, 1), (1, 0), (1, 1)\}$;
-   - $|\mathcal{F}| = 2^4 = 16$;
+   - $\lvert\mathcal{F}\rvert = 2^4 = 16$$;
    - $\mathbb{P}((0, 0)) = \mathbb{P}((0, 1)) = \mathbb{P}((1, 0)) = \mathbb{P}((1, 1)) = 1/4$.
 2. $\Omega = \{3, \text{DAVID}, 15.085\}$, each elementary outcome with probability $0.3$, $0.1$ and $0.6$.
 3. Poisson discrete probability space. For a fixed $\lambda > 0$, take $\Omega = \mathbb{Z}_{+}$. Then $\mathbb{P}(n) = \frac{\lambda^n}{n!}e^{-\lambda}$. To verify the third condition of discrete probability space, notice that $\sum_{n=0}^{\infty} \mathbb{P}(n) = e^{-\lambda}\sum_{n=0}^{\infty}\frac{\lambda^n}{n!} = e^{-\lambda} \cdot e^{\lambda} = 1$.
@@ -194,7 +194,7 @@ Now take $\Omega = [0, 1]$. Let $\mathcal{C}$ be all closed intervals, i.e. $\ma
 
 Given $(\Omega, \mathcal{F})$, a **measure** is a function $\mu: \mathcal{F} \rightarrow \mathbb{R}_{+}$, such that
 1. $\mu(\emptyset) = 0$;
-2. if $\{A_i, i = 1, 2, \cdots\}$ is a countable sequence of *disjoint* elements of $\mathcal{F}$, then $\mu(\cup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty}\mu(A_i)$ (sum of numbers). 'Disjoint' means $A_i \cap A_j = \empty, \forall i \neq j$.
+2. if $\{A_i, i = 1, 2, \cdots\}$ is a countable sequence of *disjoint* elements of $\mathcal{F}$, then $\mu(\cup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty}\mu(A_i)$ (sum of numbers). 'Disjoint' means $A_i \cap A_j = \emptyset, \forall i \neq j$.
 
 Measures are a generalization of volumes.
 
@@ -218,9 +218,9 @@ Given $(\Omega, \mathcal{F})$, and $\mathbb{P}$ that satisfies finite additivity
 3. For any decreasing sequence.
 4. For any decreasing sequence such that $\cap_{n=1}^{\infty} A_n = \emptyset$.
 
-### Caratheodory theorem and the extension to a probability space
+### Caratheodory's extension theorem and the extension to a probability space
 
-*Caratheodory theorem.* 
+*Caratheodory's extension theorem.* 
 Given $\Omega$. Suppose $\mathcal{F}_0$ is a field. Suppose $\mathbb{P}_0: \mathcal{F}_0 \mapsto [0, 1]$ such that $\mathbb{P}_0(\Omega) = 1$ and $\mathbb{P}_0$ is countably additive. Then there is a unique extenion of $\mathbb{P}_0$ to $(\Omega, \sigma(\mathcal{F}_0), \mathbb{P})$, such that $\forall A\in \mathcal{F}_0$, $\mathbb{P}(A) = \mathbb{P}_0(A)$.
 
 #### Uniform measure on $[0, 1]$
@@ -234,12 +234,12 @@ $(\Omega = (0, 1], \mathcal{B}, \mathbb{P})$
 > David Gamarnik  
 > Wed, Sep 11, 2019
 
-### Caratheodory theorem and the extension to a probability space
+### Caratheodory's extension theorem and the extension to a probability space
 
 #### Uniform measure on $\{0, 1\}^{\infty}$
 
 Let $\Omega$ be the sample space of infinite coin tosses.
-For all $n$, let $\mathcal{F}$ be all events associated with first $n$ outcomes. $\mathcal{F}_0 = \cup_{n=1}^{\infty} \mathcal{F}_n$, which is a field consisting of all events which can be described by finitely many tosses. We can extend $\mathcal{F}_0$ to $\sigma(\mathcal{F}_0)$ by Caratheodory theorem.
+For all $n$, let $\mathcal{F}$ be all events associated with first $n$ outcomes. $\mathcal{F} _{0} = \bigcup _{n=1} ^{\infty} \mathcal{F} _{n}$, which is a field consisting of all events which can be described by finitely many tosses. We can extend $\mathcal{F} _{0}$ to $\sigma(\mathcal{F} _{0})$ by Caratheodory's extension theorem.
 
 Actually, $\sigma(\mathcal{F}_0) = \mathcal{B}$.
 
@@ -253,7 +253,7 @@ Definition of 'almost surely', or a.s.
 
 *Theorem.*
 
-1. 
+1. If $A_i$ disjoint, then $\mathbb{P}\left(\bigcup_{i=1}^{\infty} A_{i} \mid B\right)=\sum_{i=1}^{\infty} \mathbb{P}\left(A_{i} \mid B\right)$.
 2. Rule of conditional probability.
 3. Bayes' Rule
 
@@ -358,7 +358,7 @@ Extended-valued r.v.: $\Omega \rightarrow \mathbb{R}\cup \{+\infty\}$.
 Indicator function $I_A$.
 
 Simple random variables.  
-*Definition.* (Different from lecture notes) $X: \Omega \rightarrow \mathbb{R}$ is simple if $|\text{Im}(X)| < +\infty$, where $\text{Im}(X)$ is the set of all values realized by $X$. Here $\text{Im}$ denotes the image of a function (image is opposed to preimage).
+*Definition.* (Different from lecture notes) $X: \Omega \rightarrow \mathbb{R}$ is simple if $\lvert\text{Im}(X)\rvert < +\infty$, where $\text{Im}(X)$ is the set of all values realized by $X$. Here $\text{Im}$ denotes the image of a function (image is opposed to preimage).
 
 If $X$ is simple, $X = \sum_{i=1}^m x_i I_{A_i}$.
 
@@ -430,7 +430,7 @@ p_{X_1, \cdots, X_m}(x_1, \cdots, x_m) = \mathbb{P}(X_1 = x_1, \cdots, X_m = x_m
 $$
 
 *Definition.* (Independence of discrete r.v.)  
-$X \perp Y$ iff $\forall x, y$, $\mathbb{P}_{X, Y}(x, y) = p_{X}(x) p_Y(y)$.
+$X \perp Y$ iff $\forall x, y$, $\mathbb{P} _{X, Y}(x, y) = p _{X}(x) p_Y(y)$.
 
 ### Expectation and its properties
 
@@ -485,10 +485,10 @@ $X \ge 0$ a.s. $\iff$ $\mathbb{P}(\{\omega: X(\omega)\ge 0\}) = 1$.
 
 1. $\mathbb{E}[X]$ is well defined if $\sum_{x > 0} x p_X(x)$ and $\sum_{x < 0} x p_X(x)$ are not both infinite.  
    Moreover, $\mathbb{E}[X] < \infty$ if both sums above are finite.
-2. $\mathbb{E}[|X|] = \mathbb{E}[X^{+}] + \mathbb{E}[X^{-}]$. If $\mathbb{E}[|X|] < \infty$, then $X$ is **integrable**. 
+2. $\mathbb{E}[\lvert X\rvert] = \mathbb{E}[X^{+}] + \mathbb{E}[X^{-}]$. If $\mathbb{E}[\lvert X\rvert] < \infty$, then $X$ is **integrable**. 
 3. $\mathbb{E}[X^2]$ is always well defined. If $\mathbb{E}[X^2] < \infty$, then $X$ is **square integrable**.  
    If a r.v. is square integrable, then it is necessarily integrable, because $|X|^2 + 1 \ge 2|X| \ge |X|$.
-4. Let $r > 0$. If $\mathbb{E}[|X|^r] < \infty$, then $\mathbb{E}[|X|^k] < \infty$ for every $0 < k \le r$.
+4. Let $r > 0$. If $\mathbb{E}[\lvert X\rvert^r] < \infty$, then $\mathbb{E}[\lvert X\rvert^k] < \infty$ for every $0 < k \le r$.
 5. $\operatorname{VAR}[X]$ is
    - $< \infty$, if $X$ is square integrable;
    - $= \infty$, if $X$ is integrable but not square integrable;
@@ -506,7 +506,7 @@ Binomial distribution becomes Poisson distribution when $n\rightarrow \infty$ an
 
 $\operatorname{Cov}(X, Y) = \mathbb{E}[\widetilde{X} \widetilde{Y}]$, where $\widetilde{X} = X - \mathbb{E}[X]$ and $\widetilde{Y} = Y - \mathbb{E}[Y]$.
 
-It turns out that $X, Y$ are both square integrable, then the Cov is well-defined, since $|\widetilde{X}\widetilde{Y}| \le (\widetilde{X}^2 + \widetilde{Y}^2) / 2$.
+It turns out that $X, Y$ are both square integrable, then the Cov is well-defined, since $\lvert \widetilde{X}\widetilde{Y}\rvert \le (\widetilde{X}^2 + \widetilde{Y}^2) / 2$.
 
 *Properties.*
 1. $\operatorname{Cov}(X, X) = \operatorname{Var}(X)$.
@@ -547,7 +547,7 @@ Indicator r.v. can be used to prove $\mathbb{P}(A\cup B) = \mathbb{P}[A] + \math
 > David Gamarnik  
 > Mon, Sep 30, 2019
 
-### Memoriless distributions
+### Memoryless distributions
 
 Review: Continuous random variables
 
@@ -557,12 +557,12 @@ Review: Continuous random variables
 - If $f$ is a PDF, $E = \{t: f(t) < 0\}$, $\mu(E) = 0$ (Lebesgue measure).
 - $X$ continuous $\nRightarrow$ $f$ continuous.
 
-Exponential distributions are the **only** memoriless distributions.
+Exponential distributions are the **only** memoryless distributions.
 
 *Definition.*
 Fix $\lambda > 0$, $F_X(t) = 1 - e^{-\lambda t}, t\ge 0$, $F_X(t) = 0, t < 0$.
 
-*Memoriless property.*
+*Memoryless property.*
 $\forall x, y \ge 0$, $\mathbb{P}(X - x \ge y \mid X \ge x) = \mathbb{P}(X \ge y)$.
 
 Applications in stochastic processes, queueing and physics.
@@ -709,9 +709,9 @@ $$
 f_Y(y) = f_X(g^{-1}(y)) \frac{1}{|\dot{g}(g^{-1}y)|} = f_X(g^{-1}(y)) \left|\frac{dg^{-1}(y)}{dy}\right|.
 $$
 
-*Example.* $X \in \mathbb{R}^n$. $Y = g(X) = MX$, where $M$ is an $n \times n$ matrix. Then $f_Y(y) = f_X(M^{-1}y) / |\det M| = f_X(M^{-1} y) \cdot |\det(M^{-1})|$.
+*Example.* $X \in \mathbb{R}^n$. $Y = g(X) = MX$, where $M$ is an $n \times n$ matrix. Then $f_Y(y) = f_X(M^{-1}y) / \lvert\det M\rvert = f_X(M^{-1} y) \cdot \lvert\det(M^{-1})\rvert$.
 
-To show this, we need some linear algebra. Fix $x_0 = (x^0_1, \cdots, x^0_n) \in \mathbb{R}^n$, $\delta > 0$. Then $C = \prod_i [X^0_i, X^0_i + \delta]$ is a cube. $D = MC$ maps parallel lines in $C$ to parallel lines in $D$. We have $\operatorname{Vol}(D) = \operatorname{Vol}(C) |\det M| = \delta^n |\det M|$.
+To show this, we need some linear algebra. Fix $x_0 = (x^0_1, \cdots, x^0_n) \in \mathbb{R}^n$, $\delta > 0$. Then $C = \prod_i [X^0_i, X^0_i + \delta]$ is a cube. $D = MC$ maps parallel lines in $C$ to parallel lines in $D$. We have $\operatorname{Vol}(D) = \operatorname{Vol}(C) \lvert\det M\rvert = \delta^n \lvert\det M\rvert$.
 
 ### Bivariate normal in polar coordinates
 
@@ -785,11 +785,11 @@ Suppose $g = q$ is simple and $\int q d\mu = +\infty$.
 ### Monotone convergence theorem
 
 *Proof (part 1.2).*  
-Suppose $g = q = \sum_{i=1}^{m} a_i 1_{A_i}$ is simple and $\int q d\mu < +\infty$.
-Let $S = \{i: a_i > 0\}$, $A = \cup_{i \in S} A_i$, $B_n = \{\omega\in A: g_n(\omega) \ge q(\omega) - 1/r\}$, where $0 < 1/r < \min_i a_i$.
+Suppose $g = q = \sum_{i=1}^{m} a_i 1 _{A_i}$ is simple and $\int q d\mu < +\infty$.
+Let $S = \{i: a_i > 0\}$, $A = \bigcup _{i \in S} A_i$, $B_n = \{\omega\in A: g_n(\omega) \ge q(\omega) - 1/r\}$, where $0 < 1/r < \min_i a_i$.
 
-Then $\int g_n d\mu + \int 1/r 1_{B_n} d\mu \ge \int q 1_{B_n} d\mu$. Eventually, show that $\lim_{n\rightarrow \infty} \int g_n d\mu \ge \int q d\mu$.  
-On the other hand, $\lim_{n\rightarrow \infty} \int g_n d\mu \le \int q d\mu$, which concludes the proof.
+Then $\int g_n d\mu + \int 1/r 1 _{B_n} d\mu \ge \int q 1 _{B_n} d\mu$. Eventually, show that $\lim _{n\rightarrow \infty} \int g_n d\mu \ge \int q d\mu$.  
+On the other hand, $\lim _{n\rightarrow \infty} \int g_n d\mu \le \int q d\mu$, which concludes the proof.
 
 *Proof (part 2).*  
 For a general $g$, recall $\int g d\mu = \sup_{q\in S(g)} \int q d\mu$. Let $h_n = \min\{g_n, q\}$. Then $h_n \uparrow q$ a.s. By MCT, 
@@ -819,7 +819,7 @@ Construct $g_n \in S(g)$ such that $g_n \uparrow g$ a.s., $h_n \in S(h)$ such th
 #### Application of MCT: Proof of Boral-Cantelli lemma
 
 *Proof.*
-Let $X_n = 1_{A_n}$. Show that $\mathbb{E}[\sum_{n=1}^{\infty} X_n] < + \infty$, i.e. $\sum_{n=1}^{\infty} X_n < +\infty$ a.s.
+Let $X_n = 1 _{A_n}$. Show that $\mathbb{E}[\sum _{n=1}^{\infty} X_n] < + \infty$, i.e. $\sum _{n=1}^{\infty} X_n < +\infty$ a.s.
 
 ### Fatou's lemma
 
