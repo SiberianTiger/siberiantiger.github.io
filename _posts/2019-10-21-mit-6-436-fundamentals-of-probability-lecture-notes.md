@@ -25,7 +25,7 @@ categories: math
     - [Uniform measure on $[0, 1]$](#uniform-measure-on-0-1)
 - [Lecture 3](#lecture-3)
   - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space-1)
-    - [Uniform measure on $\{0, 1\}^{\infty}$](#uniform-measure-on-0-1infty)
+    - [Uniform measure on $\lbrace 0, 1\rbrace^{\infty}$](#uniform-measure-on-lbrace-0-1rbraceinfty)
   - [Conditional probability](#conditional-probability)
   - [Independence](#independence)
   - [Borel-Cantelli lemma](#borel-cantelli-lemma)
@@ -124,18 +124,18 @@ Probability is about quantifying uncertainty. To this end, a triple $(\Omega, \m
 ### Sample space
 
 A **sample space** $\Omega$ is an arbitrary set. It can be 
-- finite, e.g. $\{1, 2, \cdots, n\}$,
-- countable, e.g. $\{a_1, a_2, \cdots, a_n, \cdots\}$, $\mathbb{Z}$ (integers), $\mathbb{Q}$ (rational numbers), or 
-- uncountable, $\{0, 1\}^{\infty}$ (set of all infinite sequences of zeros and ones). 
+- finite, e.g. $\lbrace 1, 2, \cdots, n\rbrace$,
+- countable, e.g. $\lbrace a_1, a_2, \cdots, a_n, \cdots\rbrace$, $\mathbb{Z}$ (integers), $\mathbb{Q}$ (rational numbers), or 
+- uncountable, $\lbrace 0, 1\rbrace^{\infty}$ (set of all infinite sequences of zeros and ones). 
 
 Elements of the sample space are called **elementary outcomes** and denoted by $\omega$.
 
 Here are some examples of sample spaces.
 
-1. Roll a die once. $\Omega = \{1, 2, 3, 4, 5, 6\}$. The $\Omega$ here is finite.
-2. Roll a die 10 times. $\Omega = \{1, 2, 3, 4, 5, 6\}^{10} = \{(a_1, \cdots, a_{10}): a_i \in \{1, \cdots, 6\}, i = 1, \cdots, 10\}$. In this case, $(3, 1, 1, 4, 5, 6, 5, 4, 3, 1)$ is an $\omega$. The $\Omega$ here is finite.
+1. Roll a die once. $\Omega = \lbrace 1, 2, 3, 4, 5, 6\rbrace$. The $\Omega$ here is finite.
+2. Roll a die 10 times. $\Omega = \lbrace 1, 2, 3, 4, 5, 6\rbrace^{10} = \lbrace (a_1, \cdots, a_{10}): a_i \in \lbrace 1, \cdots, 6\rbrace, i = 1, \cdots, 10\rbrace$. In this case, $(3, 1, 1, 4, 5, 6, 5, 4, 3, 1)$ is an $\omega$. The $\Omega$ here is finite.
 3. $\Omega = \mathbb{Z}_{+}$ (non-negative integers). The $\Omega$ here is countable.
-4. $\Omega = \{0, 1\}^{\infty}$. This is the sample space of tossing a coin for infinite times. The $Omega$ here is uncountable.
+4. $\Omega = \lbrace 0, 1\rbrace^{\infty}$. This is the sample space of tossing a coin for infinite times. The $\Omega$ here is uncountable.
 
 ### Discrete probability space
 
@@ -151,10 +151,10 @@ Then $\forall A \in \mathcal{F}$ (i.e. $\forall A \subset \Omega$), $\mathbb{P}(
 
 We now give three examples of discrete probability spaces.
 1. Toss a fair coin twice. Denote heads by 1 and tails by 0. Then 
-   - $\Omega = \{(0, 0), (0, 1), (1, 0), (1, 1)\}$;
+   - $\Omega = \lbrace (0, 0), (0, 1), (1, 0), (1, 1)\rbrace$;
    - $\lvert\mathcal{F}\rvert = 2^4 = 16$;
    - $\mathbb{P}((0, 0)) = \mathbb{P}((0, 1)) = \mathbb{P}((1, 0)) = \mathbb{P}((1, 1)) = 1/4$.
-2. $\Omega = \{3, \text{DAVID}, 15.085\}$, each elementary outcome with probability $0.3$, $0.1$ and $0.6$.
+2. $\Omega = \lbrace 3, \text{DAVID}, 15.085\rbrace$, each elementary outcome with probability $0.3$, $0.1$ and $0.6$.
 3. Poisson discrete probability space. For a fixed $\lambda > 0$, take $\Omega = \mathbb{Z} _{+}$. Then $\mathbb{P}(n) = \frac{\lambda^n}{n!} e^{-\lambda}$. To verify the third condition of discrete probability space, notice that $\sum _{n=0}^{\infty} \mathbb{P}(n) = e^{-\lambda}\sum _{n=0}^{\infty}\frac{\lambda^n}{n!} = e^{-\lambda} \cdot e^{\lambda} = 1$.
 
 ### $\sigma$-field
@@ -179,13 +179,13 @@ Given $\Omega$, a **$\sigma$-field** $\mathcal{F}$ is any set of subsets of $\Om
 By de Morgan's laws, the third condition also has implications for intersection.
 
 We now give some examples of $\sigma$-fields.
-1. Given $\Omega$, the simplest $\mathcal{F} = \{\emptyset, \Omega\}$.
-2. Given $\Omega = \{1, \cdots, 6\}^{\infty}$, let $A = \{(w_1, w_2, \cdots): 1 \le w_1 \le 2\}, B = \{(w_1, w_2, \cdots): 3 \le w_1 \le 4\}, C = \{(w_1, w_2, \cdots): 5 \le w_1 \le 6\}$. Then $\mathcal{F} = \{\emptyset, A, B, C, A\cup B, B\cup C, A\cup C, A\cup B\cup C\}$. This is our first non-trivial example of $\sigma$-fields. 
+1. Given $\Omega$, the simplest $\mathcal{F} = \lbrace \emptyset, \Omega\rbrace$.
+2. Given $\Omega = \lbrace 1, \cdots, 6\rbrace^{\infty}$, let $A = \lbrace (w_1, w_2, \cdots): 1 \le w_1 \le 2\rbrace, B = \lbrace (w_1, w_2, \cdots): 3 \le w_1 \le 4\rbrace, C = \lbrace (w_1, w_2, \cdots): 5 \le w_1 \le 6\rbrace$. Then $\mathcal{F} = \lbrace \emptyset, A, B, C, A\cup B, B\cup C, A\cup C, A\cup B\cup C\rbrace$. This is our first non-trivial example of $\sigma$-fields. 
 3. All subsets of $\Omega$.
 
 #### Intersection of $\sigma$-fields
 
-*Proposition.* Let $\{\mathcal{F} _s\}$ be a set of $\sigma$-fields. Then $\mathcal{F} = \bigcap _{s} \mathcal{F} _s = \{A\subset \Omega: A \in \mathcal{F}_s, \forall s\}$ is also a $\sigma$-field.
+*Proposition.* Let $\lbrace \mathcal{F} _s\rbrace$ be a set of $\sigma$-fields. Then $\mathcal{F} = \bigcap _{s} \mathcal{F} _s = \lbrace A\subset \Omega: A \in \mathcal{F}_s, \forall s\rbrace$ is also a $\sigma$-field.
 
 *Proof.*
 1. $\emptyset \in \mathcal{F}_s, \forall s \Rightarrow \emptyset \in \mathcal{F}$.
@@ -196,15 +196,15 @@ We now give some examples of $\sigma$-fields.
 
 Take any set $\mathcal{C}$ of subsets of $\Omega$. Define $\sigma(\mathcal{C})$ as the intersection of all $\sigma$-fields containing $\mathcal{C}$.
 
-*Example.* $\Omega = \{1, 2, 3, 4, 5, 6\}$, $\mathcal{C} = \{(1, 2), (3, 4), (5, 6)\}$. Then $\sigma(\mathcal{C}) = \{\emptyset, (1, 2), (3, 4), (5, 6), (1, 2, 3, 4), (3, 4, 5, 6), (1, 2, 5, 6), (1, 2, 3, 4, 5, 6)\}$, similar to the second example of $\sigma$-fields.
+*Example.* $\Omega = \lbrace 1, 2, 3, 4, 5, 6\rbrace$, $\mathcal{C} = \lbrace (1, 2), (3, 4), (5, 6)\rbrace$. Then $\sigma(\mathcal{C}) = \lbrace \emptyset, (1, 2), (3, 4), (5, 6), (1, 2, 3, 4), (3, 4, 5, 6), (1, 2, 5, 6), (1, 2, 3, 4, 5, 6)\rbrace$, similar to the second example of $\sigma$-fields.
 
-Now take $\Omega = [0, 1]$. Let $\mathcal{C}$ be all closed intervals, i.e. $\mathcal{C} = \{[a, b]: 0\le a\le b\le 1\}$. Then $\sigma(\mathcal{C})$ is called **Borel $\sigma$-field**. Note that Borel $\sigma$-field does *not* contain all subsets of $[0, 1]$. 
+Now take $\Omega = [0, 1]$. Let $\mathcal{C}$ be all closed intervals, i.e. $\mathcal{C} = \lbrace [a, b]: 0\le a\le b\le 1\rbrace$. Then $\sigma(\mathcal{C})$ is called **Borel $\sigma$-field**. Note that Borel $\sigma$-field does *not* contain all subsets of $[0, 1]$. 
 
 ### Measure and probability
 
 Given $(\Omega, \mathcal{F})$, a **measure** is a function $\mu: \mathcal{F} \rightarrow \mathbb{R}_{+}$, such that
 1. $\mu(\emptyset) = 0$;
-2. if $\{A_i, i = 1, 2, \cdots\}$ is a countable sequence of *disjoint* elements of $\mathcal{F}$, then $\mu(\cup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty}\mu(A_i)$ (sum of numbers). 'Disjoint' means $A_i \cap A_j = \emptyset, \forall i \neq j$.
+2. if $\lbrace A_i, i = 1, 2, \cdots\rbrace$ is a countable sequence of *disjoint* elements of $\mathcal{F}$, then $\mu(\cup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty}\mu(A_i)$ (sum of numbers). 'Disjoint' means $A_i \cap A_j = \emptyset, \forall i \neq j$.
 
 Measures are a generalization of volumes.
 
@@ -246,7 +246,7 @@ $(\Omega = (0, 1], \mathcal{B}, \mathbb{P})$
 
 ### Caratheodory's extension theorem and the extension to a probability space
 
-#### Uniform measure on $\{0, 1\}^{\infty}$
+#### Uniform measure on $\lbrace 0, 1\rbrace^{\infty}$
 
 Let $\Omega$ be the sample space of infinite coin tosses.
 For all $n$, let $\mathcal{F}$ be all events associated with first $n$ outcomes. $\mathcal{F} _{0} = \bigcup _{n=1} ^{\infty} \mathcal{F} _{n}$, which is a field consisting of all events which can be described by finitely many tosses. We can extend $\mathcal{F} _{0}$ to $\sigma(\mathcal{F} _{0})$ by Caratheodory's extension theorem.
@@ -276,11 +276,11 @@ Definition of 'almost surely', or a.s.
 
 ### Borel-Cantelli lemma
 
-*Definition.* $\{A_n, i.o.\} = \cap_{n=1}^{\infty} \cup_{i=n}^{\infty} A_i$. It means events that occurs infinitely often.
+*Definition.* $\lbrace A_n, i.o.\rbrace = \cap_{n=1}^{\infty} \cup_{i=n}^{\infty} A_i$. It means events that occurs infinitely often.
 
 *Borel-Cantelli lemma.*  
-1. Suppose $\{A_n, n\ge 1\}$ is a sequence of events such that $\sum_{i=1}^{\infty} \mathbb{P}(A_n) < +\infty$, then $\mathbb{P}(A_n, i.o.) = 0$.
-2. Suppose $\{A_n, n\ge 1\}$ is a sequence of events such that $\sum_{i=1}^{\infty} \mathbb{P}(A_n) = +\infty$ and $A_n$ are independent, then $\mathbb{P}(A_n, i.o.) = 1$.
+1. Suppose $\lbrace A_n, n\ge 1\rbrace$ is a sequence of events such that $\sum_{i=1}^{\infty} \mathbb{P}(A_n) < +\infty$, then $\mathbb{P}(A_n, i.o.) = 0$.
+2. Suppose $\lbrace A_n, n\ge 1\rbrace$ is a sequence of events such that $\sum_{i=1}^{\infty} \mathbb{P}(A_n) = +\infty$ and $A_n$ are independent, then $\mathbb{P}(A_n, i.o.) = 1$.
 
 ------
 
@@ -339,8 +339,8 @@ Formally, we have the following theorem.
 
 *Theorem.* Let $t = cn\log n$, where $c > 0$. Let $c_1, c_2, \cdots, c_t$ be distinct coupons collected.
 
-- Suppose $c > 1$, then $\lim_{n\rightarrow \infty} \mathbb{P}(\{c_1, \cdots, c_t\} = \{1, \cdots, n\}) = 1$.
-- Suppose $c < 1$, then $\lim_{n\rightarrow \infty} \mathbb{P}(\{c_1, \cdots, c_t\} = \{1, \cdots, n\}) = 0$.
+- Suppose $c > 1$, then $\lim_{n\rightarrow \infty} \mathbb{P}(\lbrace c_1, \cdots, c_t\rbrace = \lbrace 1, \cdots, n\rbrace) = 1$.
+- Suppose $c < 1$, then $\lim_{n\rightarrow \infty} \mathbb{P}(\lbrace c_1, \cdots, c_t\rbrace = \lbrace 1, \cdots, n\rbrace) = 0$.
 
 ------
 
@@ -361,9 +361,9 @@ Formally, we have the following theorem.
 ### Random variables
 
 *Definition.*
-Given $(\Omega, \mathcal{F})$, $\forall c \in \mathbb{R}, X^{-1}(c) = \{\omega \in \Omega: X(w) \le c\} \in \mathcal{F}$.
+Given $(\Omega, \mathcal{F})$, $\forall c \in \mathbb{R}, X^{-1}(c) = \lbrace \omega \in \Omega: X(w) \le c\rbrace \in \mathcal{F}$.
 
-Extended-valued r.v.: $\Omega \rightarrow \mathbb{R}\cup \{+\infty\}$.
+Extended-valued r.v.: $\Omega \rightarrow \mathbb{R}\cup \lbrace +\infty\rbrace$.
 
 Indicator function $I_A$.
 
@@ -374,7 +374,7 @@ If $X$ is simple, $X = \sum_{i=1}^m x_i I_{A_i}$.
 
 #### Measurable functions
 
-$(\mathcal{F}_1, \mathcal{F}_2)$-measurable , i.e. generalization of random variables. Given $(\Omega_1, \mathcal{F}_1)$, $(\Omega_2, \mathcal{F}_2)$. $X: \Omega_1 \rightarrow \Omega_2$ is called $(\mathcal{F}_1, \mathcal{F}_2)$-measurable if $\forall B \in \mathcal{F}_2$, $X^{-1}(B) = \{\omega \in \Omega_1: X(\omega) \in B\} \in \mathcal{F}_1$.
+$(\mathcal{F}_1, \mathcal{F}_2)$-measurable , i.e. generalization of random variables. Given $(\Omega_1, \mathcal{F}_1)$, $(\Omega_2, \mathcal{F}_2)$. $X: \Omega_1 \rightarrow \Omega_2$ is called $(\mathcal{F}_1, \mathcal{F}_2)$-measurable if $\forall B \in \mathcal{F}_2$, $X^{-1}(B) = \lbrace \omega \in \Omega_1: X(\omega) \in B\rbrace \in \mathcal{F}_1$.
 
 A r.v. is a special case with $(\Omega_2, \mathcal{F}_2) = (\mathbb{R}, \mathcal{B})$.
 
@@ -475,7 +475,7 @@ $\mathbb{E}[g(X)] = \sum_{x: p_X(x) \ge 0} g(X) p_{X}(x)$.
 3. Variance is second central moment.
 4. Standard deviation is $\sqrt{\operatorname{VAR}(X)}$.
 
-$X \ge 0$ a.s. $\iff$ $\mathbb{P}(\{\omega: X(\omega)\ge 0\}) = 1$.
+$X \ge 0$ a.s. $\iff$ $\mathbb{P}(\lbrace \omega: X(\omega)\ge 0\rbrace) = 1$.
 
 #### Properties of expectation
 
@@ -543,7 +543,7 @@ Proof using $\mathbb{E}[(X-tY)^2] \ge 0$.
 ### Indicator random variables
 
 *Definition.*
-$I_A: \Omega \mapsto \{0, 1\}$.
+$I_A: \Omega \mapsto \lbrace 0, 1\rbrace$.
 
 - $I_{A^c} = 1 - I_A$.
 - $I_{A\cap B} = I_A \cdot I_B$.
@@ -564,7 +564,7 @@ Review: Continuous random variables
 *Definition.*
 
 *Comment.*  
-- If $f$ is a PDF, $E = \{t: f(t) < 0\}$, $\mu(E) = 0$ (Lebesgue measure).
+- If $f$ is a PDF, $E = \lbrace t: f(t) < 0\rbrace$, $\mu(E) = 0$ (Lebesgue measure).
 - $X$ continuous $\nRightarrow$ $f$ continuous.
 
 Exponential distributions are the **only** memoryless distributions.
@@ -602,7 +602,7 @@ Tail: $\mathbb{P}(X \ge t)$. It is the rate of decay as $t\rightarrow \infty$.
 Linearity.
 
 *Proposition.*
-Suppose $X\ge 0$ is a continuous random variable, i.e. $\mathbb{P}(X\ge 0) = 1$, i.e. $\{\omega: X(\omega)\ge 0\}$ a.s. Let $f_X$ be its PDF. Then $\mathbb{E}[X] = \int_{0}^{\infty} \mathbb{P}(X > t) dt$.
+Suppose $X\ge 0$ is a continuous random variable, i.e. $\mathbb{P}(X\ge 0) = 1$, i.e. $\lbrace \omega: X(\omega)\ge 0\rbrace$ a.s. Let $f_X$ be its PDF. Then $\mathbb{E}[X] = \int_{0}^{\infty} \mathbb{P}(X > t) dt$.
 
 $\mathbb{E}[g(X) = \int_{-\infty}^{+\infty} g(t) f_X(t) dt$.
 
@@ -796,14 +796,14 @@ Suppose $g = q$ is simple and $\int q d\mu = +\infty$.
 
 *Proof (part 1.2).*  
 Suppose $g = q = \sum_{i=1}^{m} a_i 1 _{A_i}$ is simple and $\int q d\mu < +\infty$.
-Let $S = \{i: a_i > 0\}$, $A = \bigcup _{i \in S} A_i$, $B_n = \{\omega\in A: g_n(\omega) \ge q(\omega) - 1/r\}$, where $0 < 1/r < \min_i a_i$.
+Let $S = \lbrace i: a_i > 0\rbrace$, $A = \bigcup _{i \in S} A_i$, $B_n = \lbrace \omega\in A: g_n(\omega) \ge q(\omega) - 1/r\rbrace$, where $0 < 1/r < \min_i a_i$.
 
 Then $\int g_n d\mu + \int 1/r 1 _{B_n} d\mu \ge \int q 1 _{B_n} d\mu$. Eventually, show that $\lim _{n\rightarrow \infty} \int g_n d\mu \ge \int q d\mu$.  
 On the other hand, $\lim _{n\rightarrow \infty} \int g_n d\mu \le \int q d\mu$, which concludes the proof.
 
 *Proof (part 2).*  
-For a general $g$, recall $\int g d\mu = \sup_{q\in S(g)} \int q d\mu$. Let $h_n = \min\{g_n, q\}$. Then $h_n \uparrow q$ a.s. By MCT, 
-$\int q d\mu = \lim_{n\rightarrow \infty} \int \min\{g_n, q\} d\mu \le \lim_{n\rightarrow \infty} \int g_n d\mu$.  
+For a general $g$, recall $\int g d\mu = \sup_{q\in S(g)} \int q d\mu$. Let $h_n = \min\lbrace g_n, q\rbrace$. Then $h_n \uparrow q$ a.s. By MCT, 
+$\int q d\mu = \lim_{n\rightarrow \infty} \int \min\lbrace g_n, q\rbrace d\mu \le \lim_{n\rightarrow \infty} \int g_n d\mu$.  
 Therefore, 
 $\lim_{n\rightarrow \infty} \int g_n d\mu \ge \sup_{q \in S(g)} \int q d\mu = \int g d\mu$.  
 On the other hand, $\lim_{n\rightarrow \infty} \int g_n d\mu \le \int q d\mu$, which concludes the proof.
