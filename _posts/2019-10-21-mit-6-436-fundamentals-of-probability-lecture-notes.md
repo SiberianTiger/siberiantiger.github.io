@@ -85,6 +85,16 @@ categories: math
     - [Application of MCT: Proof of linearity of Lebesgue integral](#application-of-mct-proof-of-linearity-of-lebesgue-integral)
     - [Application of MCT: Proof of Boral-Cantelli lemma](#application-of-mct-proof-of-boral-cantelli-lemma)
   - [Fatou's lemma](#fatous-lemma)
+- [Lecture 13](#lecture-13)
+  - [Fatou's lemma](#fatous-lemma-1)
+  - [Dominated convergence theorem](#dominated-convergence-theorem)
+    - [Bounded convergence theorem](#bounded-convergence-theorem)
+  - [Product measures](#product-measures)
+  - [Fubini's theorem](#fubinis-theorem)
+    - [$\sigma$-finite measures](#sigma-finite-measures)
+    - [Non-negativity](#non-negativity)
+
+------
 
 ## Lecture 1
 
@@ -142,10 +152,10 @@ Then $\forall A \in \mathcal{F}$ (i.e. $\forall A \subset \Omega$), $\mathbb{P}(
 We now give three examples of discrete probability spaces.
 1. Toss a fair coin twice. Denote heads by 1 and tails by 0. Then 
    - $\Omega = \{(0, 0), (0, 1), (1, 0), (1, 1)\}$;
-   - $\lvert\mathcal{F}\rvert = 2^4 = 16$$;
+   - $\lvert\mathcal{F}\rvert = 2^4 = 16$;
    - $\mathbb{P}((0, 0)) = \mathbb{P}((0, 1)) = \mathbb{P}((1, 0)) = \mathbb{P}((1, 1)) = 1/4$.
 2. $\Omega = \{3, \text{DAVID}, 15.085\}$, each elementary outcome with probability $0.3$, $0.1$ and $0.6$.
-3. Poisson discrete probability space. For a fixed $\lambda > 0$, take $\Omega = \mathbb{Z}_{+}$. Then $\mathbb{P}(n) = \frac{\lambda^n}{n!}e^{-\lambda}$. To verify the third condition of discrete probability space, notice that $\sum_{n=0}^{\infty} \mathbb{P}(n) = e^{-\lambda}\sum_{n=0}^{\infty}\frac{\lambda^n}{n!} = e^{-\lambda} \cdot e^{\lambda} = 1$.
+3. Poisson discrete probability space. For a fixed $\lambda > 0$, take $\Omega = \mathbb{Z} _{+}$. Then $\mathbb{P}(n) = \frac{\lambda^n}{n!} e^{-\lambda}$. To verify the third condition of discrete probability space, notice that $\sum _{n=0}^{\infty} \mathbb{P}(n) = e^{-\lambda}\sum _{n=0}^{\infty}\frac{\lambda^n}{n!} = e^{-\lambda} \cdot e^{\lambda} = 1$.
 
 ### $\sigma$-field
 
@@ -162,7 +172,7 @@ We can conjecture a few, like
 Now we give a formal definition of a $\sigma$-field or $\sigma$-algebra.
 
 Given $\Omega$, a **$\sigma$-field** $\mathcal{F}$ is any set of subsets of $\Omega$, such that 
-1. $\emptyset \in \mathcal{F}$ (this ensures that $\mathcal{F} is non-empty);
+1. $\emptyset \in \mathcal{F}$ (this ensures that $\mathcal{F}$ is non-empty);
 2. if $A \in \mathcal{F}$, then $A^c \in \mathcal{F}$;
 3. if $A_1, A_2, \cdots, A_n, \cdots \in \mathcal{F}$, then $\cup_{n=1}^{\infty} A_n \in \mathcal{F}$. 
 
@@ -175,7 +185,7 @@ We now give some examples of $\sigma$-fields.
 
 #### Intersection of $\sigma$-fields
 
-*Proposition.* Let $\{\mathcal{F}_s\}$ be a set of $\sigma$-fields. Then $\mathcal{F} = \cap_{s} \mathcal{F}_s = \{A\subset \Omega: A \in \mathcal{F}_s, \forall s\}$ is also a $\sigma$-field.
+*Proposition.* Let $\{\mathcal{F} _s\}$ be a set of $\sigma$-fields. Then $\mathcal{F} = \bigcap _{s} \mathcal{F} _s = \{A\subset \Omega: A \in \mathcal{F}_s, \forall s\}$ is also a $\sigma$-field.
 
 *Proof.*
 1. $\emptyset \in \mathcal{F}_s, \forall s \Rightarrow \emptyset \in \mathcal{F}$.
@@ -407,7 +417,7 @@ $$
 
 ### Continuous random variables
 
-*Definition.* A random variable $X$ is continuous if $\exists f: \mathbb{R}\mapsto \mathbb{R}_{+}$, such that $F_X(x) = \int_{-\infty}^{x} f(t) dt$ (Riemann integral).
+*Definition.* A random variable $X$ is continuous if $\exists f: \mathbb{R}\mapsto \mathbb{R} _{+}$, such that $F_X(x) = \int _{-\infty}^{x} f(t) dt$ (Riemann integral).
 $f$ is the probability density function (PDF).
 
 If $f$ is continuous at $x_0$, then $\dot{F}_X(x_0) = f(x_0)$.
@@ -807,7 +817,7 @@ However, $\mathbb{E}X_n \not\rightarrow \mathbb{E}0 = 0$.
 
 #### Application of MCT: Approximating $g$ from below using special simple functions
 
-For $r \in \mathbb{N}$, define $g_r(w) = i/(2^r)$ if $g(w) < r$ and $g(w) \in [i \in 2^r, (i + 1) / 2^r]$, and $g_r(w) = r if $g(w) \ge r$.
+For $r \in \mathbb{N}$, define $g_r(w) = i/(2^r)$ if $g(w) < r$ and $g(w) \in [i \in 2^r, (i + 1) / 2^r]$, and $g_r(w) = r$ if $g(w) \ge r$.
 
 $g_r$ is simple, and $g_r \uparrow g$. By MCT, $\int g_r d\mu \rightarrow \int g d\mu$.
 
@@ -826,3 +836,75 @@ Let $X_n = 1 _{A_n}$. Show that $\mathbb{E}[\sum _{n=1}^{\infty} X_n] < + \infty
 Let $Y$ be a random variable such that $\mathbb{E}|Y| < +\infty$ (to ensure $X_n$ are uniformly integrable).
 1. Suppose $Y \le X_n$. Then $\mathbb{E}[\liminf_{n} X_n] \le \liminf_{n} \mathbb{E}[X_n]$.
 2. Suppose $X_n \le Y$. Then $\mathbb{E}[\limsup_{n} X_n] \ge \limsup_{n} \mathbb{E}[X_n]$.
+
+------
+
+## Lecture 13
+
+> David Gamarnik  
+> Mon, Oct 21, 2019
+
+### Fatou's lemma
+
+*Proof.*
+1. Fix $n \ge 1$, $\inf_{k \ge n} (X_k - Y) \le X_m - Y$ for all $m \ge n$. Taking expectation, $\mathbb{E}[\inf_{k \ge n} (X_k - Y)] \le \inf_{m\ge  n}\mathbb{E}[X_m - Y]$. Taking limit as $n \rightarrow \infty$, and apply MCT on the left side.
+2. Similar to 1.
+
+Let $Y = 0$. Fatou's lemma states that if $X\ge 0$, a.s., then $\mathbb{E}[\liminf_{n} X_n] \le \liminf_{n} \mathbb{E}[X_n]$.
+
+### Dominated convergence theorem
+
+*Theorem.* 
+Suppose $(X_n, n\ge 1)$, $X_n \rightarrow X$ a.s., and $\exists Y$, such that $\lvert X_n \rvert \le Y$, and $\mathbb{E}[Y] < +\infty$. Then $\mathbb{E}[\lim_{n\rightarrow \infty} X_n] = \lim_{n\rightarrow \infty} X_n$.
+
+*Proof.*
+Note that $-Y \le X_n \le Y$. Apply Fatou's lemma.
+
+#### Bounded convergence theorem
+
+($Y$ is constant in DCT.) Suppose $\lvert X_n \rvert \le C$, a.s..
+
+### Product measures
+
+Motivation: $(X_n, n \ge 1)$ i.i.d.. In what probability space does the sequence exist?
+
+Given $(\Omega_1, \mathcal{F}_1, \mathbb{P}_1)$ and $(\Omega_2, \mathcal{F}_2, \mathbb{P}_2)$, define their product measure as $(\Omega_1 \times \Omega_2, \mathcal{F}_1 \times \mathcal{F}_2, \mathbb{P}_1 \times \mathbb{P}_2)$, where
+- $\Omega_1 \times \Omega_2$ = Cartesian product
+- $\mathcal{F}_1 \times \mathcal{F}_2$ = smallest $\sigma$-field containing all sets $A_1\times A_2$ where $A_1\in \mathcal{F}_1$, $A_2\in \mathcal{F}_2$.
+- $\mathbb{P}_1 \times \mathbb{P}_2(A_1\times A_2) = \mathbb{P}_1(A_1) \cdot \mathbb{P}_2(A_2)$. Then extended by Caratheodory's extension theorem.
+
+Goal: Given $F: \mathbb{R} \mapsto [0, 1]$ CDF, construct $X_1, X_2$ such that $X_1\perp X_2$ and $F_{X_1} = F_{X_2} = F$.  
+- $X_1: \Omega \times \Omega \rightarrow \mathbb{R}$, $X_1(\omega_1, \omega_2) = X(\omega_1)$.
+- $X_2: \Omega \times \Omega \rightarrow \mathbb{R}$, $X_2(\omega_1, \omega_2) = X(\omega_2)$.
+
+Then $\mathbb{P}(X_1\le t_1, X_2\le t_2) = F_X(t_1) F_X(t_2)$.
+
+### Fubini's theorem
+
+Let $Y(\omega_1) = \int X(\omega_1, \omega_2) d\mathbb{P}_2$. Let $Z(\omega_2) = \int X(\omega_1, \omega_2) d\mathbb{P}_1$. The question is, whether $\int Y d\mathbb{P}_1 = \int Z d\mathbb{P}_2 = \int X d\mathbb{P}_1\times \mathbb{P}_2$. 
+
+Fubini's theorem provides a sufficient condition.
+
+*Theorem [Fubini 1].*
+Suppose $X\ge 0$, a.s.. Then
+1. For almost every $\omega_1 \in \Omega_1$, $X(\omega_1, \omega_2): \Omega_2 \mapsto \mathbb{R}$ is measurable.
+2. For almost every $\omega_2 \in \Omega_2$, $X(\omega_1, \omega_2): \Omega_1 \mapsto \mathbb{R}$ is measurable.
+3. $\int X(\omega_1, \omega_2) d\mathbb{P}_2$ is a measurable function of $\omega_1$.
+4. $\int X(\omega_1, \omega_2) d\mathbb{P}_1$ is a measurable function of $\omega_2$.
+5. $\int _{\Omega_1} [\int _{\Omega_2} X(\omega_1, \omega_2) d\mathbb{P}_2] d\mathbb{P}_1 = \int _{\Omega_2} [\int _{\Omega_1} X(\omega_1, \omega_2) d\mathbb{P}_1] d\mathbb{P}_2 = \int _{\Omega\times \Omega_2} X(\omega_1, \omega_2) d\mathbb{P}_1 \times \mathbb{P}_2$.
+
+*Theorem [Fubini 2].*
+Suppose $\int \lvert X(\omega_1, \omega_2) \rvert d\mathbb{P}_1 \times \mathbb{P}_2 = \mathbb{E}[\lvert X \rvert] < +\infty$, then 1-5 hold.
+
+#### $\sigma$-finite measures
+
+In general, Fubini's theorem holds for $\sigma$-finite measures.
+
+*Definition.*
+$(\Omega, \mathcal{F}, \mu)$ is $\sigma$-finite if $\exists A_n \in \mathcal{F}$, such that $A_n \subset A_{n+1}, \forall n$, and that $\bigcup_n A_n = \Omega$, $\mu(A_n) < +\infty$.
+
+Counting measure on $\mathbb{R}$: $\mu(A) = \lvert A\rvert$ when $\lvert A\rvert < +\infty$, and $\mu(A) = \infty$ otherwise. $\mathbb{R} \neq \bigcup_n A_n$ where $\lvert A\rvert < +\infty$. In this case, you cannot change the order of the integrals.
+
+#### Non-negativity
+
+*Counter-example.*
