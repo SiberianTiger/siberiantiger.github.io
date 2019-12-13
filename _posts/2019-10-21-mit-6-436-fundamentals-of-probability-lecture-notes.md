@@ -6,93 +6,148 @@ author: Siberian Tiger
 categories: math
 ---
 
-## Index
+# Index
 
 - [Index](#index)
-- [Lecture 1](#lecture-1)
-  - [Introduction](#introduction)
-  - [Probability space](#probability-space)
-  - [Sample space](#sample-space)
-  - [Discrete probability space](#discrete-probability-space)
-  - [$\sigma$-field](#sigma-field)
-    - [Intersection of $\sigma$-fields](#intersection-of-sigma-fields)
-    - [Borel $\sigma$-field](#borel-sigma-field)
-  - [Measure and probability](#measure-and-probability)
-- [Lecture 2](#lecture-2)
-  - [Measure and probability](#measure-and-probability-1)
-  - [Continuity of probability measures](#continuity-of-probability-measures)
-  - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space)
-    - [Uniform measure on $[0, 1]$](#uniform-measure-on-0-1)
-- [Lecture 3](#lecture-3)
-  - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space-1)
-    - [Uniform measure on $\lbrace 0, 1\rbrace^{\infty}$](#uniform-measure-on-lbrace-0-1rbraceinfty)
-  - [Conditional probability](#conditional-probability)
-  - [Independence](#independence)
-  - [Borel-Cantelli lemma](#borel-cantelli-lemma)
-- [Lecture 4](#lecture-4)
-  - [Borel-Cantelli lemma](#borel-cantelli-lemma-1)
-  - [Preliminaries of combinatorial probability](#preliminaries-of-combinatorial-probability)
-    - [$e$ as a limit](#e-as-a-limit)
-    - [Stirling's formula](#stirlings-formula)
-    - [Permutations](#permutations)
-  - [Combinatorial probability](#combinatorial-probability)
-    - [Mafia game](#mafia-game)
-    - [Ordered lists and unordered lists](#ordered-lists-and-unordered-lists)
-    - [Birthday paradox](#birthday-paradox)
-    - [Coupon collection problem](#coupon-collection-problem)
-- [Lecture 5](#lecture-5)
-  - [Combinatorial probability](#combinatorial-probability-1)
-    - [Coupon collection problem](#coupon-collection-problem-1)
-  - [Random variables](#random-variables)
-    - [Measurable functions](#measurable-functions)
-  - [Cumulative distribution functions](#cumulative-distribution-functions)
-- [Lecture 6](#lecture-6)
-  - [Cumulative distribution functions](#cumulative-distribution-functions-1)
-  - [Independence of random variables](#independence-of-random-variables)
-  - [Continuous random variables](#continuous-random-variables)
-  - [Review of infinite integrals](#review-of-infinite-integrals)
-  - [Discrete random variables](#discrete-random-variables)
-  - [Expectation and its properties](#expectation-and-its-properties)
-- [Lecture 7](#lecture-7)
-  - [Expectation and its properties](#expectation-and-its-properties-1)
-    - [Properties of expectation](#properties-of-expectation)
-    - [Comments on expectation](#comments-on-expectation)
-    - [Expectation of some discrete distributions](#expectation-of-some-discrete-distributions)
-  - [Covariance and correlation coefficient](#covariance-and-correlation-coefficient)
-  - [Indicator random variables](#indicator-random-variables)
-- [Lecture 8](#lecture-8)
-  - [Memoryless distributions](#memoryless-distributions)
-  - [Gaussian distributions](#gaussian-distributions)
-    - [Tails](#tails)
-  - [Expectations of a continuous random variable](#expectations-of-a-continuous-random-variable)
-    - [Properties of expectations](#properties-of-expectations)
-- [Lecture 9](#lecture-9)
-  - [Joint density and jointly continuous random variables](#joint-density-and-jointly-continuous-random-variables)
-  - [Conditional probability density functions](#conditional-probability-density-functions)
-  - [Bivariate normal random variables](#bivariate-normal-random-variables)
-  - [Conditional expectation](#conditional-expectation)
-- [Lecture 10](#lecture-10)
-  - [Conditional expectation](#conditional-expectation-1)
-  - [Derived distributions](#derived-distributions)
-  - [Bivariate normal in polar coordinates](#bivariate-normal-in-polar-coordinates)
-- [Lecture 11](#lecture-11)
-  - [Sum of two independent random variables](#sum-of-two-independent-random-variables)
-  - [Lebesgue integral and expectation of a general random variable](#lebesgue-integral-and-expectation-of-a-general-random-variable)
-  - [Monotone convergence theorem](#monotone-convergence-theorem)
-- [Lecture 12](#lecture-12)
-  - [Monotone convergence theorem](#monotone-convergence-theorem-1)
-    - [Application of MCT: Approximating $g$ from below using special simple functions](#application-of-mct-approximating-g-from-below-using-special-simple-functions)
-    - [Application of MCT: Proof of linearity of Lebesgue integral](#application-of-mct-proof-of-linearity-of-lebesgue-integral)
-    - [Application of MCT: Proof of Boral-Cantelli lemma](#application-of-mct-proof-of-boral-cantelli-lemma)
-  - [Fatou's lemma](#fatous-lemma)
-- [Lecture 13](#lecture-13)
-  - [Fatou's lemma](#fatous-lemma-1)
-  - [Dominated convergence theorem](#dominated-convergence-theorem)
-    - [Bounded convergence theorem](#bounded-convergence-theorem)
-  - [Product measures](#product-measures)
-  - [Fubini's theorem](#fubinis-theorem)
-    - [$\sigma$-finite measures](#sigma-finite-measures)
-    - [Non-negativity](#non-negativity)
+  - [Lecture 1](#lecture-1)
+    - [Introduction](#introduction)
+    - [Probability space](#probability-space)
+    - [Sample space](#sample-space)
+    - [Discrete probability space](#discrete-probability-space)
+    - [$\sigma$-field](#sigma-field)
+      - [Intersection of $\sigma$-fields](#intersection-of-sigma-fields)
+      - [Borel $\sigma$-field](#borel-sigma-field)
+    - [Measure and probability](#measure-and-probability)
+  - [Lecture 2](#lecture-2)
+    - [Measure and probability](#measure-and-probability-1)
+    - [Continuity of probability measures](#continuity-of-probability-measures)
+    - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space)
+      - [Uniform measure on $[0, 1]$](#uniform-measure-on-0-1)
+  - [Lecture 3](#lecture-3)
+    - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space-1)
+      - [Uniform measure on $\lbrace 0, 1\rbrace^{\infty}$](#uniform-measure-on-lbrace-0-1rbraceinfty)
+    - [Conditional probability](#conditional-probability)
+    - [Independence](#independence)
+    - [Borel-Cantelli lemma](#borel-cantelli-lemma)
+  - [Lecture 4](#lecture-4)
+    - [Borel-Cantelli lemma](#borel-cantelli-lemma-1)
+    - [Preliminaries of combinatorial probability](#preliminaries-of-combinatorial-probability)
+      - [$e$ as a limit](#e-as-a-limit)
+      - [Stirling's formula](#stirlings-formula)
+      - [Permutations](#permutations)
+    - [Combinatorial probability](#combinatorial-probability)
+      - [Mafia game](#mafia-game)
+      - [Ordered lists and unordered lists](#ordered-lists-and-unordered-lists)
+      - [Birthday paradox](#birthday-paradox)
+      - [Coupon collection problem](#coupon-collection-problem)
+  - [Lecture 5](#lecture-5)
+    - [Combinatorial probability](#combinatorial-probability-1)
+      - [Coupon collection problem](#coupon-collection-problem-1)
+    - [Random variables](#random-variables)
+      - [Measurable functions](#measurable-functions)
+    - [Cumulative distribution functions](#cumulative-distribution-functions)
+  - [Lecture 6](#lecture-6)
+    - [Cumulative distribution functions](#cumulative-distribution-functions-1)
+    - [Independence of random variables](#independence-of-random-variables)
+    - [Continuous random variables](#continuous-random-variables)
+    - [Review of infinite integrals](#review-of-infinite-integrals)
+    - [Discrete random variables](#discrete-random-variables)
+    - [Expectation and its properties](#expectation-and-its-properties)
+  - [Lecture 7](#lecture-7)
+    - [Expectation and its properties](#expectation-and-its-properties-1)
+      - [Properties of expectation](#properties-of-expectation)
+      - [Comments on expectation](#comments-on-expectation)
+      - [Expectation of some discrete distributions](#expectation-of-some-discrete-distributions)
+    - [Covariance and correlation coefficient](#covariance-and-correlation-coefficient)
+    - [Indicator random variables](#indicator-random-variables)
+  - [Lecture 8](#lecture-8)
+    - [Memoryless distributions](#memoryless-distributions)
+    - [Gaussian distributions](#gaussian-distributions)
+      - [Tails](#tails)
+    - [Expectations of a continuous random variable](#expectations-of-a-continuous-random-variable)
+      - [Properties of expectations](#properties-of-expectations)
+  - [Lecture 9](#lecture-9)
+    - [Joint density and jointly continuous random variables](#joint-density-and-jointly-continuous-random-variables)
+    - [Conditional probability density functions](#conditional-probability-density-functions)
+    - [Bivariate normal random variables](#bivariate-normal-random-variables)
+    - [Conditional expectation](#conditional-expectation)
+  - [Lecture 10](#lecture-10)
+    - [Conditional expectation](#conditional-expectation-1)
+    - [Derived distributions](#derived-distributions)
+    - [Bivariate normal in polar coordinates](#bivariate-normal-in-polar-coordinates)
+  - [Lecture 11](#lecture-11)
+    - [Sum of two independent random variables](#sum-of-two-independent-random-variables)
+    - [Lebesgue integral and expectation of a general random variable](#lebesgue-integral-and-expectation-of-a-general-random-variable)
+    - [Monotone convergence theorem](#monotone-convergence-theorem)
+  - [Lecture 12](#lecture-12)
+    - [Monotone convergence theorem](#monotone-convergence-theorem-1)
+      - [Application of MCT: Approximating $g$ from below using special simple functions](#application-of-mct-approximating-g-from-below-using-special-simple-functions)
+      - [Application of MCT: Proof of linearity of Lebesgue integral](#application-of-mct-proof-of-linearity-of-lebesgue-integral)
+      - [Application of MCT: Proof of Boral-Cantelli lemma](#application-of-mct-proof-of-boral-cantelli-lemma)
+    - [Fatou's lemma](#fatous-lemma)
+  - [Lecture 13](#lecture-13)
+    - [Fatou's lemma](#fatous-lemma-1)
+    - [Dominated convergence theorem](#dominated-convergence-theorem)
+      - [Bounded convergence theorem](#bounded-convergence-theorem)
+    - [Product measures](#product-measures)
+    - [Fubini's theorem](#fubinis-theorem)
+      - [$\sigma$-finite measures](#sigma-finite-measures)
+      - [Non-negativity](#non-negativity)
+  - [Lecture 14](#lecture-14)
+    - [Moment generating function](#moment-generating-function)
+      - [Uniqueness of MGF](#uniqueness-of-mgf)
+      - [Properties of MGF](#properties-of-mgf)
+    - [Probability generating function](#probability-generating-function)
+  - [Lecture 15](#lecture-15)
+    - [Spectral properties of symmetric matrices](#spectral-properties-of-symmetric-matrices)
+    - [Three definitions of multivariate normal distributions](#three-definitions-of-multivariate-normal-distributions)
+    - [Properties of multivariate normal distributions](#properties-of-multivariate-normal-distributions)
+  - [Lecture 16](#lecture-16)
+    - [Equivalence of the three definitions of multivariate normal distributions](#equivalence-of-the-three-definitions-of-multivariate-normal-distributions)
+  - [Lecture 17](#lecture-17)
+    - [Characteristic functions](#characteristic-functions)
+    - [Random walks](#random-walks)
+  - [Lecture 18](#lecture-18)
+    - [Branching processes](#branching-processes)
+  - [Lecture 19](#lecture-19)
+    - [Modes of convergence](#modes-of-convergence)
+      - [Hierarchy of the modes of convergence](#hierarchy-of-the-modes-of-convergence)
+  - [Lecture 20](#lecture-20)
+    - [Useful inequalities](#useful-inequalities)
+    - [Law of large numbers](#law-of-large-numbers)
+    - [Central limit theorem](#central-limit-theorem)
+  - [Lecture 21](#lecture-21)
+    - [Local CLT](#local-clt)
+    - [Chernoff bound](#chernoff-bound)
+      - [Upper bound](#upper-bound)
+      - [Lower bound](#lower-bound)
+  - [Lecture 22](#lecture-22)
+    - [Chernoff bound](#chernoff-bound-1)
+      - [Lower bound](#lower-bound-1)
+    - [Stochastic processes](#stochastic-processes)
+    - [Poisson processes](#poisson-processes)
+  - [Lecture 23](#lecture-23)
+    - [Poisson processes](#poisson-processes-1)
+      - [Properties of Poisson processes](#properties-of-poisson-processes)
+    - [Markov chains](#markov-chains)
+  - [Lecture 24](#lecture-24)
+    - [Markov chains](#markov-chains-1)
+      - [Steady state distribution / stationary distribution](#steady-state-distribution--stationary-distribution)
+      - [Recurrence and transience](#recurrence-and-transience)
+  - [Lecture 25](#lecture-25)
+    - [Uniqueness of the stationary distribution](#uniqueness-of-the-stationary-distribution)
+    - [Ergodicity](#ergodicity)
+    - [Periodicity and mixing](#periodicity-and-mixing)
+  - [Lecture 26](#lecture-26)
+    - [Periodicity and mixing](#periodicity-and-mixing-1)
+    - [PageRank algorithm](#pagerank-algorithm)
+    - [Conditional expectation](#conditional-expectation-2)
+    - [Martingale](#martingale)
+  - [Lecture 27](#lecture-27)
+    - [Martingale properties](#martingale-properties)
+    - [Doob's decomposition](#doobs-decomposition)
+    - [Stopping theorem](#stopping-theorem)
+    - [Doob-Kolmogorov inequality](#doob-kolmogorov-inequality)
 
 ------
 
@@ -737,7 +792,7 @@ f_{R, \Theta}(r, \theta) &= \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{r^2 \cos^2(\t
 $$
 where $r \ge 0$, $\theta \in [0, 2\pi]$.
 
-Therefore, $f_{R, \Theta}(r, \theta) = f_R(r) f_{\Theta}(\theta)$, which means $R \perp \Theta$. $Theta$ obeys the uniform distribution on $[0, 2\pi]$. Let $Z = R^2$. Then $f_Z(z) = 1/2 \exp(-z/2) \stackrel{d}{=} \operatorname{Exp}(1/2)$.
+Therefore, $f_{R, \Theta}(r, \theta) = f_R(r) f_{\Theta}(\theta)$, which means $R \perp \Theta$. $\Theta$ obeys the uniform distribution on $[0, 2\pi]$. Let $Z = R^2$. Then $f_Z(z) = 1/2 \exp(-z/2) \stackrel{d}{=} \operatorname{Exp}(1/2)$.
 
 The PDF in polar coordinates can be used to show that the constant of a standard normal distribution is $C = 1/\sqrt{2\pi}$.
 
@@ -908,3 +963,453 @@ Counting measure on $\mathbb{R}$: $\mu(A) = \lvert A\rvert$ when $\lvert A\rvert
 #### Non-negativity
 
 *Counter-example.*
+
+------
+
+## Lecture 14
+
+> David Gamarnik  
+> Wed, Oct 23, 2019
+
+### Moment generating function
+
+$M_X(s) = \mathbb{E}[e^{sX}]$.
+
+*Example.* (Exponential distributions)
+$D_X = (-\infty, \lambda)$.
+
+*Example.* (Normal distributions)
+$D_X = (-\infty, +\infty)$.
+
+*Example.* (Power distributions)
+$D_X = (-\infty, 0]$.
+
+Domain $D_X$ of MGF: 
+- always an interval;
+- always contains $0$.
+
+*Fact.*
+Suppose $M_X(s) < +\infty$ for some $s > 0$. Then $\forall s'\in (0, s)$, $M_X(s') < +\infty$.
+Suppose $M_X(s) < +\infty$ for some $s < 0$. Then $\forall s'\in (s, 0)$, $M_X(s') < +\infty$.
+
+Suppose $\limsup_{x\rightarrow \infty} \frac{\log \mathbb{P}(X > x)}{x} = -\gamma < 0$, then $D_X \supset [0, \gamma)$.
+
+If $D_X \supset (-\delta, \delta)$, then the tails of $X$ decay exponentially fast.
+
+#### Uniqueness of MGF
+
+*Theorem.*
+Suppose $M_X(s)$ is finite, $\forall s \in [-a, a]$ for some $a > 0$. Then $M_X$ uniquely determines the distribution of $X$.
+
+#### Properties of MGF
+
+- $X\perp Y$. $M_{X+Y}$
+- $Y = aX + b$.
+- $X\perp Y$. $M_{aX + bY}$.
+
+Moment generating property.
+
+### Probability generating function
+
+$X = 0, 1, 2, \cdots \in \mathbb{Z}_{+}$.
+$g(s) = \sum_{n=0}^{\infty} s^n p_n$.
+
+Probability generating property: 
+$$\frac{1}{m} \frac{d^m g(0)}{d s^m} = p_m.$$
+
+$\mathbb{E}X = \dot{g}(1)$.
+
+$D_X \supset [0, 1]$ trivially.
+
+Note: $g(s) = M_X(\log s)$.
+
+------
+
+## Lecture 15
+
+> David Gamarnik  
+> Mon, Oct 28, 2019
+
+### Spectral properties of symmetric matrices
+
+### Three definitions of multivariate normal distributions
+
+*Definition 1 (of non-degenerate m.v.n.).*
+
+*Definition 2.*
+$X = DW + \mu$.
+
+*Definition 3.*
+
+### Properties of multivariate normal distributions
+
+------
+
+## Lecture 16
+
+> David Gamarnik  
+> Wed, Oct 30, 2019
+
+### Equivalence of the three definitions of multivariate normal distributions
+
+------
+
+## Lecture 17
+
+> David Gamarnik  
+> Mon, Nov 4, 2019
+
+### Characteristic functions
+
+*Definition.*
+
+*Inversion theorem.*
+
+### Random walks
+
+*Question.* 
+What is $\mathbb{P}(\text{RW returns to zero})$?
+
+------
+
+## Lecture 18
+
+> David Gamarnik  
+> Wed, Nov 6, 2019
+
+### Branching processes
+
+*Definition.*
+$F$. Let PGF of $F$ be $g$.
+
+*Question.*
+Does the process continue indefinitely or die out?
+
+*Theorem.*
+Let $G_n$ be the PGF of $Z_n$, the number of offspring in generation $n$. 
+Then $G_n = g^{(n)}$, i.e., apply $g$ for $n$ times.
+
+*Theorem.* (Variance of $Z_n$)
+
+*Theorem.* (Extinction probability $\eta$)
+
+------
+
+## Lecture 19
+
+> David Gamarnik  
+> Wed, Nov 13, 2019
+
+### Modes of convergence
+
+1. Almost surely convergence.
+   
+2. Convergence in distribution.
+   
+3. Convergence in probability.
+
+4. Convergence in terms of characteristic functions.
+
+#### Hierarchy of the modes of convergence
+
+------
+
+## Lecture 20
+
+> David Gamarnik  
+> Mon, Nov 18, 2019
+
+### Useful inequalities
+
+*Markov inequality.*
+
+*Chebyshev inequality.*
+$$
+\mathbb{P}(|X - \mathbb{E}[X]| \ge \epsilon) \le \frac{\sigma^2}{\epsilon^2}.
+$$
+
+### Law of large numbers
+
+*Theorem.* (Strong law of large numbers)
+$S_n / n \xrightarrow{a.s.} \mathbb{E}[X_1]$.
+
+*Theorem.* (Weak law of large numbers)
+$S_n / n \xrightarrow{i.p.} \mathbb{E}[X_1]$.
+
+*Proof.* (By Chebyshev inequality with bounded variance assumption)
+
+*Proof.* (By characteristic functions)
+
+### Central limit theorem
+
+$$
+\frac{S_n - n\mu}{\sigma \sqrt{n}} \xrightarrow{d} N(0, 1).
+$$
+
+------
+
+## Lecture 21
+
+> David Gamarnik  
+> Wed, Nov 20, 2019
+
+### Local CLT
+
+$X_i \in \mathbb{Z}$.
+$\mathbb{P}(S_n = m)$
+
+### Chernoff bound
+
+#### Upper bound
+
+$$
+\mathbb{P}(\frac{S_n}{n} > a) \le \exp\left( -n\sup_{s\ge 0}\{ as - \log M(s) \} \right).
+$$
+
+#### Lower bound
+
+*Theorem.*
+$$
+\frac{\log \mathbb{P}(\frac{S_n}{n} \ge a)}{n} \xrightarrow{n\rightarrow\infty} -\sup_{s\ge 0}\{ as - \log M(s) \}.
+$$
+
+------
+
+## Lecture 22
+
+> David Gamarnik  
+> Mon, Nov 25, 2019
+
+### Chernoff bound
+
+#### Lower bound
+
+*Proof.*
+
+**Change of measure.** 
+Let $f_Y(x) = e^{s^{\star} x} f_X(x) / M(s^{\star})$.
+
+### Stochastic processes
+
+$X(\omega, \cdot)$: 
+
+### Poisson processes
+
+*Intuition.*
+Bernoulli process.
+
+*Definition.*
+
+------
+
+## Lecture 23
+
+> David Gamarnik  
+> Wed, Nov 27, 2019
+
+### Poisson processes
+
+Does a Poisson process exist? 
+An example by construction: generating a Poisson process with exponential distributions $T_n, n\ge 1$. 
+$Y_n = \sum_{k=1}^{n} T_k$ mark the events of the counting process. $N(t) = \max\{n: S_n\le t\}$.
+
+*Claim.* 
+$N(t)$ is a Poisson process.
+
+#### Properties of Poisson processes
+
+*Claim.* 
+$N(t) \stackrel{d}{=} \operatorname{Pois}(\lambda t)$.
+
+*Claim.* 
+$T_k = Y_k - Y_{k - 1}$. Then $T_k, k\ge 1$ are i.i.d. $\operatorname{Exp}(\lambda)$.
+
+### Markov chains
+
+*Definition.*
+
+*Definition.* (Homogeneous Markov chains)
+
+$P = (p_{ij}, 1\le i, j \le N)$.
+
+------
+
+## Lecture 24
+
+> David Gamarnik  
+> Mon, Dec 2, 2019
+
+### Markov chains
+
+*Notations.*  
+$\nu^{\top}$, $\nu^{\top} P$.
+
+#### Steady state distribution / stationary distribution
+
+*Definition.* (Steady state / stationary distribution)
+
+*Theorem.* (Existence of steady state distributions)
+
+*Proof.*
+Though the lens of linear programming.
+
+#### Recurrence and transience
+
+*Definition.* ($i \rightarrow j$, $i$ communicates with $j$)
+
+*Definition.* (Recurrent and transient)
+
+Let $R$ be all recurrent states. Let $T$ be all transient states.
+
+*Lemma.* 
+On $R$, the relation $\leftrightarrow$ is equivalency.
+
+*Corollary.*
+$N = T\cup R_1 \cup \cdots \cup R_r$.
+
+Recurrence time $T_i$.
+
+------
+
+## Lecture 25
+
+> David Gamarnik  
+> Wed, Dec 4, 2019
+
+### Uniqueness of the stationary distribution
+
+For a MC with a single recurrent class, i.e., $[N] = T \cup R$, we have the following lemmata.
+
+1. For $i\in R$, $\mathbb{P}(X_n = i, i.o.) = 1$. 
+2. Furthermore, let $T_i = \min_{n\ge 1} \{X_n = i \mid X_0 = i\}$. Then $\exists c > 0$, $0 < q < 1$, such that $\mathbb{P}(T_i \ge t) \le c q^t$, i.e., the tail probability decreases geometrically.
+
+*Theorem.* (Uniqueness of the stationary distribution)  
+MC with a single recurrent class has a unique stationary distribution $\pi$. 
+For $i\in T$, $\pi_i = 0$.
+For $i\in R$, $\pi_i = 1/\mathbb{E}[T_i] > 0$.
+
+*Proof.*
+The proof is long, and we leave that for your own studying.
+
+### Ergodicity
+
+Let $N_i = \sum_{n=0}^t 1_{X_n = i}$.
+
+*Theorem.* (Ergodicity of MC)  
+Assume a MC with a single recurrence class. For every state $k$ and every state $i$, when $X_0 = k$,
+1. $\lim_{t\rightarrow \infty} N_i(t) / t = \pi_i$, a.s., (convergence of a r.v.)
+2. $\lim_{t\rightarrow \infty} \mathbb{E}[N_i(t)] / t = \pi_i$. (convergence of a r.v.)
+
+*Proof.*
+
+### Periodicity and mixing
+
+*Definition.* (period)  
+Given state $x$, let $d_x$ period be the greatest common divisor of the set $I_x = \{n: p_{xx}^{(n)}\}$.
+
+*Lemma.*
+For all $x, y$ in the same recurrent class, $d_x = d_y$.
+
+*Definition.*
+A MC is called aperiodic if $d_x = 1$.
+
+*Theorem.* (Mixing)  
+Given an aperiodic MC $X_n$ with a single recurrence class, $\forall x, y$,
+$\lim_{n\rightarrow \infty} p_{xy}^{(n)} = \lim_{n\rightarrow \infty} \mathbb{P}(X_n = y\mid X_0 = x) = \pi_y$.
+
+Intuitively, the mixing theorem means "memoryless".
+
+*Proof.* (Algebraic)  
+An algebraic proof relies on Perron-Fronenius theorem. Here we only note that it shows
+$|p_{xy}^{(n)} = \pi_y| \lesssim \lambda_2^n$, where $\lambda_2$ is the second largest e-value of $P$ and $|\lambda_2| < 1$.
+
+Now we give an alternative proof with the coupling technique.
+
+*Proof.* (Coupling)
+
+------
+
+## Lecture 26
+
+> David Gamarnik  
+> Mon, Dec 9, 2019
+
+### Periodicity and mixing
+
+*Proof.* (Coupling)
+
+### PageRank algorithm
+
+Random surfer:
+$\alpha \in (0, 1)$, transit according to $P$ with probability $1 - \alpha$ and jump to uniformly random state with probability $\alpha$.
+
+Model webpage ranking by a MC. 
+The ranking is given by the stationary distribution.
+
+In surfing MC, $|p_{xy}^{(n)} - \pi_y| \le (1 - \alpha / N)^n$. 
+Google uses $\alpha \approx 0.28$.
+Here we compute $p_{xy}^{(n)}$ to approximate $\pi_y$.
+
+### Conditional expectation
+
+The most general form is $\mathbb{E}[X\mid \mathcal{G}]$ ($X$ is not necessarily measurable w.r.t. $\mathcal{G}$).
+
+*Definition.* (Conditional expectation)
+$\mathbb{E}[X\mid \mathcal{G}]$ is a random variable $Y\in \mathcal{G}$ and satisfies $\forall A \in \mathcal{G}$, 
+$\mathbb{E}[Y 1_{A}] = \mathbb{E}[X 1_{A}]$.
+
+*Tower property.*
+$\mathcal{G}_1 \subset \mathcal{G}_2 \subset \mathcal{F}$.
+
+### Martingale
+
+*Definition.* (Filtration)
+
+*Definition.* (Adaptation)  
+$X_n$ adapted to $\{\mathcal{G}_n\}$.
+
+*Definition.* (Martingale)
+
+------
+
+## Lecture 27
+
+> Eren Kizildag  
+> Wed, Dec 11, 2019
+
+### Martingale properties
+
+Sub-MG
+
+Super-MG
+
+*Theorem.*  
+Let $\phi(\cdot)$ be a convex function. 
+
+### Doob's decomposition
+
+*Definition.* (Predictability)
+
+*Theorem.* (Doob's decomposition)
+
+**Martingale transform**
+
+### Stopping theorem
+
+*Definition.* Stopping time
+
+Stopping time calculus
+
+*Theorem.*
+
+*Theorem.*
+
+### Doob-Kolmogorov inequality
+
+*Theorem.* (Doob-Kolmogorov inequality)  
+Let $X_n\ge 0$ be a sub-MG sequence, $\epsilon > 0$ be arbitrary.
+Then 
+$$
+\mathbb{P}(\max_{1\le m\le n} X_m > \epsilon) \le \frac{1}{\epsilon^2} \mathbb{E}[X_n^2].
+$$
+
