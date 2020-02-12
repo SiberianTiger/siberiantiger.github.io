@@ -32,7 +32,7 @@ To prepare the readers for our argument, we invite the readers to recall the fol
 - Fact 5: Let $f$ be a bounded measurable function on a set of finite measure. Then, $f$ is Lebesgue integrable over the set.
 - Fact 6: Lebesgue integrable functions are closed under addition. In fact, Lebesgue integrable functions form a linear space.
 - Fact 7: An open set minus a closed set is an open set.
-- Fact 8: The Lebesgue measure of a measurable open set on the real line is positive.
+- Fact 8: The Lebesgue measure of a measurable non-empty open set on the real line is positive.
 - Fact 9: The Lebesgue integral of a positive function on a set of positive measure is positive.
 
 Now we are ready to begin our argument.
@@ -50,7 +50,7 @@ Since $g \cdot I_{\mathcal{S}}$ is bounded, it is integrable on $\mathcal{S}$ (F
 Essentially, $\hat{f} = g - g \cdot I_{\mathcal{S}}$, and thus $\hat{f}$ is also Lebesgue integrable (Fact 6).
 
 We proceed to show that for any real numbers $x_1 < x_2$, the Lebesgue integral $\int_{x_1}^{x_2} \hat{f}(x) ~\mathrm{d}x > 0$.
-Since $(x_1, x_2)$ is an open interval and $\mathcal{S}$ is a closed set (Fact 1), $(x_1, x_2) \backslash \mathcal{S}$ is an open set (Fact 7), where '$\backslash$' denote set substraction.
+Since $(x_1, x_2)$ is an open interval and $\mathcal{S}$ is a closed set that does not contain any open interval (Fact 1), $(x_1, x_2) \backslash \mathcal{S}$ is a non-empty open set (Fact 7), where '$\backslash$' denote set substraction.
 Therefore, $\mu((x_1, x_2) \backslash \mathcal{S}) > 0$ (Fact 8), and $\int_{x_1}^{x_2} \hat{f}(x) ~\mathrm{d}x > 0$ (Fact 9).
 
 Specifically, $0 < \int_{-\infty}^{\infty} \hat{f}(x) ~\mathrm{d}x = I \le 1$.
