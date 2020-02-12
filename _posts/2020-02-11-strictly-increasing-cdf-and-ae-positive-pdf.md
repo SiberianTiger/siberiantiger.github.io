@@ -1,10 +1,12 @@
 ---
 layout: post
-title:  "Strictly Increasing CDF Does Not Imply Almost Everywhere Postive PDF"
+title:  "A Kind of Interesting Probability Density Functions"
 date:   2020-02-11 18:50:00 -0500
 author: Siberian Tiger
 categories: math
 ---
+
+> Original title: Strictly increasing CDF does not imply almost everywhere positive PDF.
 
 Let $f(x)$ be the probability density function (PDF) of a continuous random variable.
 We have the following three statements.
