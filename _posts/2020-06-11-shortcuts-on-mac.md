@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Keyboard Shortcuts on Mac"
-date:   2019-06-11 23:30:00 -0500
+date:   2020-06-11 23:30:00 -0500
 author: Siberian Tiger
 categories: technical
 ---
@@ -10,9 +10,9 @@ Recently, I started to use an external keyboard on the Mac OS, which means that
 ## OS X 
 
 - Close an app: `Cmd` + `Q`
-- Switch desktops: `Ctrl` + `left arrow` / `right arrow`
-- Mission control: `Ctrl` + `up arrow`
-- App expose: `Ctrl` + `down arrow`
+- Switch desktops: `Ctrl` + `LeftArrow` / `RightArrow`
+- Mission control: `Ctrl` + `UpArrow`
+- App expose: `Ctrl` + `DownArrow`
 - Launch an app on dock: `Ctrl` + `F3`
 
 ------
