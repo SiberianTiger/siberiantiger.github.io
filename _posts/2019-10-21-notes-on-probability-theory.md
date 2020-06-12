@@ -1,149 +1,111 @@
 ---
 layout: post
-title:  "MIT 6.436 Fundamentals of Probability Lecture Notes"
+title:  "Notes on Probability Theory"
 date:   2019-10-21 01:30:00 -0500
 author: Siberian Tiger
 categories: math
 ---
 
-# Index
+# Table of contents
 
-- [Index](#index)
-  - [Lecture 1](#lecture-1)
-    - [Introduction](#introduction)
+- [Table of contents](#table-of-contents)
+  - [Prologue](#prologue)
+  - [Probability as a measure](#probability-as-a-measure)
     - [Probability space](#probability-space)
     - [Sample space](#sample-space)
     - [Discrete probability space](#discrete-probability-space)
-    - [$\sigma$-field](#sigma-field)
-      - [Intersection of $\sigma$-fields](#intersection-of-sigma-fields)
-      - [Borel $\sigma$-field](#borel-sigma-field)
+    - [$\sigma$-field](#math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmi%cf%83mimrowannotation-encoding%22applicationx-tex%22sigmaannotationsemanticsmath%cf%83-field)
+      - [Intersection of $\sigma$-fields](#intersection-of-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmi%cf%83mimrowannotation-encoding%22applicationx-tex%22sigmaannotationsemanticsmath%cf%83-fields)
+      - [Borel $\sigma$-field](#borel-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmi%cf%83mimrowannotation-encoding%22applicationx-tex%22sigmaannotationsemanticsmath%cf%83-field)
     - [Measure and probability](#measure-and-probability)
-  - [Lecture 2](#lecture-2)
-    - [Measure and probability](#measure-and-probability-1)
     - [Continuity of probability measures](#continuity-of-probability-measures)
     - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space)
-      - [Uniform measure on $[0, 1]$](#uniform-measure-on-0-1)
-  - [Lecture 3](#lecture-3)
-    - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space-1)
-      - [Uniform measure on $\lbrace 0, 1\rbrace^{\infty}$](#uniform-measure-on-lbrace-0-1rbraceinfty)
+      - [Uniform measure on $[0, 1]$](#uniform-measure-on-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmo-stretchy%22false%22momn0mnmo-separator%22true%22momn1mnmo-stretchy%22false%22momrowannotation-encoding%22applicationx-tex%220-1annotationsemanticsmath01)
+      - [Uniform measure on $\lbrace 0, 1\rbrace^{\infty}$](#uniform-measure-on-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmo-stretchy%22false%22momn0mnmo-separator%22true%22momn1mnmsupmo-stretchy%22false%22momi-mathvariant%22normal%22%e2%88%9emimsupmrowannotation-encoding%22applicationx-tex%22lbrace-0-1rbraceinftyannotationsemanticsmath01%e2%88%9e)
     - [Conditional probability](#conditional-probability)
     - [Independence](#independence)
     - [Borel-Cantelli lemma](#borel-cantelli-lemma)
-  - [Lecture 4](#lecture-4)
-    - [Borel-Cantelli lemma](#borel-cantelli-lemma-1)
-    - [Preliminaries of combinatorial probability](#preliminaries-of-combinatorial-probability)
-      - [$e$ as a limit](#e-as-a-limit)
+    - [Combinatorial probability](#combinatorial-probability)
+      - [$e$ as a limit](#math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmiemimrowannotation-encoding%22applicationx-tex%22eannotationsemanticsmathe-as-a-limit)
       - [Stirling's formula](#stirlings-formula)
       - [Permutations](#permutations)
-    - [Combinatorial probability](#combinatorial-probability)
       - [Mafia game](#mafia-game)
       - [Ordered lists and unordered lists](#ordered-lists-and-unordered-lists)
       - [Birthday paradox](#birthday-paradox)
       - [Coupon collection problem](#coupon-collection-problem)
-  - [Lecture 5](#lecture-5)
-    - [Combinatorial probability](#combinatorial-probability-1)
-      - [Coupon collection problem](#coupon-collection-problem-1)
+  - [Expectation as Lebesgue integration](#expectation-as-lebesgue-integration)
     - [Random variables](#random-variables)
       - [Measurable functions](#measurable-functions)
     - [Cumulative distribution functions](#cumulative-distribution-functions)
-  - [Lecture 6](#lecture-6)
-    - [Cumulative distribution functions](#cumulative-distribution-functions-1)
     - [Independence of random variables](#independence-of-random-variables)
+    - [Lebesgue integral and expectation of a general random variable](#lebesgue-integral-and-expectation-of-a-general-random-variable)
+    - [Monotone convergence theorem](#monotone-convergence-theorem)
+      - [Application of MCT: Approximating $g$ from below using special simple functions](#application-of-mct-approximating-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmigmimrowannotation-encoding%22applicationx-tex%22gannotationsemanticsmathg-from-below-using-special-simple-functions)
+      - [Application of MCT: Proof of linearity of Lebesgue integral](#application-of-mct-proof-of-linearity-of-lebesgue-integral)
+      - [Application of MCT: Proof of Boral-Cantelli lemma](#application-of-mct-proof-of-boral-cantelli-lemma)
+    - [Fatou's lemma](#fatous-lemma)
+    - [Dominated convergence theorem](#dominated-convergence-theorem)
+      - [Bounded convergence theorem](#bounded-convergence-theorem)
+    - [Product measures](#product-measures)
+    - [Fubini's theorem](#fubinis-theorem)
+      - [$\sigma$-finite measures](#math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmi%cf%83mimrowannotation-encoding%22applicationx-tex%22sigmaannotationsemanticsmath%cf%83-finite-measures)
+      - [Non-negativity](#non-negativity)
+  - [Special random variables](#special-random-variables)
     - [Continuous random variables](#continuous-random-variables)
     - [Review of infinite integrals](#review-of-infinite-integrals)
     - [Discrete random variables](#discrete-random-variables)
     - [Expectation and its properties](#expectation-and-its-properties)
-  - [Lecture 7](#lecture-7)
     - [Expectation and its properties](#expectation-and-its-properties-1)
       - [Properties of expectation](#properties-of-expectation)
       - [Comments on expectation](#comments-on-expectation)
       - [Expectation of some discrete distributions](#expectation-of-some-discrete-distributions)
     - [Covariance and correlation coefficient](#covariance-and-correlation-coefficient)
     - [Indicator random variables](#indicator-random-variables)
-  - [Lecture 8](#lecture-8)
     - [Memoryless distributions](#memoryless-distributions)
     - [Gaussian distributions](#gaussian-distributions)
       - [Tails](#tails)
     - [Expectations of a continuous random variable](#expectations-of-a-continuous-random-variable)
       - [Properties of expectations](#properties-of-expectations)
-  - [Lecture 9](#lecture-9)
     - [Joint density and jointly continuous random variables](#joint-density-and-jointly-continuous-random-variables)
     - [Conditional probability density functions](#conditional-probability-density-functions)
     - [Bivariate normal random variables](#bivariate-normal-random-variables)
     - [Conditional expectation](#conditional-expectation)
-  - [Lecture 10](#lecture-10)
-    - [Conditional expectation](#conditional-expectation-1)
     - [Derived distributions](#derived-distributions)
     - [Bivariate normal in polar coordinates](#bivariate-normal-in-polar-coordinates)
-  - [Lecture 11](#lecture-11)
     - [Sum of two independent random variables](#sum-of-two-independent-random-variables)
-    - [Lebesgue integral and expectation of a general random variable](#lebesgue-integral-and-expectation-of-a-general-random-variable)
-    - [Monotone convergence theorem](#monotone-convergence-theorem)
-  - [Lecture 12](#lecture-12)
-    - [Monotone convergence theorem](#monotone-convergence-theorem-1)
-      - [Application of MCT: Approximating $g$ from below using special simple functions](#application-of-mct-approximating-g-from-below-using-special-simple-functions)
-      - [Application of MCT: Proof of linearity of Lebesgue integral](#application-of-mct-proof-of-linearity-of-lebesgue-integral)
-      - [Application of MCT: Proof of Boral-Cantelli lemma](#application-of-mct-proof-of-boral-cantelli-lemma)
-    - [Fatou's lemma](#fatous-lemma)
-  - [Lecture 13](#lecture-13)
-    - [Fatou's lemma](#fatous-lemma-1)
-    - [Dominated convergence theorem](#dominated-convergence-theorem)
-      - [Bounded convergence theorem](#bounded-convergence-theorem)
-    - [Product measures](#product-measures)
-    - [Fubini's theorem](#fubinis-theorem)
-      - [$\sigma$-finite measures](#sigma-finite-measures)
-      - [Non-negativity](#non-negativity)
-  - [Lecture 14](#lecture-14)
     - [Moment generating function](#moment-generating-function)
       - [Uniqueness of MGF](#uniqueness-of-mgf)
       - [Properties of MGF](#properties-of-mgf)
     - [Probability generating function](#probability-generating-function)
-  - [Lecture 15](#lecture-15)
     - [Spectral properties of symmetric matrices](#spectral-properties-of-symmetric-matrices)
     - [Three definitions of multivariate normal distributions](#three-definitions-of-multivariate-normal-distributions)
-    - [Properties of multivariate normal distributions](#properties-of-multivariate-normal-distributions)
-  - [Lecture 16](#lecture-16)
     - [Equivalence of the three definitions of multivariate normal distributions](#equivalence-of-the-three-definitions-of-multivariate-normal-distributions)
-  - [Lecture 17](#lecture-17)
     - [Characteristic functions](#characteristic-functions)
-    - [Random walks](#random-walks)
-  - [Lecture 18](#lecture-18)
-    - [Branching processes](#branching-processes)
-  - [Lecture 19](#lecture-19)
+  - [Limit laws of random variables](#limit-laws-of-random-variables)
     - [Modes of convergence](#modes-of-convergence)
       - [Hierarchy of the modes of convergence](#hierarchy-of-the-modes-of-convergence)
-  - [Lecture 20](#lecture-20)
     - [Useful inequalities](#useful-inequalities)
     - [Law of large numbers](#law-of-large-numbers)
     - [Central limit theorem](#central-limit-theorem)
-  - [Lecture 21](#lecture-21)
     - [Local CLT](#local-clt)
     - [Chernoff bound](#chernoff-bound)
       - [Upper bound](#upper-bound)
       - [Lower bound](#lower-bound)
-  - [Lecture 22](#lecture-22)
-    - [Chernoff bound](#chernoff-bound-1)
-      - [Lower bound](#lower-bound-1)
-    - [Stochastic processes](#stochastic-processes)
+  - [Stochastic processes](#stochastic-processes)
+    - [Random walks](#random-walks)
+    - [Branching processes](#branching-processes)
     - [Poisson processes](#poisson-processes)
-  - [Lecture 23](#lecture-23)
-    - [Poisson processes](#poisson-processes-1)
       - [Properties of Poisson processes](#properties-of-poisson-processes)
     - [Markov chains](#markov-chains)
-  - [Lecture 24](#lecture-24)
-    - [Markov chains](#markov-chains-1)
       - [Steady state distribution / stationary distribution](#steady-state-distribution--stationary-distribution)
       - [Recurrence and transience](#recurrence-and-transience)
-  - [Lecture 25](#lecture-25)
     - [Uniqueness of the stationary distribution](#uniqueness-of-the-stationary-distribution)
     - [Ergodicity](#ergodicity)
     - [Periodicity and mixing](#periodicity-and-mixing)
-  - [Lecture 26](#lecture-26)
     - [Periodicity and mixing](#periodicity-and-mixing-1)
     - [PageRank algorithm](#pagerank-algorithm)
-    - [Conditional expectation](#conditional-expectation-2)
+    - [Conditional expectation](#conditional-expectation-1)
     - [Martingale](#martingale)
-  - [Lecture 27](#lecture-27)
     - [Martingale properties](#martingale-properties)
     - [Doob's decomposition](#doobs-decomposition)
     - [Stopping theorem](#stopping-theorem)
@@ -151,26 +113,21 @@ categories: math
 
 ------
 
-## Lecture 1
+This post is based on a course that I took in fall, 2019. 
+I refine it aperiodically for the purpose of summarizing and promoting my understanding.
 
-> David Gamarnik  
-> Wed, Sep 4, 2019
+> Last update: May 2, 2020
 
-### Introduction
+## Prologue
 
-The course Fundamentals of Probability is given by Prof. David GAMARNIK from Sloan, with the TA Eren Kizildag from EECS. In this semester, we will change our course website from Stella to Canvas, where I have posted the syllabus.
+Although a real analysis background is not necessary, we expect the readers to be familar with the manipulations of limits such as $\limsup$ and $\liminf$.
 
-A real analysis background helps in this course, but is not necessary. At least you should be familar with notations like $\limsup$ and $\liminf$. Refer to wiki if you are not familiar with the two notations.
-
-This course is graded by three parts: 
-- the weekly homework takes up 30%, 
-- the midterm exam takes 2 hours and accounts for 30% and 
-- the final exam takes 3 hours and accounts for 40%.
-
-This course covers three topics:
+The notes cover three topics:
 - Measure Theory Foundations. Learning measure theory is like learning words before making sentences.
 - Laws of Probability. Including Laws of Large Numbers and Central Limit Theorems.
 - Stochastic Processes. Like Poisson processes, Markov chains and martingales.
+
+## Probability as a measure
 
 ### Probability space
 
@@ -261,16 +218,7 @@ Given $(\Omega, \mathcal{F})$, a **measure** is a function $\mu: \mathcal{F} \ri
 1. $\mu(\emptyset) = 0$;
 2. if $\lbrace A_i, i = 1, 2, \cdots\rbrace$ is a countable sequence of *disjoint* elements of $\mathcal{F}$, then $\mu(\cup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty}\mu(A_i)$ (sum of numbers). 'Disjoint' means $A_i \cap A_j = \emptyset, \forall i \neq j$.
 
-Measures are a generalization of volumes.
-
-------
-
-## Lecture 2
-
-> David Gamarnik  
-> Mon, Sep 9, 2019
-
-### Measure and probability
+Measures are a generalization of volumes. 
 
 Measure space with $\mu(\Omega) = 1$. A probability space is denoted by $(\Omega, \mathcal{F}, \mathbb{P})$.
 
@@ -291,15 +239,6 @@ Given $\Omega$. Suppose $\mathcal{F}_0$ is a field. Suppose $\mathbb{P}_0: \math
 #### Uniform measure on $[0, 1]$
 
 $(\Omega = (0, 1], \mathcal{B}, \mathbb{P})$
-
-------
-
-## Lecture 3
-
-> David Gamarnik  
-> Wed, Sep 11, 2019
-
-### Caratheodory's extension theorem and the extension to a probability space
 
 #### Uniform measure on $\lbrace 0, 1\rbrace^{\infty}$
 
@@ -337,21 +276,12 @@ Definition of 'almost surely', or a.s.
 1. Suppose $\lbrace A_n, n\ge 1\rbrace$ is a sequence of events such that $\sum_{i=1}^{\infty} \mathbb{P}(A_n) < +\infty$, then $\mathbb{P}(A_n, i.o.) = 0$.
 2. Suppose $\lbrace A_n, n\ge 1\rbrace$ is a sequence of events such that $\sum_{i=1}^{\infty} \mathbb{P}(A_n) = +\infty$ and $A_n$ are independent, then $\mathbb{P}(A_n, i.o.) = 1$.
 
-------
-
-## Lecture 4
-
-> David Gamarnik  
-> Mon, Sep 16, 2019
-
-### Borel-Cantelli lemma
-
 Proof of Borel-Cantelli lemma.
 
 - Use union bounds.
 - Use the following lemma. $0 \le p_n \le 1, \forall n \in \mathbb{N}$. Suppose $\sum_{n=1}^{\infty} p_n = +\infty$. Then $\prod_{i=1}^{\infty} (1-p_i) = 0$. The proof of this lemma uses the concavity of $\log(1-x)$.
 
-### Preliminaries of combinatorial probability
+### Combinatorial probability
 
 #### $e$ as a limit
 
@@ -365,8 +295,6 @@ $n! \approx \frac{n^{n+\frac{1}{2}}}{e^n}\sqrt{2\pi}$.
 #### Permutations
 
 $n!$.
-
-### Combinatorial probability
 
 #### Mafia game
 
@@ -397,21 +325,12 @@ Formally, we have the following theorem.
 - Suppose $c > 1$, then $\lim_{n\rightarrow \infty} \mathbb{P}(\lbrace c_1, \cdots, c_t\rbrace = \lbrace 1, \cdots, n\rbrace) = 1$.
 - Suppose $c < 1$, then $\lim_{n\rightarrow \infty} \mathbb{P}(\lbrace c_1, \cdots, c_t\rbrace = \lbrace 1, \cdots, n\rbrace) = 0$.
 
-------
-
-## Lecture 5
-
-> David Gamarnik  
-> Wed, Sep 18, 2019
-
-### Combinatorial probability
-
-#### Coupon collection problem
-
 *Proof* for the *Theorem* when $c > 1$.
 - Let $A_t$ denote the event that not all coupon collected up to $t$. It remains to show $\mathbb{P}(A_t) \rightarrow 0$.
 - $A_t = \cup_{i=1}^{n} B_{t, i}$, where $B_{t, i}$ denotes that coupon $i$ is not collected.
 - Apply union bound, and show $\mathbb{P}(B_{t, i}) \rightarrow 0$ by Taylor approximation.
+
+## Expectation as Lebesgue integration
 
 ### Random variables
 
@@ -442,15 +361,6 @@ A r.v. is a special case with $(\Omega_2, \mathcal{F}_2) = (\mathbb{R}, \mathcal
 2. $\lim_{x\rightarrow -\infty} F_X(x) = 0$, $\lim_{x\rightarrow +\infty} F_X(x) = 1$;
 3. right-continuity, i.e. $\forall x\in \mathbb{R}$, $\lim_{y\downarrow x} F_X(y) = F_X(x)$.
 
-------
-
-## Lecture 6
-
-> David Gamarnik  
-> Mon, Sep 23, 2019
-
-### Cumulative distribution functions
-
 Proof of right continuity: $x_n \downarrow x$, $x_n$ decreasing and $\lim_{n\rightarrow \infty} x_n$.
 
 CDF uniquely defines the "distribution" of a r.v.
@@ -469,6 +379,139 @@ $$
 $$
 \mathbb{P}(X_1\le x_1, \cdots, X_m\le x_m) = \prod_{j=1}^m \mathbb{P}(X_j \le x_j) = \prod_{j=1}^{m} F_{X_j}(x_j).
 $$
+
+### Lebesgue integral and expectation of a general random variable
+
+Our goal is to unite the definition of expectation of discrete and continuous r.v. That is to define $\mathbb{E}[X]$ for any r.v. $X: \Omega \mapsto \mathbb{R}$.
+
+*Definition.* 
+Let $S(g)$ by the set of all (measurable) simple functions $q$ that are dominated by $g$, i.e.
+1. $q\ge 0$ a.s.
+2. $q\le g$ a.s. (this requires that $g$ is measurable)
+
+*Definition.*
+Given $g: \Omega \mapsto \mathbb{R}$, $g\ge 0$ a.s. Then $\int g d\mu = \sup_{q\in S(g)} \int q d\mu$.
+
+Properties.
+1. $g \le h$ a.s. Then $\int g d\mu \le \int h d\mu$.
+2. Suppose $g\ge 0$ a.s. and $\int g d\mu = 0$. Then $g = 0$ a.s.
+3. Linearity.
+
+### Monotone convergence theorem
+
+$0 \le g_n \le g$ a.s. such that $g_n \uparrow g$ a.s.
+Then $\int g_n d\mu \uparrow \int g d\mu$.
+
+*Proof (part 1.1).*  
+Suppose $g = q$ is simple and $\int q d\mu = +\infty$.
+
+*Proof (part 1.2).*  
+Suppose $g = q = \sum_{i=1}^{m} a_i 1 _{A_i}$ is simple and $\int q d\mu < +\infty$.
+Let $S = \lbrace i: a_i > 0\rbrace$, $A = \bigcup _{i \in S} A_i$, $B_n = \lbrace \omega\in A: g_n(\omega) \ge q(\omega) - 1/r\rbrace$, where $0 < 1/r < \min_i a_i$.
+
+Then $\int g_n d\mu + \int 1/r 1 _{B_n} d\mu \ge \int q 1 _{B_n} d\mu$. Eventually, show that $\lim _{n\rightarrow \infty} \int g_n d\mu \ge \int q d\mu$.  
+On the other hand, $\lim _{n\rightarrow \infty} \int g_n d\mu \le \int q d\mu$, which concludes the proof.
+
+*Proof (part 2).*  
+For a general $g$, recall $\int g d\mu = \sup_{q\in S(g)} \int q d\mu$. Let $h_n = \min\lbrace g_n, q\rbrace$. Then $h_n \uparrow q$ a.s. By MCT, 
+$\int q d\mu = \lim_{n\rightarrow \infty} \int \min\lbrace g_n, q\rbrace d\mu \le \lim_{n\rightarrow \infty} \int g_n d\mu$.  
+Therefore, 
+$\lim_{n\rightarrow \infty} \int g_n d\mu \ge \sup_{q \in S(g)} \int q d\mu = \int g d\mu$.  
+On the other hand, $\lim_{n\rightarrow \infty} \int g_n d\mu \le \int q d\mu$, which concludes the proof.
+
+Note that in general, $X_n \rightarrow X$ a.s. cannot give $\mathbb{E}X_n \rightarrow \mathbb{E}X$.
+
+*Example.* $U$ uniform at random from $[0, 1]$.
+Let $X(u) = n$ if $u \in [0, 1/n]$ and $X(u) = 0$ otherwise. 
+$X_n \rightarrow 0$ a.s. 
+However, $\mathbb{E}X_n \not\rightarrow \mathbb{E}0 = 0$.
+
+#### Application of MCT: Approximating $g$ from below using special simple functions
+
+For $r \in \mathbb{N}$, define $g_r(w) = i/(2^r)$ if $g(w) < r$ and $g(w) \in [i \in 2^r, (i + 1) / 2^r]$, and $g_r(w) = r$ if $g(w) \ge r$.
+
+$g_r$ is simple, and $g_r \uparrow g$. By MCT, $\int g_r d\mu \rightarrow \int g d\mu$.
+
+#### Application of MCT: Proof of linearity of Lebesgue integral
+
+*Proof.*
+Construct $g_n \in S(g)$ such that $g_n \uparrow g$ a.s., $h_n \in S(h)$ such that $h_n \uparrow h$ a.s.
+
+#### Application of MCT: Proof of Boral-Cantelli lemma
+
+*Proof.*
+Let $X_n = 1 _{A_n}$. Show that $\mathbb{E}[\sum _{n=1}^{\infty} X_n] < + \infty$, i.e. $\sum _{n=1}^{\infty} X_n < +\infty$ a.s.
+
+### Fatou's lemma
+
+Let $Y$ be a random variable such that $\mathbb{E}|Y| < +\infty$ (to ensure $X_n$ are uniformly integrable).
+1. Suppose $Y \le X_n$. Then $\mathbb{E}[\liminf_{n} X_n] \le \liminf_{n} \mathbb{E}[X_n]$.
+2. Suppose $X_n \le Y$. Then $\mathbb{E}[\limsup_{n} X_n] \ge \limsup_{n} \mathbb{E}[X_n]$.
+
+*Proof.*
+1. Fix $n \ge 1$, $\inf_{k \ge n} (X_k - Y) \le X_m - Y$ for all $m \ge n$. Taking expectation, $\mathbb{E}[\inf_{k \ge n} (X_k - Y)] \le \inf_{m\ge  n}\mathbb{E}[X_m - Y]$. Taking limit as $n \rightarrow \infty$, and apply MCT on the left side.
+2. Similar to 1.
+
+Let $Y = 0$. Fatou's lemma states that if $X\ge 0$, a.s., then $\mathbb{E}[\liminf_{n} X_n] \le \liminf_{n} \mathbb{E}[X_n]$.
+
+### Dominated convergence theorem
+
+*Theorem.* 
+Suppose $(X_n, n\ge 1)$, $X_n \rightarrow X$ a.s., and $\exists Y$, such that $\lvert X_n \rvert \le Y$, and $\mathbb{E}[Y] < +\infty$. Then $\mathbb{E}[\lim_{n\rightarrow \infty} X_n] = \lim_{n\rightarrow \infty} X_n$.
+
+*Proof.*
+Note that $-Y \le X_n \le Y$. Apply Fatou's lemma.
+
+#### Bounded convergence theorem
+
+($Y$ is constant in DCT.) Suppose $\lvert X_n \rvert \le C$, a.s..
+
+### Product measures
+
+Motivation: $(X_n, n \ge 1)$ i.i.d.. In what probability space does the sequence exist?
+
+Given $(\Omega_1, \mathcal{F}_1, \mathbb{P}_1)$ and $(\Omega_2, \mathcal{F}_2, \mathbb{P}_2)$, define their product measure as $(\Omega_1 \times \Omega_2, \mathcal{F}_1 \times \mathcal{F}_2, \mathbb{P}_1 \times \mathbb{P}_2)$, where
+- $\Omega_1 \times \Omega_2$ = Cartesian product
+- $\mathcal{F}_1 \times \mathcal{F}_2$ = smallest $\sigma$-field containing all sets $A_1\times A_2$ where $A_1\in \mathcal{F}_1$, $A_2\in \mathcal{F}_2$.
+- $\mathbb{P}_1 \times \mathbb{P}_2(A_1\times A_2) = \mathbb{P}_1(A_1) \cdot \mathbb{P}_2(A_2)$. Then extended by Caratheodory's extension theorem.
+
+Goal: Given $F: \mathbb{R} \mapsto [0, 1]$ CDF, construct $X_1, X_2$ such that $X_1\perp X_2$ and $F_{X_1} = F_{X_2} = F$.  
+- $X_1: \Omega \times \Omega \rightarrow \mathbb{R}$, $X_1(\omega_1, \omega_2) = X(\omega_1)$.
+- $X_2: \Omega \times \Omega \rightarrow \mathbb{R}$, $X_2(\omega_1, \omega_2) = X(\omega_2)$.
+
+Then $\mathbb{P}(X_1\le t_1, X_2\le t_2) = F_X(t_1) F_X(t_2)$.
+
+### Fubini's theorem
+
+Let $Y(\omega_1) = \int X(\omega_1, \omega_2) d\mathbb{P}_2$. Let $Z(\omega_2) = \int X(\omega_1, \omega_2) d\mathbb{P}_1$. The question is, whether $\int Y d\mathbb{P}_1 = \int Z d\mathbb{P}_2 = \int X d\mathbb{P}_1\times \mathbb{P}_2$. 
+
+Fubini's theorem provides a sufficient condition.
+
+*Theorem [Fubini 1].*
+Suppose $X\ge 0$, a.s.. Then
+1. For almost every $\omega_1 \in \Omega_1$, $X(\omega_1, \omega_2): \Omega_2 \mapsto \mathbb{R}$ is measurable.
+2. For almost every $\omega_2 \in \Omega_2$, $X(\omega_1, \omega_2): \Omega_1 \mapsto \mathbb{R}$ is measurable.
+3. $\int X(\omega_1, \omega_2) d\mathbb{P}_2$ is a measurable function of $\omega_1$.
+4. $\int X(\omega_1, \omega_2) d\mathbb{P}_1$ is a measurable function of $\omega_2$.
+5. $\int _{\Omega_1} [\int _{\Omega_2} X(\omega_1, \omega_2) d\mathbb{P}_2] d\mathbb{P}_1 = \int _{\Omega_2} [\int _{\Omega_1} X(\omega_1, \omega_2) d\mathbb{P}_1] d\mathbb{P}_2 = \int _{\Omega\times \Omega_2} X(\omega_1, \omega_2) d\mathbb{P}_1 \times \mathbb{P}_2$.
+
+*Theorem [Fubini 2].*
+Suppose $\int \lvert X(\omega_1, \omega_2) \rvert d\mathbb{P}_1 \times \mathbb{P}_2 = \mathbb{E}[\lvert X \rvert] < +\infty$, then 1-5 hold.
+
+#### $\sigma$-finite measures
+
+In general, Fubini's theorem holds for $\sigma$-finite measures.
+
+*Definition.*
+$(\Omega, \mathcal{F}, \mu)$ is $\sigma$-finite if $\exists A_n \in \mathcal{F}$, such that $A_n \subset A_{n+1}, \forall n$, and that $\bigcup_n A_n = \Omega$, $\mu(A_n) < +\infty$.
+
+Counting measure on $\mathbb{R}$: $\mu(A) = \lvert A\rvert$ when $\lvert A\rvert < +\infty$, and $\mu(A) = \infty$ otherwise. $\mathbb{R} \neq \bigcup_n A_n$ where $\lvert A\rvert < +\infty$. In this case, you cannot change the order of the integrals.
+
+#### Non-negativity
+
+*Counter-example.*
+
+## Special random variables
 
 ### Continuous random variables
 
@@ -506,13 +549,6 @@ $$
 \mathbb{E}[X] = \sum_{n=1}^{+\infty} \mathbb{P}(X\ge n) = \sum_{n=1}^{+\infty} \frac{1}{n^\alpha} = \zeta(\alpha),
 $$
 which is the Riemann zeta function. $\zeta(\alpha) < +\infty$ iff $\alpha > 1$.
-
-------
-
-## Lecture 7
-
-> Eren Kizildag  
-> Wed, Sep 25, 2019
 
 ### Expectation and its properties
 
@@ -605,13 +641,6 @@ $I_A: \Omega \mapsto \lbrace 0, 1\rbrace$.
 
 Indicator r.v. can be used to prove $\mathbb{P}(A\cup B) = \mathbb{P}[A] + \mathbb{P}[B] - \mathbb{P}[A\cap B]$.
 
-------
-
-## Lecture 8
-
-> David Gamarnik  
-> Mon, Sep 30, 2019
-
 ### Memoryless distributions
 
 Review: Continuous random variables
@@ -660,13 +689,6 @@ Linearity.
 Suppose $X\ge 0$ is a continuous random variable, i.e. $\mathbb{P}(X\ge 0) = 1$, i.e. $\lbrace \omega: X(\omega)\ge 0\rbrace$ a.s. Let $f_X$ be its PDF. Then $\mathbb{E}[X] = \int_{0}^{\infty} \mathbb{P}(X > t) dt$.
 
 $\mathbb{E}[g(X) = \int_{-\infty}^{+\infty} g(t) f_X(t) dt$.
-
-------
-
-## Lecture 9
-
-> David Gamarnik  
-> Wed, Oct 2, 2019
 
 ### Joint density and jointly continuous random variables
 
@@ -730,15 +752,6 @@ $\mathbb{E}[X\mid Y]$ is a random variable,
 - (discrete) which takes value $\mathbb{E}[X\mid Y = y]$ with probability $\mathbb{P}(Y = y)$.
 - (continuous) which takes value $\mathbb{E}[X\mid Y = y]$ with density $f_{Y}(y)$.
 
-------
-
-## Lecture 10
-
-> David Gamarnik  
-> Mon, Oct 7, 2019
-
-### Conditional expectation
-
 *Tower property of conditional probability.*
 $\mathbb{E}[\mathbb{E}[X\mid Y] g(Y)] = \mathbb{E}[X g(Y)]$.
 
@@ -796,13 +809,6 @@ Therefore, $f_{R, \Theta}(r, \theta) = f_R(r) f_{\Theta}(\theta)$, which means $
 
 The PDF in polar coordinates can be used to show that the constant of a standard normal distribution is $C = 1/\sqrt{2\pi}$.
 
-------
-
-## Lecture 11
-
-> David Gamarnik  
-> Wed, Oct 9, 2019
-
 ### Sum of two independent random variables
 
 *Convolution formula.*
@@ -814,162 +820,6 @@ $$
 *Proof.*
 1. Consider $g: (x, y) \mapsto (x + y, y)$, and use derived distribution.
 2. Take marginal density.
-
-### Lebesgue integral and expectation of a general random variable
-
-Our goal is to unite the definition of expectation of discrete and continuous r.v. That is to define $\mathbb{E}[X]$ for any r.v. $X: \Omega \mapsto \mathbb{R}$.
-
-*Definition.* 
-Let $S(g)$ by the set of all (measurable) simple functions $q$ that are dominated by $g$, i.e.
-1. $q\ge 0$ a.s.
-2. $q\le g$ a.s. (this requires that $g$ is measurable)
-
-*Definition.*
-Given $g: \Omega \mapsto \mathbb{R}$, $g\ge 0$ a.s. Then $\int g d\mu = \sup_{q\in S(g)} \int q d\mu$.
-
-Properties.
-1. $g \le h$ a.s. Then $\int g d\mu \le \int h d\mu$.
-2. Suppose $g\ge 0$ a.s. and $\int g d\mu = 0$. Then $g = 0$ a.s.
-3. Linearity.
-
-### Monotone convergence theorem
-
-$0 \le g_n \le g$ a.s. such that $g_n \uparrow g$ a.s.
-Then $\int g_n d\mu \uparrow \int g d\mu$.
-
-*Proof (part 1.1).*  
-Suppose $g = q$ is simple and $\int q d\mu = +\infty$.
-
-------
-
-## Lecture 12
-
-> David Gamarnik  
-> Wed, Oct 16, 2019
-
-### Monotone convergence theorem
-
-*Proof (part 1.2).*  
-Suppose $g = q = \sum_{i=1}^{m} a_i 1 _{A_i}$ is simple and $\int q d\mu < +\infty$.
-Let $S = \lbrace i: a_i > 0\rbrace$, $A = \bigcup _{i \in S} A_i$, $B_n = \lbrace \omega\in A: g_n(\omega) \ge q(\omega) - 1/r\rbrace$, where $0 < 1/r < \min_i a_i$.
-
-Then $\int g_n d\mu + \int 1/r 1 _{B_n} d\mu \ge \int q 1 _{B_n} d\mu$. Eventually, show that $\lim _{n\rightarrow \infty} \int g_n d\mu \ge \int q d\mu$.  
-On the other hand, $\lim _{n\rightarrow \infty} \int g_n d\mu \le \int q d\mu$, which concludes the proof.
-
-*Proof (part 2).*  
-For a general $g$, recall $\int g d\mu = \sup_{q\in S(g)} \int q d\mu$. Let $h_n = \min\lbrace g_n, q\rbrace$. Then $h_n \uparrow q$ a.s. By MCT, 
-$\int q d\mu = \lim_{n\rightarrow \infty} \int \min\lbrace g_n, q\rbrace d\mu \le \lim_{n\rightarrow \infty} \int g_n d\mu$.  
-Therefore, 
-$\lim_{n\rightarrow \infty} \int g_n d\mu \ge \sup_{q \in S(g)} \int q d\mu = \int g d\mu$.  
-On the other hand, $\lim_{n\rightarrow \infty} \int g_n d\mu \le \int q d\mu$, which concludes the proof.
-
-Note that in general, $X_n \rightarrow X$ a.s. cannot give $\mathbb{E}X_n \rightarrow \mathbb{E}X$.
-
-*Example.* $U$ uniform at random from $[0, 1]$.
-Let $X(u) = n$ if $u \in [0, 1/n]$ and $X(u) = 0$ otherwise. 
-$X_n \rightarrow 0$ a.s. 
-However, $\mathbb{E}X_n \not\rightarrow \mathbb{E}0 = 0$.
-
-#### Application of MCT: Approximating $g$ from below using special simple functions
-
-For $r \in \mathbb{N}$, define $g_r(w) = i/(2^r)$ if $g(w) < r$ and $g(w) \in [i \in 2^r, (i + 1) / 2^r]$, and $g_r(w) = r$ if $g(w) \ge r$.
-
-$g_r$ is simple, and $g_r \uparrow g$. By MCT, $\int g_r d\mu \rightarrow \int g d\mu$.
-
-#### Application of MCT: Proof of linearity of Lebesgue integral
-
-*Proof.*
-Construct $g_n \in S(g)$ such that $g_n \uparrow g$ a.s., $h_n \in S(h)$ such that $h_n \uparrow h$ a.s.
-
-#### Application of MCT: Proof of Boral-Cantelli lemma
-
-*Proof.*
-Let $X_n = 1 _{A_n}$. Show that $\mathbb{E}[\sum _{n=1}^{\infty} X_n] < + \infty$, i.e. $\sum _{n=1}^{\infty} X_n < +\infty$ a.s.
-
-### Fatou's lemma
-
-Let $Y$ be a random variable such that $\mathbb{E}|Y| < +\infty$ (to ensure $X_n$ are uniformly integrable).
-1. Suppose $Y \le X_n$. Then $\mathbb{E}[\liminf_{n} X_n] \le \liminf_{n} \mathbb{E}[X_n]$.
-2. Suppose $X_n \le Y$. Then $\mathbb{E}[\limsup_{n} X_n] \ge \limsup_{n} \mathbb{E}[X_n]$.
-
-------
-
-## Lecture 13
-
-> David Gamarnik  
-> Mon, Oct 21, 2019
-
-### Fatou's lemma
-
-*Proof.*
-1. Fix $n \ge 1$, $\inf_{k \ge n} (X_k - Y) \le X_m - Y$ for all $m \ge n$. Taking expectation, $\mathbb{E}[\inf_{k \ge n} (X_k - Y)] \le \inf_{m\ge  n}\mathbb{E}[X_m - Y]$. Taking limit as $n \rightarrow \infty$, and apply MCT on the left side.
-2. Similar to 1.
-
-Let $Y = 0$. Fatou's lemma states that if $X\ge 0$, a.s., then $\mathbb{E}[\liminf_{n} X_n] \le \liminf_{n} \mathbb{E}[X_n]$.
-
-### Dominated convergence theorem
-
-*Theorem.* 
-Suppose $(X_n, n\ge 1)$, $X_n \rightarrow X$ a.s., and $\exists Y$, such that $\lvert X_n \rvert \le Y$, and $\mathbb{E}[Y] < +\infty$. Then $\mathbb{E}[\lim_{n\rightarrow \infty} X_n] = \lim_{n\rightarrow \infty} X_n$.
-
-*Proof.*
-Note that $-Y \le X_n \le Y$. Apply Fatou's lemma.
-
-#### Bounded convergence theorem
-
-($Y$ is constant in DCT.) Suppose $\lvert X_n \rvert \le C$, a.s..
-
-### Product measures
-
-Motivation: $(X_n, n \ge 1)$ i.i.d.. In what probability space does the sequence exist?
-
-Given $(\Omega_1, \mathcal{F}_1, \mathbb{P}_1)$ and $(\Omega_2, \mathcal{F}_2, \mathbb{P}_2)$, define their product measure as $(\Omega_1 \times \Omega_2, \mathcal{F}_1 \times \mathcal{F}_2, \mathbb{P}_1 \times \mathbb{P}_2)$, where
-- $\Omega_1 \times \Omega_2$ = Cartesian product
-- $\mathcal{F}_1 \times \mathcal{F}_2$ = smallest $\sigma$-field containing all sets $A_1\times A_2$ where $A_1\in \mathcal{F}_1$, $A_2\in \mathcal{F}_2$.
-- $\mathbb{P}_1 \times \mathbb{P}_2(A_1\times A_2) = \mathbb{P}_1(A_1) \cdot \mathbb{P}_2(A_2)$. Then extended by Caratheodory's extension theorem.
-
-Goal: Given $F: \mathbb{R} \mapsto [0, 1]$ CDF, construct $X_1, X_2$ such that $X_1\perp X_2$ and $F_{X_1} = F_{X_2} = F$.  
-- $X_1: \Omega \times \Omega \rightarrow \mathbb{R}$, $X_1(\omega_1, \omega_2) = X(\omega_1)$.
-- $X_2: \Omega \times \Omega \rightarrow \mathbb{R}$, $X_2(\omega_1, \omega_2) = X(\omega_2)$.
-
-Then $\mathbb{P}(X_1\le t_1, X_2\le t_2) = F_X(t_1) F_X(t_2)$.
-
-### Fubini's theorem
-
-Let $Y(\omega_1) = \int X(\omega_1, \omega_2) d\mathbb{P}_2$. Let $Z(\omega_2) = \int X(\omega_1, \omega_2) d\mathbb{P}_1$. The question is, whether $\int Y d\mathbb{P}_1 = \int Z d\mathbb{P}_2 = \int X d\mathbb{P}_1\times \mathbb{P}_2$. 
-
-Fubini's theorem provides a sufficient condition.
-
-*Theorem [Fubini 1].*
-Suppose $X\ge 0$, a.s.. Then
-1. For almost every $\omega_1 \in \Omega_1$, $X(\omega_1, \omega_2): \Omega_2 \mapsto \mathbb{R}$ is measurable.
-2. For almost every $\omega_2 \in \Omega_2$, $X(\omega_1, \omega_2): \Omega_1 \mapsto \mathbb{R}$ is measurable.
-3. $\int X(\omega_1, \omega_2) d\mathbb{P}_2$ is a measurable function of $\omega_1$.
-4. $\int X(\omega_1, \omega_2) d\mathbb{P}_1$ is a measurable function of $\omega_2$.
-5. $\int _{\Omega_1} [\int _{\Omega_2} X(\omega_1, \omega_2) d\mathbb{P}_2] d\mathbb{P}_1 = \int _{\Omega_2} [\int _{\Omega_1} X(\omega_1, \omega_2) d\mathbb{P}_1] d\mathbb{P}_2 = \int _{\Omega\times \Omega_2} X(\omega_1, \omega_2) d\mathbb{P}_1 \times \mathbb{P}_2$.
-
-*Theorem [Fubini 2].*
-Suppose $\int \lvert X(\omega_1, \omega_2) \rvert d\mathbb{P}_1 \times \mathbb{P}_2 = \mathbb{E}[\lvert X \rvert] < +\infty$, then 1-5 hold.
-
-#### $\sigma$-finite measures
-
-In general, Fubini's theorem holds for $\sigma$-finite measures.
-
-*Definition.*
-$(\Omega, \mathcal{F}, \mu)$ is $\sigma$-finite if $\exists A_n \in \mathcal{F}$, such that $A_n \subset A_{n+1}, \forall n$, and that $\bigcup_n A_n = \Omega$, $\mu(A_n) < +\infty$.
-
-Counting measure on $\mathbb{R}$: $\mu(A) = \lvert A\rvert$ when $\lvert A\rvert < +\infty$, and $\mu(A) = \infty$ otherwise. $\mathbb{R} \neq \bigcup_n A_n$ where $\lvert A\rvert < +\infty$. In this case, you cannot change the order of the integrals.
-
-#### Non-negativity
-
-*Counter-example.*
-
-------
-
-## Lecture 14
-
-> David Gamarnik  
-> Wed, Oct 23, 2019
 
 ### Moment generating function
 
@@ -1023,13 +873,6 @@ $D_X \supset [0, 1]$ trivially.
 
 Note: $g(s) = M_X(\log s)$.
 
-------
-
-## Lecture 15
-
-> David Gamarnik  
-> Mon, Oct 28, 2019
-
 ### Spectral properties of symmetric matrices
 
 ### Three definitions of multivariate normal distributions
@@ -1041,23 +884,9 @@ $X = DW + \mu$.
 
 *Definition 3.*
 
-### Properties of multivariate normal distributions
-
-------
-
-## Lecture 16
-
-> David Gamarnik  
-> Wed, Oct 30, 2019
 
 ### Equivalence of the three definitions of multivariate normal distributions
 
-------
-
-## Lecture 17
-
-> David Gamarnik  
-> Mon, Nov 4, 2019
 
 ### Characteristic functions
 
@@ -1065,40 +894,7 @@ $X = DW + \mu$.
 
 *Inversion theorem.*
 
-### Random walks
-
-*Question.* 
-What is $\mathbb{P}(\text{RW returns to zero})$?
-
-------
-
-## Lecture 18
-
-> David Gamarnik  
-> Wed, Nov 6, 2019
-
-### Branching processes
-
-*Definition.*
-$F$. Let PGF of $F$ be $g$.
-
-*Question.*
-Does the process continue indefinitely or die out?
-
-*Theorem.*
-Let $G_n$ be the PGF of $Z_n$, the number of offspring in generation $n$. 
-Then $G_n = g^{(n)}$, i.e., apply $g$ for $n$ times.
-
-*Theorem.* (Variance of $Z_n$)
-
-*Theorem.* (Extinction probability $\eta$)
-
-------
-
-## Lecture 19
-
-> David Gamarnik  
-> Wed, Nov 13, 2019
+## Limit laws of random variables
 
 ### Modes of convergence
 
@@ -1111,13 +907,6 @@ Then $G_n = g^{(n)}$, i.e., apply $g$ for $n$ times.
 4. Convergence in terms of characteristic functions.
 
 #### Hierarchy of the modes of convergence
-
-------
-
-## Lecture 20
-
-> David Gamarnik  
-> Mon, Nov 18, 2019
 
 ### Useful inequalities
 
@@ -1146,13 +935,6 @@ $$
 \frac{S_n - n\mu}{\sigma \sqrt{n}} \xrightarrow{d} N(0, 1).
 $$
 
-------
-
-## Lecture 21
-
-> David Gamarnik  
-> Wed, Nov 20, 2019
-
 ### Local CLT
 
 $X_i \in \mathbb{Z}$.
@@ -1173,25 +955,35 @@ $$
 \frac{\log \mathbb{P}(\frac{S_n}{n} \ge a)}{n} \xrightarrow{n\rightarrow\infty} -\sup_{s\ge 0}\{ as - \log M(s) \}.
 $$
 
-------
-
-## Lecture 22
-
-> David Gamarnik  
-> Mon, Nov 25, 2019
-
-### Chernoff bound
-
-#### Lower bound
-
 *Proof.*
 
 **Change of measure.** 
 Let $f_Y(x) = e^{s^{\star} x} f_X(x) / M(s^{\star})$.
 
-### Stochastic processes
+## Stochastic processes
 
 $X(\omega, \cdot)$: 
+
+### Random walks
+
+*Question.* 
+What is $\mathbb{P}(\text{RW returns to zero})$?
+
+### Branching processes
+
+*Definition.*
+$F$. Let PGF of $F$ be $g$.
+
+*Question.*
+Does the process continue indefinitely or die out?
+
+*Theorem.*
+Let $G_n$ be the PGF of $Z_n$, the number of offspring in generation $n$. 
+Then $G_n = g^{(n)}$, i.e., apply $g$ for $n$ times.
+
+*Theorem.* (Variance of $Z_n$)
+
+*Theorem.* (Extinction probability $\eta$)
 
 ### Poisson processes
 
@@ -1199,15 +991,6 @@ $X(\omega, \cdot)$:
 Bernoulli process.
 
 *Definition.*
-
-------
-
-## Lecture 23
-
-> David Gamarnik  
-> Wed, Nov 27, 2019
-
-### Poisson processes
 
 Does a Poisson process exist? 
 An example by construction: generating a Poisson process with exponential distributions $T_n, n\ge 1$. 
@@ -1231,15 +1014,6 @@ $T_k = Y_k - Y_{k - 1}$. Then $T_k, k\ge 1$ are i.i.d. $\operatorname{Exp}(\lamb
 *Definition.* (Homogeneous Markov chains)
 
 $P = (p_{ij}, 1\le i, j \le N)$.
-
-------
-
-## Lecture 24
-
-> David Gamarnik  
-> Mon, Dec 2, 2019
-
-### Markov chains
 
 *Notations.*  
 $\nu^{\top}$, $\nu^{\top} P$.
@@ -1268,13 +1042,6 @@ On $R$, the relation $\leftrightarrow$ is equivalency.
 $N = T\cup R_1 \cup \cdots \cup R_r$.
 
 Recurrence time $T_i$.
-
-------
-
-## Lecture 25
-
-> David Gamarnik  
-> Wed, Dec 4, 2019
 
 ### Uniqueness of the stationary distribution
 
@@ -1327,13 +1094,6 @@ Now we give an alternative proof with the coupling technique.
 
 *Proof.* (Coupling)
 
-------
-
-## Lecture 26
-
-> David Gamarnik  
-> Mon, Dec 9, 2019
-
 ### Periodicity and mixing
 
 *Proof.* (Coupling)
@@ -1369,13 +1129,6 @@ $\mathcal{G}_1 \subset \mathcal{G}_2 \subset \mathcal{F}$.
 $X_n$ adapted to $\{\mathcal{G}_n\}$.
 
 *Definition.* (Martingale)
-
-------
-
-## Lecture 27
-
-> Eren Kizildag  
-> Wed, Dec 11, 2019
 
 ### Martingale properties
 
