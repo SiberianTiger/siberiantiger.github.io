@@ -192,7 +192,7 @@ By de Morgan's laws, the third condition also has implications for intersection.
 
 We now give some examples of $\sigma$-fields.
 1. Given $\Omega$, the simplest $\mathcal{F} = \lbrace \emptyset, \Omega\rbrace$.
-2. Given $\Omega = \lbrace 1, \cdots, 6\rbrace^{\infty}$, let $A = \lbrace (w_1, w_2, \cdots): 1 \le w_1 \le 2\rbrace, B = \lbrace (w_1, w_2, \cdots): 3 \le w_1 \le 4\rbrace, C = \lbrace (w_1, w_2, \cdots): 5 \le w_1 \le 6\rbrace$. Then $\mathcal{F} = \lbrace \emptyset, A, B, C, A\cup B, B\cup C, A\cup C, A\cup B\cup C\rbrace$. This is our first non-trivial example of $\sigma$-fields. 
+2. Given $\Omega = \lbrace 1, \cdots, 6\rbrace^{\infty}$, let $A = \lbrace (w_1, w_2, \cdots): 1 \le w_1 \le 2\rbrace, B = \lbrace (w_1, w_2, \cdots): 3 \le w_1 \le 4\rbrace, C = \lbrace (w_1, w_2, \cdots): 5 \le w_1 \le 6\rbrace$. Then $\mathcal{F} = \lbrace \emptyset, A, B, C, A\cup B, B\cup C, A\cup C, A\cup B\cup C\rbrace$. This is our first nontrivial example of $\sigma$-fields. 
 3. All subsets of $\Omega$.
 
 #### Intersection of $\sigma$-fields
@@ -561,8 +561,8 @@ $\mathbb{E}[X] = \sum_{n\ge 0}[X\ge n] = \sum_{n\ge 1}[X\ge n]$.
 $\mathbb{E}[g(X)] = \sum_{x: p_X(x) \ge 0} g(X) p_{X}(x)$.
 
 *Definitions.*
-1. $\mathbb{E}[X^k]$: $k$-th moment.
-2. $\mathbb{E}[(X - \mathbb{E}[X])^k]$: $k$-th central moment.
+1. $\mathbb{E}[X^k]$: $k$th moment.
+2. $\mathbb{E}[(X - \mathbb{E}[X])^k]$: $k$th central moment.
 3. Variance is second central moment.
 4. Standard deviation is $\sqrt{\operatorname{VAR}(X)}$.
 
@@ -628,7 +628,7 @@ $$
 1. $-1 \le p(X, Y) \le 1$
 2. $p = 1$ if $Y - \mathbb{E}[Y] = a (X - \mathbb{E}[X])$ for some $a > 0$. $p = -1$ if ...
 
-This first property is proved by Cauchy-Schwarz inequality $(\mathbb{E}[XY])^2 \le \mathbb{E}[X^2]\cdot \mathbb{E}[Y^2]$.  
+This first property is proved by the Cauchy-Schwarz inequality $(\mathbb{E}[XY])^2 \le \mathbb{E}[X^2]\cdot \mathbb{E}[Y^2]$.  
 Proof using $\mathbb{E}[(X-tY)^2] \ge 0$.
 
 ### Indicator random variables
@@ -1045,7 +1045,7 @@ Recurrence time $T_i$.
 
 ### Uniqueness of the stationary distribution
 
-For a MC with a single recurrent class, i.e., $[N] = T \cup R$, we have the following lemmata.
+For a MC with a single recurrent class, i.e., $[N] = T \cup R$, we have the following lemmas.
 
 1. For $i\in R$, $\mathbb{P}(X_n = i, i.o.) = 1$. 
 2. Furthermore, let $T_i = \min_{n\ge 1} \{X_n = i \mid X_0 = i\}$. Then $\exists c > 0$, $0 < q < 1$, such that $\mathbb{P}(T_i \ge t) \le c q^t$, i.e., the tail probability decreases geometrically.
