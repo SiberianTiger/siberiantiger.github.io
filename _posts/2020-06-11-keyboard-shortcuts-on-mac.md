@@ -23,6 +23,8 @@ Recently, I started to use an external keyboard on the Mac OS, which means that
 - Show desktop: `F11`
 - Maximize a window to fill the screen: add shortcut Zoom `Ctrl` + `Cmd` + `=`
 - Move focus to the menu bar: `Ctrl` + `F2`
+- Open a new Finder window in Finder: `Cmd` + `N`
+- Open a selected folder: `Cmd` + `DownArrow` OR `Cmd` + `O`
 
 ------
 
@@ -38,6 +40,9 @@ Recently, I started to use an external keyboard on the Mac OS, which means that
 - Go to previous page: `PageUp`
 - Go to next page: `PageDown`
 - Scroll in editor: `Ctrl` + `PageUp`/`PageDown`
+- Show Explorer: `Cmd` + `Shift` + `E`
+- Show Explorer: `Cmd` + `Shift` + `F`
+- Hide side bar: change "toggle side bar visibility" from `Cmd` + `B` to  `Cmd` + `Shift` + `A`
 
 ------
 
@@ -45,7 +50,7 @@ Recently, I started to use an external keyboard on the Mac OS, which means that
 
 - Jump to the previous tab: `Ctrl` + `PageUp`
 - Jump to the next tab: `Ctrl` + `Tab` OR `Ctrl` + `PageDown`
-- Display/Close sidebar: `Cmd` + `B`
+- Display/Close side bar: `Cmd` + `B`
 - Open a new tab: `Cmd` + `T`
 - Next: `Cmd` + `LeftArrow`
 - Back: `Cmd` + `RightArrow`
@@ -54,3 +59,10 @@ Recently, I started to use an external keyboard on the Mac OS, which means that
   - Open in a new tab: `Cmd` + `Shift` + `Enter`
   - Open in a new background tab: `Cmd` + `Enter`
   - Open in a new window: `Shift` + `Enter`
+
+------
+
+## Slack
+
+- Switch workspace: `Cmd` + `number` OR `Cmd` + `Shift` + `[`/`]`
+- Move focus: `F6` / `Shift` + `F6`
