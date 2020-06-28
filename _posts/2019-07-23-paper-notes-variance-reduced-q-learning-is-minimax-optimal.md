@@ -60,7 +60,7 @@ $$
 \theta_{k+1}=\left(1-\lambda_{k}\right) \theta_{k}+\lambda_{k} \widehat{\mathcal{T}}_{k}\left(\theta_{k}\right).
 $$
 
-Let $\Delta_{k}=\theta_{k}-\theta^{\star}$ denote the error between the Q-value in the $k$-th iteration and the optimal Q-value. Then the Q-value update can be rewritten as
+Let $\Delta_{k}=\theta_{k}-\theta^{\star}$ denote the error between the Q-value in the $k$th iteration and the optimal Q-value. Then the Q-value update can be rewritten as
 
 $$
 \Delta_{k+1}=\left(1-\lambda_{k}\right) \Delta_{k}+\lambda_{k}\left\{\widehat{\mathcal{T}}_{k}\left(\theta^{\star}+\Delta_{k}\right)-\widehat{\mathcal{T}}_{k}\left(\theta^{\star}\right)\right\}+\lambda_{k} V_{k},
