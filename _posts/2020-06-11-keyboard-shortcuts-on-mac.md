@@ -41,8 +41,9 @@ Recently, I started to use an external keyboard on the Mac OS, which means that
 - Go to next page: `PageDown`
 - Scroll in editor: `Ctrl` + `PageUp`/`PageDown`
 - Show Explorer: `Cmd` + `Shift` + `E`
-- Show Explorer: `Cmd` + `Shift` + `F`
+- Show Search: `Cmd` + `Shift` + `F`
 - Hide side bar: change "toggle side bar visibility" from `Cmd` + `B` to  `Cmd` + `Shift` + `A`
+- Navigate editors: `Ctrl` + `Tab`
 
 ------
 

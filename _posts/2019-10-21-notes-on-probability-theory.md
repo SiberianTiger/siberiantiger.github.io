@@ -14,19 +14,19 @@ categories: math
     - [Probability space](#probability-space)
     - [Sample space](#sample-space)
     - [Discrete probability space](#discrete-probability-space)
-    - [$\sigma$-field](#math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmi%cf%83mimrowannotation-encoding%22applicationx-tex%22sigmaannotationsemanticsmath%cf%83-field)
-      - [Intersection of $\sigma$-fields](#intersection-of-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmi%cf%83mimrowannotation-encoding%22applicationx-tex%22sigmaannotationsemanticsmath%cf%83-fields)
-      - [Borel $\sigma$-field](#borel-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmi%cf%83mimrowannotation-encoding%22applicationx-tex%22sigmaannotationsemanticsmath%cf%83-field)
+    - [$\sigma$-field](#math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmiσmimrowannotation-encodingapplicationx-texsigmaannotationsemanticsmathσ-field)
+      - [Intersection of $\sigma$-fields](#intersection-of-math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmiσmimrowannotation-encodingapplicationx-texsigmaannotationsemanticsmathσ-fields)
+      - [Borel $\sigma$-field](#borel-math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmiσmimrowannotation-encodingapplicationx-texsigmaannotationsemanticsmathσ-field)
     - [Measure and probability](#measure-and-probability)
     - [Continuity of probability measures](#continuity-of-probability-measures)
     - [Caratheodory's extension theorem and the extension to a probability space](#caratheodorys-extension-theorem-and-the-extension-to-a-probability-space)
-      - [Uniform measure on $[0, 1]$](#uniform-measure-on-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmo-stretchy%22false%22momn0mnmo-separator%22true%22momn1mnmo-stretchy%22false%22momrowannotation-encoding%22applicationx-tex%220-1annotationsemanticsmath01)
-      - [Uniform measure on $\lbrace 0, 1\rbrace^{\infty}$](#uniform-measure-on-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmo-stretchy%22false%22momn0mnmo-separator%22true%22momn1mnmsupmo-stretchy%22false%22momi-mathvariant%22normal%22%e2%88%9emimsupmrowannotation-encoding%22applicationx-tex%22lbrace-0-1rbraceinftyannotationsemanticsmath01%e2%88%9e)
+      - [Uniform measure on $[0, 1]$](#uniform-measure-on-math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmo-stretchyfalsemomn0mnmo-separatortruemomn1mnmo-stretchyfalsemomrowannotation-encodingapplicationx-tex0-1annotationsemanticsmath01)
+      - [Uniform measure on $\lbrace 0, 1\rbrace^{\infty}$](#uniform-measure-on-math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmo-stretchyfalsemomn0mnmo-separatortruemomn1mnmsupmo-stretchyfalsemomi-mathvariantnormalmimsupmrowannotation-encodingapplicationx-texlbrace-0-1rbraceinftyannotationsemanticsmath01)
     - [Conditional probability](#conditional-probability)
     - [Independence](#independence)
     - [Borel-Cantelli lemma](#borel-cantelli-lemma)
     - [Combinatorial probability](#combinatorial-probability)
-      - [$e$ as a limit](#math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmiemimrowannotation-encoding%22applicationx-tex%22eannotationsemanticsmathe-as-a-limit)
+      - [$e$ as a limit](#math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmiemimrowannotation-encodingapplicationx-texeannotationsemanticsmathe-as-a-limit)
       - [Stirling's formula](#stirlings-formula)
       - [Permutations](#permutations)
       - [Mafia game](#mafia-game)
@@ -40,7 +40,7 @@ categories: math
     - [Independence of random variables](#independence-of-random-variables)
     - [Lebesgue integral and expectation of a general random variable](#lebesgue-integral-and-expectation-of-a-general-random-variable)
     - [Monotone convergence theorem](#monotone-convergence-theorem)
-      - [Application of MCT: Approximating $g$ from below using special simple functions](#application-of-mct-approximating-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmigmimrowannotation-encoding%22applicationx-tex%22gannotationsemanticsmathg-from-below-using-special-simple-functions)
+      - [Application of MCT: Approximating $g$ from below using special simple functions](#application-of-mct-approximating-math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmigmimrowannotation-encodingapplicationx-texgannotationsemanticsmathg-from-below-using-special-simple-functions)
       - [Application of MCT: Proof of linearity of Lebesgue integral](#application-of-mct-proof-of-linearity-of-lebesgue-integral)
       - [Application of MCT: Proof of Boral-Cantelli lemma](#application-of-mct-proof-of-boral-cantelli-lemma)
     - [Fatou's lemma](#fatous-lemma)
@@ -48,7 +48,7 @@ categories: math
       - [Bounded convergence theorem](#bounded-convergence-theorem)
     - [Product measures](#product-measures)
     - [Fubini's theorem](#fubinis-theorem)
-      - [$\sigma$-finite measures](#math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmi%cf%83mimrowannotation-encoding%22applicationx-tex%22sigmaannotationsemanticsmath%cf%83-finite-measures)
+      - [$\sigma$-finite measures](#math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmiσmimrowannotation-encodingapplicationx-texsigmaannotationsemanticsmathσ-finite-measures)
       - [Non-negativity](#non-negativity)
   - [Special random variables](#special-random-variables)
     - [Continuous random variables](#continuous-random-variables)
@@ -83,14 +83,10 @@ categories: math
     - [Characteristic functions](#characteristic-functions)
   - [Limit laws of random variables](#limit-laws-of-random-variables)
     - [Modes of convergence](#modes-of-convergence)
-      - [Hierarchy of the modes of convergence](#hierarchy-of-the-modes-of-convergence)
     - [Useful inequalities](#useful-inequalities)
     - [Law of large numbers](#law-of-large-numbers)
     - [Central limit theorem](#central-limit-theorem)
-    - [Local CLT](#local-clt)
-    - [Chernoff bound](#chernoff-bound)
-      - [Upper bound](#upper-bound)
-      - [Lower bound](#lower-bound)
+    - [The Chernoff bounds](#the-chernoff-bounds)
   - [Stochastic processes](#stochastic-processes)
     - [Random walks](#random-walks)
     - [Branching processes](#branching-processes)
@@ -116,7 +112,9 @@ categories: math
 This post is based on a course that I took in fall, 2019. 
 I refine it aperiodically for the purpose of summarizing and promoting my understanding.
 
-> Last update: May 2, 2020
+> Updates  
+> May 2, 2020: structured the notes.
+> July 9, 2020: rewrote the Chernoff bounds.
 
 ## Prologue
 
@@ -906,57 +904,75 @@ $X = DW + \mu$.
 
 4. Convergence in terms of characteristic functions.
 
-#### Hierarchy of the modes of convergence
+Hierarchy of the modes of convergence
 
 ### Useful inequalities
 
-*Markov inequality.*
+*Markov's inequality.*
 
-*Chebyshev inequality.*
-$$
-\mathbb{P}(|X - \mathbb{E}[X]| \ge \epsilon) \le \frac{\sigma^2}{\epsilon^2}.
-$$
+*Chebyshev's inequality.*
+$\mathbb{P}(|X - \mathbb{E}[X]| \ge \epsilon) \le \frac{\sigma^2}{\epsilon^2}$.
 
 ### Law of large numbers
 
-*Theorem.* (Strong law of large numbers)
+*Theorem.* (Strong LLN)
 $S_n / n \xrightarrow{a.s.} \mathbb{E}[X_1]$.
 
-*Theorem.* (Weak law of large numbers)
+*Theorem.* (Weak LLN)
 $S_n / n \xrightarrow{i.p.} \mathbb{E}[X_1]$.
 
-*Proof.* (By Chebyshev inequality with bounded variance assumption)
-
-*Proof.* (By characteristic functions)
+The proof the WLLN is much easier than that of the SLLN.
+One method is by Chebyshev's inequality assuming bounded variance; another method is by characteristic functions.
 
 ### Central limit theorem
 
+*Lindeberg-Lévy CLT.*
 $$
 \frac{S_n - n\mu}{\sigma \sqrt{n}} \xrightarrow{d} N(0, 1).
 $$
 
-### Local CLT
+The proof the Lindeberg-Lévy CLT relies on Taylor expansion.
+The Lindeberg-Lévy CLT implies the WLLN, but not the SLLN.
 
+*Berry-Esseen CLT.*
+
+*Local CLT.*
 $X_i \in \mathbb{Z}$.
 $\mathbb{P}(S_n = m)$
 
-### Chernoff bound
+### The Chernoff bounds
 
-#### Upper bound
+For random variables $X_1, \cdots, X_n$ and $S_n = \sum_{i=1}^{n} X_i$, the general Chernoff bounds comprises an upper bound and a lower bound on $\mathbb{P}(S_n \ge t)$. By default, the Chernoff bound refers to the upper bound. Below we let $\mu := \mathbb{E}[S_n]$.
 
-$$
-\mathbb{P}(\frac{S_n}{n} > a) \le \exp\left( -n\sup_{s\ge 0}\{ as - \log M(s) \} \right).
-$$
+*Upper bound*.
+Assume $X_i$ are i.i.d.. For any $t > \mu$, let $\phi(a) = \sup_{s\ge 0} \{ as - \log M(s) \}$, where $M(s)$ is the MGF of $X_i$. Then $\mathbb{P}(S_n > t) \le \exp( -n \phi(t/n) )$.
 
-#### Lower bound
+Applying Markov's inequality to the MGF of $S_n$ completes the proof.
+It is direct to extend the bound to the non-i.i.d. case.
+For non-i.i.d. Bernoulli random variables, with different relaxations, there are an additive form and a multiplicative form of the Chernoff bound.
 
-*Theorem.*
-$$
-\frac{\log \mathbb{P}(\frac{S_n}{n} \ge a)}{n} \xrightarrow{n\rightarrow\infty} -\sup_{s\ge 0}\{ as - \log M(s) \}.
-$$
+*Additive form (Lecture notes of THU ML).*
+For any $t > \mu$, we have $\mathbb{P}(S_n > t) \le \exp( -n D_{B}^{e}(t/n || \mu/n) )$ if $t\le n$, where $D_{B}^{e}(p || q) := p \log (p / q) + (1 - p) \log ((1 - p) / (1 - q))$.
+
+Obviously, if $t > n$ then $\mathbb{P}(S_n > t) = 0$. 
+Notice that $D_{B}^{e}(t/n || \mu/n) \ge 2(t - \mu)^2 / n^2$.
+Collectively, $\mathbb{P}(S_n > t) \le \exp( - 2(t - \mu)^2 / n )$ holds for all $t\ge \mu$, which is precisely Hoeffding's inequality applied to Bernoulli random variables.
+
+*Multiplicative form (High-dimensional Probability).*
+For any $t > \mu$, we have $\mathbb{P}(S_n > t) \le \exp(-\mu) (e\mu / t)^t$.
+
+The multiplicative form implies that $\mathbb{P}(S_n - \mu > \delta \mu) \le \exp(-\mu \delta^2 / 3)$ if $\delta \in (0, 1]$, and $\mathbb{P}(S_n - \mu > \delta \mu) \le \exp(-\mu \delta^2 / (2 + \delta))$ if $\delta > 1$.
+Here $\delta$ can be interpreted as the relative error.
+
+For $t \in [\mu, 2\mu)$ ($\delta \in (0, 1]$), the above bound can be transformed into $\mathbb{P}(S_n > t) \le \exp(- (t-\mu)^2 / (3\mu))$, which is tighter than Hoeffding's inequality.
+Otherwise for $t > 2\mu$, Hoeffding's inequality is usually tighter. To see why, compare $\mathbb{P}(S_n > t) \le \exp(-(t - \mu))$ and $\mathbb{P}(S_n > t) \le \exp(-2(t-\mu)^2 / n))$ as $t - \mu$ grows linearly in $n$.
+
+The bound in the multiplicative form is known as the Poisson tail (tail of the Poisson distribution). Under the condition of the Poisson limit theorem, intuitively the multiplicative bound should be sharp. Indeed, in this case, $t - \mu$ grows sublinearly in $n$. Then even for $t > 2\mu$, the mulplicative Chernoff bound is tighter than Hoeffding's inequality.
+
+*Lower bound.*
+$n^{-1} \log \mathbb{P}(S_n \ge t) \xrightarrow{n\rightarrow\infty} - \phi(t/n)$.
 
 *Proof.*
-
 **Change of measure.** 
 Let $f_Y(x) = e^{s^{\star} x} f_X(x) / M(s^{\star})$.
 
