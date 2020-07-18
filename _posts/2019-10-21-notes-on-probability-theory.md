@@ -113,7 +113,7 @@ This post is based on a course that I took in fall, 2019.
 I refine it aperiodically for the purpose of summarizing and promoting my understanding.
 
 > Updates  
-> May 2, 2020: structured the notes.
+> May 2, 2020: structured the notes.  
 > July 9, 2020: rewrote the Chernoff bounds.
 
 ## Prologue
@@ -958,7 +958,7 @@ Obviously, if $t > n$ then $\mathbb{P}(S_n > t) = 0$.
 Notice that $D_{B}^{e}(t/n || \mu/n) \ge 2(t - \mu)^2 / n^2$.
 Collectively, $\mathbb{P}(S_n > t) \le \exp( - 2(t - \mu)^2 / n )$ holds for all $t\ge \mu$, which is precisely Hoeffding's inequality applied to Bernoulli random variables.
 
-*Multiplicative form (High-dimensional Probability).*
+*Multiplicative form (High-Dimensional Probability).*
 For any $t > \mu$, we have $\mathbb{P}(S_n > t) \le \exp(-\mu) (e\mu / t)^t$.
 
 The multiplicative form implies that $\mathbb{P}(S_n - \mu > \delta \mu) \le \exp(-\mu \delta^2 / 3)$ if $\delta \in (0, 1]$, and $\mathbb{P}(S_n - \mu > \delta \mu) \le \exp(-\mu \delta^2 / (2 + \delta))$ if $\delta > 1$.

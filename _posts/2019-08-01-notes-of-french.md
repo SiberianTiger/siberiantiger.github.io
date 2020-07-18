@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "法语笔记"
+title:  "Notes of French"
 date:   2019-08-01 19:35:00 +0800
-author: 西伯利亚虎
+author: Siberian Tiger
 categories: academic
 ---
 > Les notes pour le cours Français (3) par Professeur Maxime Hermand avec le livre Alter Ego A1.
