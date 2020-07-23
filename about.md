@@ -9,7 +9,7 @@ Welcome to Siberian Tiger's blog!
 This blog is dedicated to the information beneficial to humans' society, including
 - advances in artificial intelligence: original
 - essays: original
-- collection of others' essays: please contact the author in the case of copyright infliction; the author shall delete the post at their earliest convenience
+- collection of others' essays: please contact the author in the case of copyright infringement; the author shall delete the post at their earliest convenience
 
 The author's contact: siarnold [at] foxmail [dot] com. The author appreciates your patience in waiting for a reply.
 
