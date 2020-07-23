@@ -55,13 +55,13 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
 - Jensen's inequality: for convex $f$, $\mathbb{E}[f(x)] \ge f(\mathbb{E}[x])$
 - Log-sum inequality: $\sum_i a_i \log (a_i / b_i) \ge \sum_{i} a_i \log (\sum_{i} a_i / \sum_{i} b_i)$
   - Proof: Jensen's inequality, either by the convexity of $x\log x$ or the convexity of $-\log x$
-- Gibbs' inequality: $\mathbb{E}_{p} [\log p] \ge \mathbb{E}_{p}[\log q]$
+- Gibbs' inequality: $\mathbb{E} _{p} [\log p] \ge \mathbb{E} _{p}[\log q]$
 
 ------
 
 ## Exponential families
 
-- One-parameter exponential family (EF): $p_{Y}(y; x) = \exp\{ \lambda(x) t(y) - \alpha(x) + \beta(y) \}$
+- One-parameter exponential family (EF): $p_{Y}(y; x) = \exp\lbrace \lambda(x) t(y) - \alpha(x) + \beta(y) \rbrace$
 - $\lambda(x)$: natural parameter, $t(y)$: natural statistic, $\alpha(x)$: log partition function, $\beta(x)$: log base function
 - Regular EF: the support of $P_{Y}(\cdot; x)$ does not depend on $x$
 - Canonical EF: $\lambda(x) = x$, called linear in MIT 6.437
@@ -72,29 +72,29 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
 - Properties of 1D canonical EF
   - $\dot{\alpha}(x) = \eta(x) := \mathbb{E}_{p_{Y}(\cdot; x)}[t(Y)]$: mean parameter
   - $\ddot{\alpha}(x) = \dot{\eta}(x) = J_{Y}(x)$: Fisher information
-  - $D(p_{Y}(\cdot; x) || q(\cdot)) + \alpha(x) = x\eta(x)$
-  - $d D(p_{Y}(\cdot; x) || q(\cdot)) / d\eta = x$
-  - $d^2 D(p_{Y}(\cdot; x) || q(\cdot)) / d\eta^2 = 1/J_{Y}(x)$
+  - $D(p_{Y}(\cdot; x) \Vert q(\cdot)) + \alpha(x) = x\eta(x)$
+  - $d D(p_{Y}(\cdot; x) \Vert q(\cdot)) / d\eta = x$
+  - $d^2 D(p_{Y}(\cdot; x) \Vert q(\cdot)) / d\eta^2 = 1/J_{Y}(x)$
 
 ------
 
 ## Typicality
 
 - Normalized log-likelihood $L_{p}(y_{1}^{N}) = 1/N \sum_{n=1}^{N} \log p(y_n)$
-- Typical set $\mathcal{T}_{\epsilon}(p; N)$: the set of sequences $y_{1}^{N}$ such that $|L_{p}(y_1^{N}) + H(p)| \le \epsilon$
-- $P\{\mathcal{A}\} := \sum_{y_{1}^{N} \in \mathcal{A}} p^{N}(y_1^{N})$
+- Typical set $\mathcal{T} _{\epsilon}(p; N)$: the set of sequences $y _{1} ^{N}$ such that $\lvert L _{p}(y_1^{N}) + H(p)\rvert \le \epsilon$
+- $P \lbrace \mathcal{A} \rbrace := \sum_{y_{1}^{N} \in \mathcal{A}} p^{N}(y_1^{N})$
 - Asymptotic equipartition property (AEP)
-  - AEP-1: $\lim_{N\to \infty} P\{\mathcal{T}_{\epsilon}(p; N)\} = 1$
+  - AEP-1: $\lim_{N\to \infty} P\lbrace\mathcal{T}_{\epsilon}(p; N)\rbrace = 1$
   - AEP-2: for all $y_1^N \in \mathcal{T}_{\epsilon}(p; N)$, $2^{-N(H(p) + \epsilon)} \le p^{N}(y_1^N) \le 2^{-N(H(p) - \epsilon)}$
-  - AEP-3: for sufficiently large $N$, $(1 - \epsilon) 2^{N(H(p) - \epsilon)} \le |\mathcal{T}_{\epsilon}(p; N)| \le 2^{N(H(p) + \epsilon)}$
-- AEP for continuous distributions: $H(p) \to h(p)$, cardinality $|\cdot| \to \mathrm{vol}[\cdot]$ volume
-- Normalized log-likelihood ratio $L_{p|q}(y_1^N) = 1/N \sum_{n=1}^{N} \log (p(y_n) / q(y_n))$
-- Divergence typical set $\mathcal{T}_{\epsilon}(p|q; N)$: the set of sequences $y_{1}^{N}$ such that $|L_{p|q}(y_1^{N}) - D(p || q)| \le \epsilon$
-- Equivalent in the sense that $\lim_{N\to \infty} P\{\mathcal{T}_{\epsilon}(p; N) \cap \mathcal{T}_{\epsilon}(p|q; N)\} = 1$
-- For sufficiently large $N$, $(1 - \epsilon) 2^{-N(D(p || q) + \epsilon)} \le Q\{\mathcal{T}_{\epsilon}(p|q; N)\} \le 2^{-N(D(p || q) - \epsilon)}$
+  - AEP-3: for sufficiently large $N$, $(1 - \epsilon) 2^{N(H(p) - \epsilon)} \le \lvert \mathcal{T}_{\epsilon}(p; N) \rvert \le 2^{N(H(p) + \epsilon)}$
+- AEP for continuous distributions: $H(p) \to h(p)$, cardinality $\lvert \cdot \rvert \to \mathrm{vol}[\cdot]$ volume
+- Normalized log-likelihood ratio $L_{p \vert q}(y_1^N) = 1/N \sum_{n=1}^{N} \log (p(y_n) / q(y_n))$
+- Divergence typical set $\mathcal{T} _{\epsilon}(p\vert q; N)$: the set of sequences $y _{1} ^{N}$ such that $\lvert L _{p\vert q}(y _1 ^{N}) - D(p \Vert q)\rvert \le \epsilon$
+- Equivalent in the sense that $\lim _{N\to \infty} P \lbrace\mathcal{T} _{\epsilon}(p; N) \cap \mathcal{T} _{\epsilon}(p\vert q; N) \rbrace = 1$
+- For sufficiently large $N$, $(1 - \epsilon) 2^{-N(D(p \Vert q) + \epsilon)} \le Q\lbrace\mathcal{T}_{\epsilon}(p\vert q; N)\rbrace \le 2^{-N(D(p \Vert q) - \epsilon)}$
 - Cramer's theorem: large deviation probability of sample averages
   - $Y_1^N$ i.i.d. from $q$ with finite mean $\mu < \gamma$
-  - Chernoff exponent $E_C(\gamma) := D(p(\cdot; x) || q)$, where $p(y; x) = q(y) \exp\{xy - \alpha(x)\}$ such that $\mathbb{E}_{p(\cdot; x)}[y] = \gamma$
+  - Chernoff exponent $E_C(\gamma) := D(p(\cdot; x) \Vert q)$, where $p(y; x) = q(y) \exp\lbrace xy - \alpha(x)\rbrace$ such that $\mathbb{E}_{p(\cdot; x)}[y] = \gamma$
   - $\lim_{N\to \infty} -1/N \log \mathbb{P}(1/N \sum_{n=1}^N Y_n \ge \gamma) = E_C(\gamma)$
 - Extensions to Cramer's theorem
   - Averages of functions of i.i.d. samples
@@ -103,16 +103,16 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
 - $\mathcal{P}_{N}^{\mathcal{Y}}$: the set of all types for sequences of length $N$ generated from an alphabet $\mathcal{Y}$
 - Type class $\mathcal{T}_{N}^{\mathcal{Y}}(p)$: the set of sequences $y_1^N$ such that $\hat{p}(\cdot; y_1^N) = p(\cdot)$
 - Properties of types
-  - Polynomial number of types: $|\mathcal{P}_{N}^{\mathcal{Y}}| \le (N + 1)^{|\mathcal{Y}|}$
-  - Probability of sequence as a function of its type: $q^N(y_1^N) = 2^{-N(D(\hat{p}(\cdot; y_1^N) || q) + H(\hat{p}(\cdot; y_1^N)))}$
-  - Exponentially many sequences in each nondegenerate type class: $cN^{-|\mathcal{Y}|} 2^{NH(p)} \le |\mathcal{T}_{N}^{\mathcal{Y}}(p)| \le 2^{NH(p)}$, where $c$ depends on $p$ and $\mathcal{Y}$
-  - Probability that a sequence in type $p$ is generated by $q$: $cN^{-|\mathcal{Y}|} 2^{-ND(p || q)} \le Q\{\mathcal{T}_{N}^{\mathcal{Y}}(p)\} \le 2^{-ND(p || q)}$
+  - Polynomial number of types: $\lvert \mathcal{P}_{N}^{\mathcal{Y}}\rvert \le (N + 1)^{\lvert \mathcal{Y} \rvert}$
+  - Probability of sequence as a function of its type: $q^N(y_1^N) = 2^{-N(D(\hat{p}(\cdot; y_1^N) \Vert q) + H(\hat{p}(\cdot; y_1^N)))}$
+  - Exponentially many sequences in each nondegenerate type class: $cN^{-\lvert \mathcal{Y} \rvert} 2^{NH(p)} \le \lvert\mathcal{T}_{N}^{\mathcal{Y}}(p)\rvert \le 2^{NH(p)}$, where $c$ depends on $p$ and $\mathcal{Y}$
+  - Probability that a sequence in type $p$ is generated by $q$: $cN^{-\lvert \mathcal{Y} \rvert } 2^{-ND(p \Vert q)} \le Q\lbrace\mathcal{T}_{N}^{\mathcal{Y}}(p)\rbrace \le 2^{-ND(p \Vert q)}$
 - Sanov's theorem: large deviation probability specified by $\mathcal{S}$
-  - For $\mathcal{S} \subset \mathcal{P}^{\mathcal{Y}}$ and $q \in \mathcal{P}^{\mathcal{Y}}$, Chernoff exponent $D_{*}: = \inf_{p\in \mathcal{S}} D(p || q)$
-  - $Q\{ \mathcal{S} \cap \mathcal{P}_{N}^{\mathcal{Y}} \} \le (N + 1)^{|\mathcal{Y}|} 2^{-ND_{*}}$
-  - For $\mathcal{S}$ closed, the dominant atypical event converges in probability to the I-projection $p_{*} = \argmin_{p\in \mathcal{S}} D(p || q)$
+  - For $\mathcal{S} \subset \mathcal{P}^{\mathcal{Y}}$ and $q \in \mathcal{P}^{\mathcal{Y}}$, Chernoff exponent $D_{\star}: = \inf_{p\in \mathcal{S}} D(p \Vert q)$
+  - $Q \lbrace \mathcal{S} \cap \mathcal{P} _{N} ^{\mathcal{Y}} \rbrace \le (N + 1) ^{\lvert \mathcal{Y} \rvert} 2 ^{-N D _{\star}}$
+  - For $\mathcal{S}$ closed, the dominant atypical event converges in probability to the I-projection $p_{\star} = \arg\min_{p\in \mathcal{S}} D(p \Vert q)$
   - More powerful than the scalar version of Cramer's theorem, but less powerful than its vector version
-- Strongly typical set $\mathcal{T}_{\epsilon}^{\mathrm{S}}(p; N)$: the set of sequences $y_1^N$ such that $||\hat{p}(\cdot; y_1^N) - p(\cdot)||_{\infty} \le \epsilon$
+- Strongly typical set $\mathcal{T} _{\epsilon} ^{\mathrm{S}}(p; N)$: the set of sequences $y_1^N$ such that $\Vert \hat{p}(\cdot; y_1^N) - p(\cdot) \Vert _{\infty} \le \epsilon$
   - Called "strong" not because of SLLN, but because it implies weaker typicality
   - Implies divergence typicality
   - Implies typicality, because for finite alphabets, typicality is an instance of divergence typicality where $q$ is the uniform distribution
@@ -167,12 +167,12 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
 - Entropy $H(p) = -\sum_{a} p(a) \log p(a)$
   - Nonnegative, by definition
   - Strictly concave, due to log-sum inequality
-- Mutual information $I(X; Y) = I(Y; X) = H(X) - H(X | Y) = H(Y) - H(Y | X)$
+- Mutual information $I(X; Y) = I(Y; X) = H(X) - H(X \vert Y) = H(Y) - H(Y \vert X)$
   - Nonnegative, due to the nonnegativity of information divergence
-  - $I(X; Y) = D(p_{X, Y} || p_{X} p_{Y}) = \sum_{x, y} p_{X, Y}(x, y) \log \frac{p_{X, Y}(x, y)}{p_{X}(x) p_{Y}(y)}$
-  - $I(X; Y) = \sum_{X} p_{X}(x) D(p_{Y|X}(y|x) || p_{Y}(y)) = \sum_{Y} p_{Y}(y) D(p_{X|Y}(x|y) || p_{X}(x))$
-  - $I(p_{X}, p_{Y|X})$ is concave, but not strictly concave, in $p_{X}$, due to the concavity of the entropy
-- Information divergence $D(p || q) = \sum_{a} p(a) \log \frac{p(a)}{q(a)}$
+  - $I(X; Y) = D(p_{X, Y} \Vert p_{X} p_{Y}) = \sum_{x, y} p_{X, Y}(x, y) \log \frac{p_{X, Y}(x, y)}{p_{X}(x) p_{Y}(y)}$
+  - $I(X; Y) = \sum_{X} p_{X}(x) D(p_{Y\vert X}(y\vert x) \Vert p_{Y}(y)) = \sum_{Y} p_{Y}(y) D(p_{X\vert Y}(x\vert y) \Vert p_{X}(x))$
+  - $I(p_{X}, p_{Y\vert X})$ is concave, but not strictly concave, in $p_{X}$, due to the concavity of the entropy
+- Information divergence $D(p \Vert q) = \sum_{a} p(a) \log \frac{p(a)}{q(a)}$
   - Nonnegative, due to Gibbs' inequality
   - Jointly convex in $(p, q)$, due to log-sum inequality
   - Strictly convex in $p$ for a fixed $q$
@@ -183,18 +183,18 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
 - Differential entropy $h(X) = -\int p(x) \log p(x) dx$
   - Not necessarily nonnegative
   - Not invariant to to coordinate transformation $X = g(S)$
-  - Conditional differential entropy $h(X|Y) = \mathbb{E}_{Y}[h(X|Y = y)] = -\int \int p_{X, Y}(x, y) \log p_{X|Y}(x|y) dx dy$
-- Mutual information $I(X; Y) = h(X) - h(X|Y)$
+  - Conditional differential entropy $h(X\vert Y) = \mathbb{E} _{Y}[h(X\vert Y = y)] = -\int \int p _{X, Y}(x, y) \log p _{X\vert Y}(x\vert y) dx dy$
+- Mutual information $I(X; Y) = h(X) - h(X\vert Y)$
   - Nonnegative, due to the nonnegativity of information divergence
   - Invariant to coordinate transformation
-- Information divergence $D(p || q) = \int p(x) \log (p(x)/q(x)) dx$
+- Information divergence $D(p \Vert q) = \int p(x) \log (p(x)/q(x)) dx$
   - Nonnegative, due to Gibbs' inequality
   - Invariant to coordinate transformation
 - Information measures for Gaussian distributions
-  - $h(X) = \frac{1}{2} \log (2\pi e \sigma^2)$, $h(X) = \frac{1}{2} \log |2\pi e \Lambda|$
-  - $h(X|Y) = \frac{1}{2} \log (2\pi e (\lambda_X - \lambda_{XY}^2 / \lambda_Y))$, $h(Y|X) = \frac{1}{2} \log |2\pi e (\Lambda_X - \Lambda_{XY}{\Lambda_X}^{-1} {\Lambda_{XY}}^{\top})|$, 
-  - $I(X; Y) = \frac{1}{2} \log (1 - \rho_{XY}^2)^{-1}$, $I(X; Y) = \frac{1}{2} \log |I - B_{XY} B_{XY}^{\top}|^{-1}$
-  - $D(p_1 || p_2) = (log e / 2) (\mu_1 - \mu_2)^2 / \sigma^2$, $D(p_1 || p_2) = (log e / 2) (\mu_1 - \mu_2)^{\top}{\Lambda}^{-1} (\mu_1 - \mu_2)$
+  - $h(X) = \frac{1}{2} \log (2\pi e \sigma^2)$, $h(X) = \frac{1}{2} \log \lvert 2\pi e \Lambda \rvert$
+  - $h(X\vert Y) = \frac{1}{2} \log (2\pi e (\lambda_X - \lambda_{XY}^2 / \lambda_Y))$, $h(Y\vert X) = \frac{1}{2} \log \lvert 2\pi e (\Lambda_X - \Lambda_{XY}{\Lambda_X}^{-1} {\Lambda_{XY}}^{\top})\rvert$, 
+  - $I(X; Y) = \frac{1}{2} \log (1 - \rho_{XY}^2)^{-1}$, $I(X; Y) = \frac{1}{2} \log \lvert I - B_{XY} B_{XY}^{\top}\rvert ^{-1}$
+  - $D(p_1 \Vert p_2) = (log e / 2) (\mu_1 - \mu_2)^2 / \sigma^2$, $D(p_1 \Vert p_2) = (log e / 2) (\mu_1 - \mu_2)^{\top}{\Lambda}^{-1} (\mu_1 - \mu_2)$
   - SNR: $(\mu_1 - \mu_2)^2 / \sigma^2$, $(\mu_1 - \mu_2)^{\top}{\Lambda}^{-1} (\mu_1 - \mu_2)$
 
 ------
@@ -205,36 +205,36 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
 - Each probability distribution: a point in an $M$ dimensional space
 - Probability simplex $\mathcal{P}^{\mathcal{Y}}$: $M - 1$ dimensional hyperplane
 - Boundary $\partial(\mathcal{P}^{\mathcal{Y}})$ and interior $\mathrm{int}(\mathcal{P}^{\mathcal{Y}})$
-- Information divergence $D(p || q)$ on the boundary of the simplex: define $0\log 0 = 0$
-- Information projection (I-projection): $p^{*} = \argmin_{p\in \mathcal{P}} D(p || q)$
-- Reverse I-projection: $q^{*} = \argmin_{q\in \mathcal{P}} D(p || q)$
-- Pythagorean theorem: for concex $\mathcal{P}$, $D(p || q) \ge D(p || p^{*}) + D(p^{*} || q)$
+- Information divergence $D(p \Vert q)$ on the boundary of the simplex: define $0\log 0 = 0$
+- Information projection (I-projection): $p^{\star} = \arg\min_{p\in \mathcal{P}} D(p \Vert q)$
+- Reverse I-projection: $q^{\star} = \arg\min_{q\in \mathcal{P}} D(p \Vert q)$
+- Pythagorean theorem: for concex $\mathcal{P}$, $D(p \Vert q) \ge D(p \Vert p^{\star}) + D(p^{\star} \Vert q)$
 - Linear family $\mathcal{L}$: for $K < M$, for all $i \in [K]$, $\mathbb{E}[t_i(Y)] = \overline{t}_i$
   - In matrix form, $\widetilde{T} p = 0$, i.e., $\mathcal{L}$ is the null space of $\widetilde{T}$
   - $\dim(\mathcal{L}) = M - 1 - K'$, where $K'$ is the rank of $\widetilde{T}$
   - Minimal representation, if $K' = K$, i.e., the rows in $\widetilde{T}$ are linearly independent
   - Closed to linear combinations
   - Pythagorean identity: for $\mathcal{P} = \mathcal{L}$
-- Exponential family $\mathcal{E}_{t}(p^{*})$: $q(y) = p^{*}(y)\exp\{x^{\top}t(y) - \alpha(x)\}$
-  - all distributions I-projected onto $\mathcal{L}_{t}(p^{*})$ at $p^{*}$ form $\mathcal{E}_{t}(p^{*})$
-  - $\mathcal{E}_{t}(p^{*})$ is called the orthogonal family to $\mathcal{L}_{t}(p^{*})$ at $p^{*}$
+- Exponential family $\mathcal{E}_{t}(p^{\star})$: $q(y) = p^{\star}(y)\exp\lbrace x^{\top}t(y) - \alpha(x)\rbrace$
+  - all distributions I-projected onto $\mathcal{L} _{t}(p^{\star})$ at $p^{\star}$ form $\mathcal{E} _{t}(p^{\star})$
+  - $\mathcal{E} _{t}(p^{\star})$ is called the orthogonal family to $\mathcal{L} _{t}(p^{\star})$ at $p^{\star}$
 - ML as reverse I-projection / divergence minimization
-  - Type / empirical distribution: $\hat{p}_{Y}(\cdot; y_{1}^{N})$
-  - Type identity: $\frac{1}{N} \sum_{i=1}^{N} f(y_n) = \mathbb{E}_{\hat{p}_{Y}(\cdot; y_{1}^{N})} [f(Y)]$
-  - $\hat{x}_{\mathrm{ML}} = \argmin_{x} D(\hat{p}_{Y}(\cdot; y_{1}^{N}) || p_{Y}(\cdot; x))$
+  - Type / empirical distribution: $\hat{p} _{Y}(\cdot; y _{1}^{N})$
+  - Type identity: $\frac{1}{N} \sum _{i=1}^{N} f(y_n) = \mathbb{E} _{\hat{p} _{Y}(\cdot; y _{1}^{N})} [f(Y)]$
+  - $\hat{x} _{\mathrm{ML}} = \arg\min _{x} D(\hat{p} _{Y}(\cdot; y _{1}^{N}) \Vert p _{Y}(\cdot; x))$
 - EM: complete data $Z$ from $p_{Z}(\cdot; x)$, observation $Y = g(Z)$
   - Nondecreasing likelihood in each iteration due to Gibbs' inequality
-  - Expectation: $U(x; \hat{x}^{(n)}) = \mathbb{E}_{p_{Z|Y}(\cdots|y; \hat{x}^{(n)})}[\log p_{Z}(z; x) | Y=y; \hat{x}^{(n)}]$
-  - Maximization: $\hat{x}^{(n+1)} = \argmax_{x} U(x; \hat{x}^{(n)})$
+  - Expectation: $U(x; \hat{x} ^{(n)}) = \mathbb{E} _{p _{Z\vert Y}(\cdot\vert y; \hat{x} ^{(n)})} [\log p _{Z}(z; x) \vert Y=y; \hat{x} ^{(n)}]$
+  - Maximization: $\hat{x}^{(n+1)} = \arg\max_{x} U(x; \hat{x}^{(n)})$
   - Advantage: the maximization can be solved analytically for Gaussian mixtures
-- Decision form of the data processing inequality (DPI): $D(p_{Z} || q_{Z}) \ge D(p_{Y} || q_{Y})$, with equality iff $p_{Z}(z) / q_{Z}(z) = p_{Y}(g(z)) / q_{Y}(g(z))$
+- Decision form of the data processing inequality (DPI): $D(p_{Z} \Vert q_{Z}) \ge D(p_{Y} \Vert q_{Y})$, with equality iff $p_{Z}(z) / q_{Z}(z) = p_{Y}(g(z)) / q_{Y}(g(z))$
 - EM as alternating projections on the probability simplex
-  - $\hat{\mathcal{P}}^{\mathcal{Z}}(y_{1}^{N}) = \left\{ \hat{p}_{Z}(\cdot) \in \mathcal{P}^{\mathcal{Z}} : \sum_{z \in  g^{-1}(b)} \hat{p}_{Z}(z) = \hat{p}_{Y}(b; y_1^N), \forall b \in y \right\}$
-  - $\hat{p}_{Z}^{*}(\cdot; x) = \argmin_{\hat{p}_{Z} \in \hat{\mathcal{P}}^{\mathcal{Z}}(y_{1}^{N})} D(\hat{p}_{Z} || p_{Z}(\cdot; x)) = p_{Z}(z; x) \hat{p}_{Y}(g(z)) / p_{Y}(g(z); x)$, due to the DPI
+  - $\hat{\mathcal{P}} ^{\mathcal{Z}}(y_{1}^{N}) = \left\lbrace \hat{p} _{Z}(\cdot) \in \mathcal{P}^{\mathcal{Z}} : \sum _{z \in  g^{-1}(b)} \hat{p} _{Z}(z) = \hat{p} _{Y}(b; y_1^N), \forall b \in y \right\rbrace$
+  - $\hat{p} _{Z} ^{\star}(\cdot; x) = \arg\min _{\hat{p} _{Z} \in \hat{\mathcal{P}} ^{\mathcal{Z}}(y _{1}^{N})} D(\hat{p} _{Z} \Vert p _{Z}(\cdot; x)) = p _{Z}(z; x) \hat{p} _{Y}(g(z)) / p _{Y}(g(z); x)$, due to the DPI
   - E-step / I-projection finds the correct empirical distribution from all candidates:
-  $\hat{p}_{Z}^{*}(\cdot; \hat{x}^{(n)}) = \argmin_{\hat{p}_{Z} \in \hat{\mathcal{P}}^{\mathcal{Z}}(y_{1}^{N})} D(\hat{p}_{Z} || p_{Z}(\cdot; \hat{x}^{(n)}))$
+  $\hat{p} _{Z}^{\star}(\cdot; \hat{x} ^{(n)}) = \arg\min _{\hat{p} _{Z} \in \hat{\mathcal{P}} ^{\mathcal{Z}}(y _{1}^{N})} D(\hat{p} _{Z} \Vert p _{Z}(\cdot; \hat{x} ^{(n)}))$
   - M-step / reverse I-projection:
-  $\hat{x}^{(n + 1)} = \argmin_{x} D(\hat{p}_{Z}^{*}(\cdot; \hat{x}^{(n)}) || p_{Z}(\cdot; x))$
+  $\hat{x} ^{(n + 1)} = \arg\min_{x} D(\hat{p} _{Z}^{\star}(\cdot; \hat{x} ^{(n)}) \Vert p _{Z}(\cdot; x))$
 
 ------
 
@@ -247,40 +247,40 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
   - Estimation: parameter
   - Modeling: distribution
 - Modeling via mixtures $q_{w}(y) = \sum_{x\in \mathcal{X}} w(x) p_{Y}(y; x)$
-  - For any admissible $q\in \mathcal{P}^{\mathcal{Y}}$, there exists $w(\cdot)$, such that $D(p_{Y}(\cdot; x) || q_{w}(y)) \le D(p_{Y}(\cdot; x) || q(\cdot))$ for all $x\in \mathcal{X}$
+  - For any admissible $q\in \mathcal{P}^{\mathcal{Y}}$, there exists $w(\cdot)$, such that $D(p_{Y}(\cdot; x) \Vert q_{w}(y)) \le D(p_{Y}(\cdot; x) \Vert q(\cdot))$ for all $x\in \mathcal{X}$
 - Redundancy-capacity theorem
-  - $\max_{x\in \mathcal{X}} D(p_{Y}(\cdot; x) || q(\cdot)) = \max_{w\in \mathcal{P}^{\mathcal{X}}} \sum_{x} w(x) D(p_{Y}(\cdot; x) || q(\cdot))$
-  - $C = R^{+} = \min_{q\in \mathcal{P}^{\mathcal{Y}}} \max_{w\in \mathcal{P}^{\mathcal{X}}} \sum_{x} w(x) D(p_{Y}(\cdot; x) || q(\cdot)) = \max_{w\in \mathcal{P}^{\mathcal{X}}} \min_{q\in \mathcal{P}^{\mathcal{Y}}} \sum_{x} w(x) D(p_{Y}(\cdot; x) || q(\cdot)) = R^{-}$
-  - The number of $x$ such that $w^{*}(x) > 0$ is at most $|\mathcal{Y}|$: the number of points on the surface of the hyperball that subsumes all $x$
-  - Equidistance property: $D(p_{Y}(\cdot; x) || q^{*}) \le C$ for all $x \in \mathcal{X}$, with equality for all $x$ such that $w^{*}(x) > 0$
+  - $\max_{x\in \mathcal{X}} D(p_{Y}(\cdot; x) \Vert q(\cdot)) = \max_{w\in \mathcal{P}^{\mathcal{X}}} \sum_{x} w(x) D(p_{Y}(\cdot; x) \Vert q(\cdot))$
+  - $C = R^{+} = \min_{q\in \mathcal{P}^{\mathcal{Y}}} \max_{w\in \mathcal{P}^{\mathcal{X}}} \sum_{x} w(x) D(p_{Y}(\cdot; x) \Vert q(\cdot)) = \max_{w\in \mathcal{P}^{\mathcal{X}}} \min_{q\in \mathcal{P}^{\mathcal{Y}}} \sum_{x} w(x) D(p_{Y}(\cdot; x) \Vert q(\cdot)) = R^{-}$
+  - The number of $x$ such that $w^{\star}(x) > 0$ is at most $\lvert \mathcal{Y}\rvert$: the number of points on the surface of the hyperball that subsumes all $x$
+  - Equidistance property: $D(p_{Y}(\cdot; x) \Vert q^{\star}) \le C$ for all $x \in \mathcal{X}$, with equality for all $x$ such that $w^{\star}(x) > 0$
 - Interpret $w = p_{X}$: $q = p_{Y}, R^{-} = \max_{p_{X}} I(X; Y)$
-  - Least informative prior for $p_{Y|X}$: $p_{X}^{*} = \argmax_{p_{X}} I(X; Y)$
-  - Model capacity of the model $p_{Y|X}$: $C = \max_{p_{X}} I(X; Y)$
-  - $0 \le C \le \log |\mathcal{X}|$
-- Inference with the optimized mixture model: $w^{*}(x | y_{-}) = \frac{w^{*}(x) L_{y_{-}}(x)}{\sum_{a} w^{*}(a) L_{y_{-}}(a)}$
+  - Least informative prior for $p_{Y\vert X}$: $p_{X}^{\star} = \arg\max_{p_{X}} I(X; Y)$
+  - Model capacity of the model $p_{Y\vert X}$: $C = \max_{p_{X}} I(X; Y)$
+  - $0 \le C \le \log \lvert \mathcal{X}\rvert$
+- Inference with the optimized mixture model: $w ^{\star}(x \vert y _{-}) = \frac{w ^{\star}(x) L _{y _{-}}(x)}{\sum _{a} w ^{\star}(a) L _{y _{-}}(a)}$
 
 ### Maximally ignorant priors
 
 - Motivation of maximally ignorant priors (MIP): detailed structure of the prior is not critical to good performance & a prior independent of $\mathcal{Y}$
 - MIP for finite alphabets
   - Maximum entropy distributions: I-projection of the uniform distribution onto the constraint family
-  - For linear constraints via linear family $\mathcal{L}_{t}(p^{*})$: $p^{*}(y) = \exp\{ \sum_{i=1}^{K} x_i t_i(y) - \alpha(x) \}$
+  - For linear constraints via linear family $\mathcal{L} _{t}(p ^{\star})$: $p ^{\star}(y) = \exp\lbrace \sum _{i=1}^{K} x_i t_i(y) - \alpha(x) \rbrace$
 - MIP for infinite alphabets
-  - For linear constraints, the form of $p^{*}$, when it exists, is the same as that in the case of finite alphabets
+  - For linear constraints, the form of $p^{\star}$, when it exists, is the same as that in the case of finite alphabets
   - $\mathbb{E}[Y^2] = \sigma^2$: MIP is $\mathrm{N}(0, \sigma^2)$
   - $p(y) = 0$ for $y < 0$, and $\mathbb{E}[Y] = \mu$: MIP is $\mathrm{Exp}(1/\mu)$
 
 ### Conjugate prior families
 
-- Conjugate prior families (CPF) $\mathcal{Q} = \{q(\cdot; \theta): \theta \in \mathbb{R}^{K}\}$: for $y\in \mathcal{Y}$, $p_{X|Y}(\cdot|y) \in \mathcal{Q}$ whenever $p_{X}(\cdot) \in \mathcal{Q}$
-  - Equivalently, $p_{X|Y_1, \cdots, Y_N} \in \mathcal{Q}$ whenever $p_{X}(\cdot) \in \mathcal{Q}$
+- Conjugate prior families (CPF) $\mathcal{Q} = \lbrace q(\cdot; \theta): \theta \in \mathbb{R}^{K}\rbrace$: for $y\in \mathcal{Y}$, $p_{X\vert Y}(\cdot\vert y) \in \mathcal{Q}$ whenever $p_{X}(\cdot) \in \mathcal{Q}$
+  - Equivalently, $p_{X\vert Y_1, \cdots, Y_N} \in \mathcal{Q}$ whenever $p_{X}(\cdot) \in \mathcal{Q}$
   - Natural CPF: a CPF that has the same form as the model
   - Convex hull of a natural CPF / mixture of natural CPF: unnatural, not an exponential family
 - Equivalent statements
   - CPF exists
-  - $\exists$ sufficient statistic $t_{N}(y_1, \cdots, y_N)$ for model $p_{Y|X}$ with finite dimension independent of $N$
-  - $p_{Y|X}$ is a exponential family with continuous natural statistics
-- For model $p_{Y|X}(y|x) = \exp\{ \lambda(x)^{\top} t(y) - \alpha(x) + \beta(y) \}$, the CPF is $\mathcal{Q} = \{q: q(x; t, N) = \exp\{ [t^{\top}\lambda(x) - N \alpha(x)] - \gamma(t, N) \}\}$
+  - $\exists$ sufficient statistic $t_{N}(y_1, \cdots, y_N)$ for model $p_{Y\vert X}$ with finite dimension independent of $N$
+  - $p_{Y\vert X}$ is an exponential family with continuous natural statistics
+- For model $p_{Y\vert X}(y\vert x) = \exp\lbrace \lambda(x)^{\top} t(y) - \alpha(x) + \beta(y) \rbrace$, the CPF is $\mathcal{Q} = \lbrace q: q(x; t, N) = \exp\lbrace [t^{\top}\lambda(x) - N \alpha(x)] - \gamma(t, N) \rbrace\rbrace$
   - $N$ is a parameter, not the number of observations
   - The CPF is natural & a linear exponential family
   - The Gaussian family is self-conjugate
@@ -289,8 +289,8 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
 - Gamma function: $\Gamma(z) := \int_{0}^{\infty} u^{z-1} e^{-u} du$ for $z > 0$.
   - $\Gamma(z + 1) = z\Gamma(z)$.
   - For natural number $z$, $\Gamma(z) = (z - 1)!$.
-- Beta function: $\Beta(\alpha, \beta) = \int_{0}^{1} x^{\alpha - 1} (1 - x)^{\beta - 1} dx = \Gamma(\alpha) \Gamma(\beta) \Gamma^{-1}(\alpha + \beta)$ for $\alpha, \beta > 0$.
-- Beta distribution: $X \sim \mathrm{Beta}(\alpha, \beta)$ for $\alpha, \beta > 0$, if $p_{X}(x) = x^{\alpha - 1} (1 - x)^{\beta - 1} \Beta^{-1}(\alpha, \beta)$.
+- Beta function: $\mathrm{B}(\alpha, \beta) = \int_{0}^{1} x^{\alpha - 1} (1 - x)^{\beta - 1} dx = \Gamma(\alpha) \Gamma(\beta) \Gamma^{-1}(\alpha + \beta)$ for $\alpha, \beta > 0$.
+- Beta distribution: $X \sim \mathrm{Beta}(\alpha, \beta)$ for $\alpha, \beta > 0$, if $p_{X}(x) = x^{\alpha - 1} (1 - x)^{\beta - 1} \mathrm{B}^{-1}(\alpha, \beta)$.
 
 ### Asymptotics of non-Bayesian modeling
 
@@ -319,8 +319,8 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
   - Advantage: viable in high dimensions, the most powerful among sampling methods
   - Idea: construct a reversible, ergodic / irreducible & aperiodic, Markov chain with stationary distribution $p$
 - Metropolis-Hastings algorithm: an MCMC method
-  - Generate $x'$ from the proposal distribution $V(\cdot|x)$
-  - Transit to $x'\neq x$ with probability $a(x\to x') = \min\{ 1, p_0(x') V(x|x') / (p_0(x) V(x'|x)) \}$
+  - Generate $x'$ from the proposal distribution $V(\cdot\vert x)$
+  - Transit to $x'\neq x$ with probability $a(x\to x') = \min\lbrace 1, p_0(x') V(x\vert x') / (p_0(x) V(x'\vert x)) \rbrace$
   - A local version of rejection sampling: a local $c_{x, x'}$
 
 ### Deterministic approximation
