@@ -1,14 +1,12 @@
 ---
 layout: post
-title:  "Set up MacBook for a 2K Monitor"
+title:  "Enable HiDPI on a MacBook for a 2K Monitor"
 date:   2020-09-11 19:50:00 -0500
 author: Siberian Tiger
 categories: technical
 ---
 
-## Enable HiDPI on macOS for a 2K monitor
-
-### Preparations
+## Preparations
 
 The order does not matter in the following preparation steps.
 
@@ -29,7 +27,7 @@ The order does not matter in the following preparation steps.
 4. On https://comsysto.github.io/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions/, change `DisplayProductName`, `DisplayProductID` and `DisplayVendorID` to your monitor's and save the content of the PropertyList file to the blank file you just created. If your monitor is 2K, the default `Scale Resolutions` can be left changed.
 
 
-### Main steps
+## Main steps
 
 **Main step 1:** Disable SIP (System Integrity Protection) (reboot required). Steps:
 1. Reboot your macOS and press `Command` + `R` to enter the recovery mode.
