@@ -14,7 +14,7 @@ Jekyll是Ruby的一个Gem。Ruby是一种编程语言，而Gem是Ruby库的意�
 gem install jekyll bundler
 jekyll new myblog
 cd myblog
-bundler exec jekyll serve
+bundle exec jekyll serve
 ```
 其中`jekyll new myblog`一步可能用时较久，耐心等待即可。
 

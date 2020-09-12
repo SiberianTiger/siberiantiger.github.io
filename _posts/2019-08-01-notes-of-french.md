@@ -9,7 +9,7 @@ categories: academic
 
 ## Grammaire
 
-### Le passé récent et le futur proche
+### Le passé récent et le futur *proche*
 
 #### Le passé récent
 
@@ -419,7 +419,7 @@ pas*.
 | un animal | (an animal) |
 | une écureuil | (a squirrel) | Il y a plein d'écureuils dans les parcs. |
 | une image | (a picture) |
-| il faire beau | (it is sunny) | Il faire très beau et très froid. |
+| il fait beau | (it is sunny) | Il fait très beau et très froid. |
 | un bonhomme de neige | (a snowman) |
 | le jardin | (garden) | dans le jardin |
 | rire | (laugh) | Ils rient. |

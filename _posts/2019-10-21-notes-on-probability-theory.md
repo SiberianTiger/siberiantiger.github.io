@@ -37,6 +37,13 @@ categories: math
     - [Measurable functions](#measurable-functions)
   - [Cumulative distribution functions](#cumulative-distribution-functions)
   - [Independence of random variables](#independence-of-random-variables)
+  - [Discrete random variables and their expectations](#discrete-random-variables-and-their-expectations)
+    - [Properties of expectation](#properties-of-expectation)
+    - [Comments on expectation](#comments-on-expectation)
+  - [Continuous random variables and their expectations](#continuous-random-variables-and-their-expectations)
+    - [Properties of expectation](#properties-of-expectation-1)
+  - [Covariance and correlation coefficient](#covariance-and-correlation-coefficient)
+  - [Conditional expectation](#conditional-expectation)
   - [Lebesgue integral and expectation of a general random variable](#lebesgue-integral-and-expectation-of-a-general-random-variable)
   - [Monotone convergence theorem](#monotone-convergence-theorem)
     - [Application of MCT: Approximating $g$ from below using special simple functions](#application-of-mct-approximating-math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmigmimrowannotation-encodingapplicationx-texgannotationsemanticsmathg-from-below-using-special-simple-functions)
@@ -50,25 +57,13 @@ categories: math
     - [$\sigma$-finite measures](#math-xmlnshttpwwww3org1998mathmathmlsemanticsmrowmiσmimrowannotation-encodingapplicationx-texsigmaannotationsemanticsmathσ-finite-measures)
     - [Non-negativity](#non-negativity)
 - [Special random variables](#special-random-variables)
-  - [Continuous random variables](#continuous-random-variables)
-  - [Review of infinite integrals](#review-of-infinite-integrals)
-  - [Discrete random variables](#discrete-random-variables)
-  - [Expectation and its properties](#expectation-and-its-properties)
-  - [Expectation and its properties](#expectation-and-its-properties-1)
-    - [Properties of expectation](#properties-of-expectation)
-    - [Comments on expectation](#comments-on-expectation)
-    - [Expectation of some discrete distributions](#expectation-of-some-discrete-distributions)
-  - [Covariance and correlation coefficient](#covariance-and-correlation-coefficient)
+  - [Expectations of some discrete distributions](#expectations-of-some-discrete-distributions)
   - [Indicator random variables](#indicator-random-variables)
   - [Memoryless distributions](#memoryless-distributions)
   - [Gaussian distributions](#gaussian-distributions)
     - [Tails](#tails)
-  - [Expectations of a continuous random variable](#expectations-of-a-continuous-random-variable)
-    - [Properties of expectations](#properties-of-expectations)
-  - [Joint density and jointly continuous random variables](#joint-density-and-jointly-continuous-random-variables)
-  - [Conditional probability density functions](#conditional-probability-density-functions)
+  - [Subgaussian and subexponential distributions](#subgaussian-and-subexponential-distributions)
   - [Bivariate normal random variables](#bivariate-normal-random-variables)
-  - [Conditional expectation](#conditional-expectation)
   - [Derived distributions](#derived-distributions)
   - [Bivariate normal in polar coordinates](#bivariate-normal-in-polar-coordinates)
   - [Sum of two independent random variables](#sum-of-two-independent-random-variables)
@@ -113,7 +108,8 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
 
 > Updates  
 > May 2, 2020: structured the notes.  
-> July 9, 2020: rewrote the Chernoff bounds.
+> July 9, 2020: rewrote the Chernoff bounds.  
+> July 24, 2020: adjusted note structure; added subgaussian and subexponential distributions.  
 
 ## Prologue
 
@@ -377,6 +373,160 @@ $$
 \mathbb{P}(X_1\le x_1, \cdots, X_m\le x_m) = \prod_{j=1}^m \mathbb{P}(X_j \le x_j) = \prod_{j=1}^{m} F_{X_j}(x_j).
 $$
 
+### Discrete random variables and their expectations
+
+*Definition.* $x_1, x_2, \cdots, x_m, \cdots$. $\mathbb{P}(X = x_m) = p_m$. 
+$p_X(x) = \mathbb{P}(X = x)$ is the probability mass function (PMF).
+
+*Definition.* (Joint PMF)  
+Given $X_1, \cdots, X_m: \Omega \mapsto \mathbb{R}$ are discrete random variables, their joint PMF 
+$$
+p_{X_1, \cdots, X_m}(x_1, \cdots, x_m) = \mathbb{P}(X_1 = x_1, \cdots, X_m = x_m).
+$$
+
+*Definition.* (Independence of discrete r.v.)  
+$X \perp Y$ iff $\forall x, y$, $\mathbb{P} _{X, Y}(x, y) = p _{X}(x) p_Y(y)$.
+
+*Power law.* Fix $\alpha > 0$. $p_{X}(k) = 1/k^{\alpha} - 1/(k+1)^{\alpha}, \forall k \in \mathbb{N}$.
+$$
+\mathbb{E}[X] = \sum_{n=1}^{+\infty} \mathbb{P}(X\ge n) = \sum_{n=1}^{+\infty} \frac{1}{n^\alpha} = \zeta(\alpha),
+$$
+which is the Riemann zeta function. $\zeta(\alpha) < +\infty$ iff $\alpha > 1$.
+
+*Fact.* 
+$\mathbb{E}[X] = \sum_{n\ge 0}\mathbb{P}[X\ge n] = \sum_{n\ge 1} \mathbb{P}[X\ge n]$.
+
+*Theorem.* 
+$\mathbb{E}[g(X)] = \sum_{x: p_X(x) \ge 0} g(X) p_{X}(x)$.
+
+*Definitions.*
+1. $\mathbb{E}[X^k]$: $k$th moment.
+2. $\mathbb{E}[(X - \mathbb{E}[X])^k]$: $k$th central moment.
+3. Variance is second central moment.
+4. Standard deviation is $\sqrt{\operatorname{VAR}(X)}$.
+
+$X \ge 0$ a.s. $\iff$ $\mathbb{P}(\lbrace \omega: X(\omega)\ge 0\rbrace) = 1$.
+
+#### Properties of expectation
+
+1. If $X\ge 0$ a.s., then $\mathbb{E}[X] \ge 0$.
+2. If $X = c$ a.s., then $\mathbb{E}[X] = c$.
+3. Linearity of expectation.  
+   The proof.
+4. If $\mathbb{E}[X] < \infty$, then $\operatorname{VAR}[X] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2$.
+5. $\operatorname{VAR}[aX] = a^2 \operatorname{VAR}[X], \forall a\in \mathbb{R}$.
+6. If $X, Y$ are independent, then
+   - $\mathbb{E}[XY] = \mathbb{E}[X] \mathbb{E}[Y]$;
+   - $\operatorname{VAR}[X+Y] = \operatorname{VAR}[X] + \operatorname{VAR}[Y]$.  
+     The proof.  
+     If $X, Y$ are independent, then $\mathbb{E}[g(X)\cdot h(Y)] = \mathbb{E}[g(X)]\cdot \mathbb{E}[h(Y)]$.
+
+#### Comments on expectation
+
+1. $\mathbb{E}[X]$ is well defined if $\sum_{x > 0} x p_X(x)$ and $\sum_{x < 0} x p_X(x)$ are not both infinite.  
+   Moreover, $\mathbb{E}[X] < \infty$ if both sums above are finite.
+2. $\mathbb{E}[\lvert X\rvert] = \mathbb{E}[X^{+}] + \mathbb{E}[X^{-}]$. If $\mathbb{E}[\lvert X\rvert] < \infty$, then $X$ is **integrable**. 
+3. $\mathbb{E}[X^2]$ is always well defined. If $\mathbb{E}[X^2] < \infty$, then $X$ is **square integrable**.  
+   If a r.v. is square integrable, then it is necessarily integrable, because $|X|^2 + 1 \ge 2|X| \ge |X|$.
+4. Let $r > 0$. If $\mathbb{E}[\lvert X\rvert^r] < \infty$, then $\mathbb{E}[\lvert X\rvert^k] < \infty$ for every $0 < k \le r$.
+5. $\operatorname{VAR}[X]$ is
+   - $< \infty$, if $X$ is square integrable;
+   - $= \infty$, if $X$ is integrable but not square integrable;
+   - undefined, if $X$ is not integrable.
+
+### Continuous random variables and their expectations
+
+*Definition.* A random variable $X$ is continuous if $\exists f: \mathbb{R}\mapsto \mathbb{R} _{+}$, such that $F_X(x) = \int _{-\infty}^{x} f(t) dt$ (Riemann integral).
+$f$ is the probability density function (PDF).
+
+*Comment.*  
+- If $f$ is continuous at $x_0$, then $\dot{F}_X(x_0) = f(x_0)$.
+- If $f$ is a PDF, $E = \lbrace t: f(t) < 0\rbrace$, $\mu(E) = 0$ (Lebesgue measure).
+- $X$ continuous $\nRightarrow$ $f$ continuous.
+- Generalization of continuous random variables w.r.t. Lebesgue integral.  
+$\mathbb{P}(X\le x) = \int_{(-\infty, x)} f d\mu$.
+
+*Infinite integrals.*  
+$f^{+}$, $f^{-}$.  
+$\int_{-\infty}^{+\infty} f(t) dt = \int_{-\infty}^{+\infty} f^{+}(t) dt - \int_{-\infty}^{+\infty} f^{-}(t) dt$ in all cases except $\int_{-\infty}^{+\infty} f^{+}(t) dt = \int_{-\infty}^{+\infty} f^{-}(t) dt = +\infty$.
+
+*Definition.* (Expectation)
+
+*Definition of jointly continuous.*
+$\exists f_{X, Y}: \mathbb{R}^2 \mapsto \mathbb{R}$
+
+- $X, Y$ can be both continuous, but not jointly continuous.  
+  *Example.* $X \stackrel{d}{=} U[0, 1]$, $Y = X$.
+- $X, Y$ are jointly continuous $\Rightarrow$ $X, Y$ are continuous.  
+  $f_X(x) =$  
+  $f_Y(y) =$
+
+$X, Y$ are jointly continuous. $X\perp Y$ iff $f_{X, Y} = f_X(x)\cdot f_Y(y)$.
+
+#### Properties of expectation
+
+Linearity.
+
+*Proposition.*
+Suppose $X\ge 0$ is a continuous random variable, i.e. $\mathbb{P}(X\ge 0) = 1$, i.e. $\lbrace \omega: X(\omega)\ge 0\rbrace$ a.s. Let $f_X$ be its PDF. Then $\mathbb{E}[X] = \int_{0}^{\infty} \mathbb{P}(X > t) dt$.
+
+$\mathbb{E}[g(X) = \int_{-\infty}^{+\infty} g(t) f_X(t) dt$.
+
+### Covariance and correlation coefficient
+
+$\operatorname{Cov}(X, Y) = \mathbb{E}[\widetilde{X} \widetilde{Y}]$, where $\widetilde{X} = X - \mathbb{E}[X]$ and $\widetilde{Y} = Y - \mathbb{E}[Y]$.
+
+It turns out that $X, Y$ are both square integrable, then the Cov is well-defined, since $\lvert \widetilde{X}\widetilde{Y}\rvert \le (\widetilde{X}^2 + \widetilde{Y}^2) / 2$.
+
+*Properties.*
+1. $\operatorname{Cov}(X, X) = \operatorname{Var}(X)$.
+2. Translation invariant.
+3. Commutative.
+4. Bilinear.
+
+$\operatorname{Cov}(X, Y) = \mathbb{E}[XY] - \mathbb{E}[X]\cdot \mathbb{E}[Y]$.
+
+If $X \perp Y$, then $\operatorname{Cov}(X, Y) = 0$. The opposite direction is not true.  
+An example.
+
+Correlation coefficient 
+$$
+p(X, Y) = \frac{\operatorname{Cov}(X, Y)}{\sqrt{\operatorname{VAR}(X)\operatorname{VAR}(Y)}}.
+$$
+
+1. $-1 \le p(X, Y) \le 1$
+2. $p = 1$ if $Y - \mathbb{E}[Y] = a (X - \mathbb{E}[X])$ for some $a > 0$. $p = -1$ if ...
+
+This first property is proved by the Cauchy-Schwarz inequality $(\mathbb{E}[XY])^2 \le \mathbb{E}[X^2]\cdot \mathbb{E}[Y^2]$.  
+Proof using $\mathbb{E}[(X-tY)^2] \ge 0$.
+
+### Conditional expectation
+
+*Definition.* (Conditional CDF, PMF, PDF)  
+- Conditional CDF $F_{X\mid Y}(x\mid y)$.  
+- Conditional PDF $f_{X\mid Y}(x\mid y) = \frac{f_{X, Y}(x, y)}{f_Y(y)}$.
+
+*Fact.*
+$\forall y$, $G(x) = F_{X\mid Y}(x\mid y)$ is a CDF (4 properties).
+
+Discrete $X$ takes $0, 1, \cdots$.
+$\mathbb{E}[X\mid Y = y] = \sum_{x = 0}^{\infty} x p_{X\mid Y}(x, y)$.
+
+$\mathbb{E}[X\mid Y]$ is a random variable, 
+- (discrete) which takes value $\mathbb{E}[X\mid Y = y]$ with probability $\mathbb{P}(Y = y)$.
+- (continuous) which takes value $\mathbb{E}[X\mid Y = y]$ with density $f_{Y}(y)$.
+
+*Tower property of conditional probability.*
+$\mathbb{E}[\mathbb{E}[X\mid Y] g(Y)] = \mathbb{E}[X g(Y)]$.
+
+*Theorem.*
+$\mathbb{E}[X^2] < +\infty$. For every (measurable) $g: \mathbb{R} \rightarrow \mathbb{R}$, 
+$$
+\mathbb{E}[(X - \mathbb{E}[X\mid Y])^2] \le \mathbb{E}[(X - g(Y))^2].
+$$
+
+This theorem means that $\mathbb{E}[X\mid Y]$ is the one that minimizes the difference between $X$ and $g(Y)$. In other words, $\mathbb{E}[X\mid Y]$ is best guess of $X$ given $Y$.
+
 ### Lebesgue integral and expectation of a general random variable
 
 Our goal is to unite the definition of expectation of discrete and continuous r.v. That is to define $\mathbb{E}[X]$ for any r.v. $X: \Omega \mapsto \mathbb{R}$.
@@ -510,123 +660,13 @@ Counting measure on $\mathbb{R}$: $\mu(A) = \lvert A\rvert$ when $\lvert A\rvert
 
 ## Special random variables
 
-### Continuous random variables
-
-*Definition.* A random variable $X$ is continuous if $\exists f: \mathbb{R}\mapsto \mathbb{R} _{+}$, such that $F_X(x) = \int _{-\infty}^{x} f(t) dt$ (Riemann integral).
-$f$ is the probability density function (PDF).
-
-If $f$ is continuous at $x_0$, then $\dot{F}_X(x_0) = f(x_0)$.
-
-### Review of infinite integrals
-
-$f^{+}$, $f^{-}$.
-
-$\int_{-\infty}^{+\infty} f(t) dt = \int_{-\infty}^{+\infty} f^{+}(t) dt - \int_{-\infty}^{+\infty} f^{-}(t) dt$ in all cases except $\int_{-\infty}^{+\infty} f^{+}(t) dt = \int_{-\infty}^{+\infty} f^{-}(t) dt = +\infty$.
-
-### Discrete random variables
-
-*Definition.* $x_1, x_2, \cdots, x_m, \cdots$. $\mathbb{P}(X = x_m) = p_m$. 
-$p_X(x) = \mathbb{P}(X = x)$ is the probability mass function (PMF).
-
-*Definition.* (Joint PMF)  
-Given $X_1, \cdots, X_m: \Omega \mapsto \mathbb{R}$ are discrete random variables, their joint PMF 
-$$
-p_{X_1, \cdots, X_m}(x_1, \cdots, x_m) = \mathbb{P}(X_1 = x_1, \cdots, X_m = x_m).
-$$
-
-*Definition.* (Independence of discrete r.v.)  
-$X \perp Y$ iff $\forall x, y$, $\mathbb{P} _{X, Y}(x, y) = p _{X}(x) p_Y(y)$.
-
-### Expectation and its properties
-
-*Definition.* Discrete random variable $X$
-
-*Power law.* Fix $\alpha > 0$. $p_{X}(k) = 1/k^{\alpha} - 1/(k+1)^{\alpha}, \forall k \in \mathbb{N}$.
-$$
-\mathbb{E}[X] = \sum_{n=1}^{+\infty} \mathbb{P}(X\ge n) = \sum_{n=1}^{+\infty} \frac{1}{n^\alpha} = \zeta(\alpha),
-$$
-which is the Riemann zeta function. $\zeta(\alpha) < +\infty$ iff $\alpha > 1$.
-
-### Expectation and its properties
-
-Discrete r.v. $X$. 
-
-*Fact.* 
-$\mathbb{E}[X] = \sum_{n\ge 0}[X\ge n] = \sum_{n\ge 1}[X\ge n]$.
-
-*Theorem.* 
-$\mathbb{E}[g(X)] = \sum_{x: p_X(x) \ge 0} g(X) p_{X}(x)$.
-
-*Definitions.*
-1. $\mathbb{E}[X^k]$: $k$th moment.
-2. $\mathbb{E}[(X - \mathbb{E}[X])^k]$: $k$th central moment.
-3. Variance is second central moment.
-4. Standard deviation is $\sqrt{\operatorname{VAR}(X)}$.
-
-$X \ge 0$ a.s. $\iff$ $\mathbb{P}(\lbrace \omega: X(\omega)\ge 0\rbrace) = 1$.
-
-#### Properties of expectation
-
-1. If $X\ge 0$ a.s., then $\mathbb{E}[X] \ge 0$.
-2. If $X = c$ a.s., then $\mathbb{E}[X] = c$.
-3. Linearity of expectation.  
-   The proof.
-4. If $\mathbb{E}[X] < \infty$, then $\operatorname{VAR}[X] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2$.
-5. $\operatorname{VAR}[aX] = a^2 \operatorname{VAR}[X], \forall a\in \mathbb{R}$.
-6. If $X, Y$ are independent, then
-   - $\mathbb{E}[XY] = \mathbb{E}[X] \mathbb{E}[Y]$;
-   - $\operatorname{VAR}[X+Y] = \operatorname{VAR}[X] + \operatorname{VAR}[Y]$.  
-     The proof.  
-     If $X, Y$ are independentm, then $\mathbb{E}[g(X)\cdot h(Y)] = \mathbb{E}[g(X)]\cdot \mathbb{E}[h(Y)]$.
-
-#### Comments on expectation
-
-1. $\mathbb{E}[X]$ is well defined if $\sum_{x > 0} x p_X(x)$ and $\sum_{x < 0} x p_X(x)$ are not both infinite.  
-   Moreover, $\mathbb{E}[X] < \infty$ if both sums above are finite.
-2. $\mathbb{E}[\lvert X\rvert] = \mathbb{E}[X^{+}] + \mathbb{E}[X^{-}]$. If $\mathbb{E}[\lvert X\rvert] < \infty$, then $X$ is **integrable**. 
-3. $\mathbb{E}[X^2]$ is always well defined. If $\mathbb{E}[X^2] < \infty$, then $X$ is **square integrable**.  
-   If a r.v. is square integrable, then it is necessarily integrable, because $|X|^2 + 1 \ge 2|X| \ge |X|$.
-4. Let $r > 0$. If $\mathbb{E}[\lvert X\rvert^r] < \infty$, then $\mathbb{E}[\lvert X\rvert^k] < \infty$ for every $0 < k \le r$.
-5. $\operatorname{VAR}[X]$ is
-   - $< \infty$, if $X$ is square integrable;
-   - $= \infty$, if $X$ is integrable but not square integrable;
-   - undefined, if $X$ is not integrable.
-
-#### Expectation of some discrete distributions
+### Expectations of some discrete distributions
 
 Expected value of Geometry distribution: $\mathbb{E}[X] = 1/p$.
 
 Expected value of Poisson distribution: $\mathbb{E}[X] = \lambda$ (rate).
 
 Binomial distribution becomes Poisson distribution when $n\rightarrow \infty$ and $p = \lambda / n \rightarrow 0$.
-
-### Covariance and correlation coefficient
-
-$\operatorname{Cov}(X, Y) = \mathbb{E}[\widetilde{X} \widetilde{Y}]$, where $\widetilde{X} = X - \mathbb{E}[X]$ and $\widetilde{Y} = Y - \mathbb{E}[Y]$.
-
-It turns out that $X, Y$ are both square integrable, then the Cov is well-defined, since $\lvert \widetilde{X}\widetilde{Y}\rvert \le (\widetilde{X}^2 + \widetilde{Y}^2) / 2$.
-
-*Properties.*
-1. $\operatorname{Cov}(X, X) = \operatorname{Var}(X)$.
-2. Translation invariant.
-3. Commutative.
-4. Bilinear.
-
-$\operatorname{Cov}(X, Y) = \mathbb{E}[XY] - \mathbb{E}[X]\cdot \mathbb{E}[Y]$.
-
-If $X \perp Y$, then $\operatorname{Cov}(X, Y) = 0$. The opposite direction is not true.  
-An example.
-
-Correlation coefficient 
-$$
-p(X, Y) = \frac{\operatorname{Cov}(X, Y)}{\sqrt{\operatorname{VAR}(X)\operatorname{VAR}(Y)}}.
-$$
-
-1. $-1 \le p(X, Y) \le 1$
-2. $p = 1$ if $Y - \mathbb{E}[Y] = a (X - \mathbb{E}[X])$ for some $a > 0$. $p = -1$ if ...
-
-This first property is proved by the Cauchy-Schwarz inequality $(\mathbb{E}[XY])^2 \le \mathbb{E}[X^2]\cdot \mathbb{E}[Y^2]$.  
-Proof using $\mathbb{E}[(X-tY)^2] \ge 0$.
 
 ### Indicator random variables
 
@@ -640,15 +680,8 @@ Indicator r.v. can be used to prove $\mathbb{P}(A\cup B) = \mathbb{P}[A] + \math
 
 ### Memoryless distributions
 
-Review: Continuous random variables
-
-*Definition.*
-
-*Comment.*  
-- If $f$ is a PDF, $E = \lbrace t: f(t) < 0\rbrace$, $\mu(E) = 0$ (Lebesgue measure).
-- $X$ continuous $\nRightarrow$ $f$ continuous.
-
-Exponential distributions are the **only** memoryless distributions.
+Geometric distributions are the **only** memoryless discrete distributions.
+Exponential distributions are the **only** memoryless continuous distributions.
 
 *Definition.*
 Fix $\lambda > 0$, $F_X(t) = 1 - e^{-\lambda t}, t\ge 0$, $F_X(t) = 0, t < 0$.
@@ -674,43 +707,38 @@ Tail: $\mathbb{P}(X \ge t)$. It is the rate of decay as $t\rightarrow \infty$.
   Sub-gaussian.
 - Power law distribution (heavy tail): Fix $\alpha > 0$, $c > 0$, $\mathbb{P}(X\ge t) = \frac{c^{\alpha}}{t^{\alpha}}$.
 
-### Expectations of a continuous random variable
+### Subgaussian and subexponential distributions
 
-*Definition.*
+*Five equivalent characterizations of subgaussian and subexponential properties.*
+1. Tail.
+2. Growth of $L_p$ norm in $p$.
+3. MGF of $X^2$ (subgaussian) and $|X|$ (subexponential).
+4. MGF of $X^2$ (subgaussian) and $|X|$ (subexponential) is bounded at some point.
+5. For zero-mean $X$, MGF of $X$ for all $\lambda\in \mathbb{R}$ (subgaussian) and for $\lambda$ in a neighborhood of zero (subexponential).
 
-#### Properties of expectations
+*Examples of subgaussian distributions.*
+- Gaussian.
+- Bernoulli.
+- Bounded.
 
-Linearity.
+*Examples of subexponential distributions.*
+- All subgaussian random variables and their squares.
+- Exponential.
+- Possion.
 
-*Proposition.*
-Suppose $X\ge 0$ is a continuous random variable, i.e. $\mathbb{P}(X\ge 0) = 1$, i.e. $\lbrace \omega: X(\omega)\ge 0\rbrace$ a.s. Let $f_X$ be its PDF. Then $\mathbb{E}[X] = \int_{0}^{\infty} \mathbb{P}(X > t) dt$.
+Subexponential is subgaussian squared.
 
-$\mathbb{E}[g(X) = \int_{-\infty}^{+\infty} g(t) f_X(t) dt$.
+Centering ($X - \mathbb{E}X$) does not harm the subgaussian (subexponential) property.
 
-### Joint density and jointly continuous random variables
+The subgaussian norm $\psi_2$ and subexponential norm $\psi_1$ are special cases of Orlicz norms.  
+The Orlicz space $L_{\psi}(\Omega, \Sigma, \mathbb{P})$ consists of all random variables on $(\Omega, \Sigma, \mathbb{P})$ with finite Orlicz norm.  
+$L_{\psi}$ is a Banach space, i.e., a complete normed linear space.  
+As a result, the sum of subgaussian (subexponential) random variables is still subgaussian (subexponentail).
 
-*Definition of jointly continuous.*
-$\exists f_{X, Y}: \mathbb{R}^2 \mapsto \mathbb{R}$
+The hierarchy of linear spaces: $L_{\infty} \subset L_{\psi_2} \subset L_{\psi_1} \subset L_{p}$ for all $p\in [1, \infty)$.
 
-- $X, Y$ can be both continuous, but not jointly continuous.  
-  *Example.* $X \stackrel{d}{=} U[0, 1]$, $Y = X$.
-- $X, Y$ are jointly continuous $\Rightarrow$ $X, Y$ are continuous.  
-  $f_X(x) = $  
-  $f_Y(y) = $
-
-$X, Y$ are jointly continuous. $X\perp Y$ iff $f_{X, Y} = f_X(x)\cdot f_Y(y)$.
-
-Generalization of continuous random variables w.r.t. Lebesgue integral.  
-$\mathbb{P}(X\le x) = \int_{(-\infty, x)} f d\mu$.
-
-### Conditional probability density functions
-
-*Definition.*  
-- Conditional CDF $F_{X\mid Y}(x\mid y)$.  
-- Conditional PDF $f_{X\mid Y}(x\mid y) = \frac{f_{X, Y}(x, y)}{f_Y(y)}$.
-
-*Fact.*
-$\forall y$, $G(x) = F_{X\mid Y}(x\mid y)$ is a CDF (4 properties).
+Hoeffding's inequality: tail bound on the sum of subgaussian random variables.  
+Bernstein's inequality: tail bound on the sum of subexponential random variables.
 
 ### Bivariate normal random variables
 
@@ -739,26 +767,6 @@ Bivariate random variables $X$ and $Y$ are independent iff $\rho = 0$.
 *Example.*
 - $X, Y$ are both normal but not jointly normal.
 - $\rho(X, Y) = 0$ yet $X \not\perp Y$.
-
-### Conditional expectation
-
-Discrete $X$ takes $0, 1, \cdots$.
-$\mathbb{E}[X\mid Y = y] = \sum_{x = 0}^{\infty} x p_{X\mid Y}(x, y)$.
-
-$\mathbb{E}[X\mid Y]$ is a random variable, 
-- (discrete) which takes value $\mathbb{E}[X\mid Y = y]$ with probability $\mathbb{P}(Y = y)$.
-- (continuous) which takes value $\mathbb{E}[X\mid Y = y]$ with density $f_{Y}(y)$.
-
-*Tower property of conditional probability.*
-$\mathbb{E}[\mathbb{E}[X\mid Y] g(Y)] = \mathbb{E}[X g(Y)]$.
-
-*Theorem.*
-$\mathbb{E}[X^2] < +\infty$. For every (measurable) $g: \mathbb{R} \rightarrow \mathbb{R}$, 
-$$
-\mathbb{E}[(X - \mathbb{E}[X\mid Y])^2] \le \mathbb{E}[(X - g(Y))^2].
-$$
-
-This theorem means that $\mathbb{E}[X\mid Y]$ is the one that minimizes the difference between $X$ and $g(Y)$. In other words, $\mathbb{E}[X\mid Y]$ is best guess of $X$ given $Y$.
 
 ### Derived distributions
 

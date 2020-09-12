@@ -70,7 +70,7 @@ I refine it aperiodically for the purpose of summarizing and promoting my unders
 - Natural EF: $\lambda(x) = x, t(y)=y$, called canonical in MIT 6.437
   - Tilting a distribution
 - Properties of 1D canonical EF
-  - $\dot{\alpha}(x) = \eta(x) := \mathbb{E}_{p_{Y}(\cdot; x)}[t(Y)]$: mean parameter
+  - $\dot{\alpha}(x) = \eta(x) := \mathbb{E} _{p _{Y}(\cdot; x)}[t(Y)]$: mean parameter
   - $\ddot{\alpha}(x) = \dot{\eta}(x) = J_{Y}(x)$: Fisher information
   - $D(p_{Y}(\cdot; x) \Vert q(\cdot)) + \alpha(x) = x\eta(x)$
   - $d D(p_{Y}(\cdot; x) \Vert q(\cdot)) / d\eta = x$
