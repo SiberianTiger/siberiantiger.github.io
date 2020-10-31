@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Enable HiDPI on a MacBook for a 2K Monitor"
+title:  "How to Enable HiDPI on a MacBook for a 2K Monitor"
 date:   2020-09-11 19:50:00 -0500
 author: Siberian Tiger
 categories: technical
@@ -68,7 +68,7 @@ Consequently, I considered switching to a QHD (2K) or UHD (4K) monitor. I suppos
 With these constraints, I decided to buy a 27-inch 2K monitor, both keeping the height and having higher DPI at 109.
 Eventually, I got a *Dell U2717D* ($331 post-tax) in mid-March.
 
-The monitor itself was great. However, I immediately noticed another problem that the font size on the screen was too small. In `System Preferences -> Displays`, macOS does offer a variety of scaling choices. However, the scaling is done by adjusting the resolution and thus makes the display much blurer. As a result, I by no means wanted to enlarge my fonts that way. 
+The monitor itself was great. However, I immediately noticed another problem that the font size on the screen was too small. In `System Preferences -> Displays`, macOS does offer a variety of scaling choices. However, the scaling is done by adjusting the resolution and thus makes the display much more blurry. As a result, I by no means wanted to enlarge my fonts that way. 
 
 Since I mainly used VS Code, web browsers and Slack on my MacBook, I could alleviate the problem by customizing my font size on these applications. I resolved the blurry PDF display in Preview by switching to Adobe Acrobat Reader.
 

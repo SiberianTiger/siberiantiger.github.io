@@ -27,7 +27,7 @@ To prepare the readers for our argument, we invite the readers to recall the fol
 
 - Fact 1: The Smith–Volterra–Cantor set (SVC set) is a closed set on the real line, which has a positive meansure of $1/2$, and yet contains no open intervals.
 - Fact 2: The indicator functions of a measurable set is measurable.
-- Fact 3: A function $\mathbb{R}\mapsto \mathbb{R}$ is a PDF, if it is non-negative almost everywhere and its Lebesgue integral on the real set is $1$.
+- Fact 3: A function $\mathbb{R}\to \mathbb{R}$ is a PDF, if it is non-negative almost everywhere and its Lebesgue integral on the real set is $1$.
 - Fact 4: Lebesgue measurable functions are closed under multiplication.
 - Fact 5: Let $f$ be a bounded measurable function on a set of finite measure. Then, $f$ is Lebesgue integrable over the set.
 - Fact 6: Lebesgue integrable functions are closed under addition. In fact, Lebesgue integrable functions form a linear space.

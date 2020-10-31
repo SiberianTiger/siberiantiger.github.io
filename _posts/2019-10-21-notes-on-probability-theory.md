@@ -227,7 +227,7 @@ Given $(\Omega, \mathcal{F})$, and $\mathbb{P}$ that satisfies finite additivity
 ### Caratheodory's extension theorem and the extension to a probability space
 
 *Caratheodory's extension theorem.* 
-Given $\Omega$. Suppose $\mathcal{F}_0$ is a field. Suppose $\mathbb{P}_0: \mathcal{F}_0 \mapsto [0, 1]$ such that $\mathbb{P}_0(\Omega) = 1$ and $\mathbb{P}_0$ is countably additive. Then there is a unique extenion of $\mathbb{P}_0$ to $(\Omega, \sigma(\mathcal{F}_0), \mathbb{P})$, such that $\forall A\in \mathcal{F}_0$, $\mathbb{P}(A) = \mathbb{P}_0(A)$.
+Given $\Omega$. Suppose $\mathcal{F}_0$ is a field. Suppose $\mathbb{P}_0: \mathcal{F}_0 \to [0, 1]$ such that $\mathbb{P}_0(\Omega) = 1$ and $\mathbb{P}_0$ is countably additive. Then there is a unique extenion of $\mathbb{P}_0$ to $(\Omega, \sigma(\mathcal{F}_0), \mathbb{P})$, such that $\forall A\in \mathcal{F}_0$, $\mathbb{P}(A) = \mathbb{P}_0(A)$.
 
 #### Uniform measure on $[0, 1]$
 
@@ -359,7 +359,7 @@ Proof of right continuity: $x_n \downarrow x$, $x_n$ decreasing and $\lim_{n\rig
 CDF uniquely defines the "distribution" of a r.v.
 Given $X, Y$ such that $F_X(t) = F_Y(t), \forall t \in \mathbb{R}$. Then $\forall B \subset \mathbb{R}, B \in \mathcal{B}$, $\mathbb{P}(X\in B) = \mathbb{P}(Y\in B)$.
 
-*Theorem.* For every function $F: \mathbb{R} \mapsto [0, 1]$ which satisfies the three properties of a CDF, $\exists (\Omega, \mathcal{F}, \mathbb{P})$ (not unique) and $X: \Omega \mapsto \mathbb{R}$, such that $F_X = F$.
+*Theorem.* For every function $F: \mathbb{R} \to [0, 1]$ which satisfies the three properties of a CDF, $\exists (\Omega, \mathcal{F}, \mathbb{P})$ (not unique) and $X: \Omega \to \mathbb{R}$, such that $F_X = F$.
 
 ### Independence of random variables
 
@@ -379,7 +379,7 @@ $$
 $p_X(x) = \mathbb{P}(X = x)$ is the probability mass function (PMF).
 
 *Definition.* (Joint PMF)  
-Given $X_1, \cdots, X_m: \Omega \mapsto \mathbb{R}$ are discrete random variables, their joint PMF 
+Given $X_1, \cdots, X_m: \Omega \to \mathbb{R}$ are discrete random variables, their joint PMF 
 $$
 p_{X_1, \cdots, X_m}(x_1, \cdots, x_m) = \mathbb{P}(X_1 = x_1, \cdots, X_m = x_m).
 $$
@@ -436,7 +436,7 @@ $X \ge 0$ a.s. $\iff$ $\mathbb{P}(\lbrace \omega: X(\omega)\ge 0\rbrace) = 1$.
 
 ### Continuous random variables and their expectations
 
-*Definition.* A random variable $X$ is continuous if $\exists f: \mathbb{R}\mapsto \mathbb{R} _{+}$, such that $F_X(x) = \int _{-\infty}^{x} f(t) dt$ (Riemann integral).
+*Definition.* A random variable $X$ is continuous if $\exists f: \mathbb{R}\to \mathbb{R} _{+}$, such that $F_X(x) = \int _{-\infty}^{x} f(t) dt$ (Riemann integral).
 $f$ is the probability density function (PDF).
 
 *Comment.*  
@@ -453,7 +453,7 @@ $\int_{-\infty}^{+\infty} f(t) dt = \int_{-\infty}^{+\infty} f^{+}(t) dt - \int_
 *Definition.* (Expectation)
 
 *Definition of jointly continuous.*
-$\exists f_{X, Y}: \mathbb{R}^2 \mapsto \mathbb{R}$
+$\exists f_{X, Y}: \mathbb{R}^2 \to \mathbb{R}$
 
 - $X, Y$ can be both continuous, but not jointly continuous.  
   *Example.* $X \stackrel{d}{=} U[0, 1]$, $Y = X$.
@@ -529,7 +529,7 @@ This theorem means that $\mathbb{E}[X\mid Y]$ is the one that minimizes the diff
 
 ### Lebesgue integral and expectation of a general random variable
 
-Our goal is to unite the definition of expectation of discrete and continuous r.v. That is to define $\mathbb{E}[X]$ for any r.v. $X: \Omega \mapsto \mathbb{R}$.
+Our goal is to unite the definition of expectation of discrete and continuous r.v. That is to define $\mathbb{E}[X]$ for any r.v. $X: \Omega \to \mathbb{R}$.
 
 *Definition.* 
 Let $S(g)$ by the set of all (measurable) simple functions $q$ that are dominated by $g$, i.e.
@@ -537,7 +537,7 @@ Let $S(g)$ by the set of all (measurable) simple functions $q$ that are dominate
 2. $q\le g$ a.s. (this requires that $g$ is measurable)
 
 *Definition.*
-Given $g: \Omega \mapsto \mathbb{R}$, $g\ge 0$ a.s. Then $\int g d\mu = \sup_{q\in S(g)} \int q d\mu$.
+Given $g: \Omega \to \mathbb{R}$, $g\ge 0$ a.s. Then $\int g d\mu = \sup_{q\in S(g)} \int q d\mu$.
 
 Properties.
 1. $g \le h$ a.s. Then $\int g d\mu \le \int h d\mu$.
@@ -622,7 +622,7 @@ Given $(\Omega_1, \mathcal{F}_1, \mathbb{P}_1)$ and $(\Omega_2, \mathcal{F}_2, \
 - $\mathcal{F}_1 \times \mathcal{F}_2$ = smallest $\sigma$-field containing all sets $A_1\times A_2$ where $A_1\in \mathcal{F}_1$, $A_2\in \mathcal{F}_2$.
 - $\mathbb{P}_1 \times \mathbb{P}_2(A_1\times A_2) = \mathbb{P}_1(A_1) \cdot \mathbb{P}_2(A_2)$. Then extended by Caratheodory's extension theorem.
 
-Goal: Given $F: \mathbb{R} \mapsto [0, 1]$ CDF, construct $X_1, X_2$ such that $X_1\perp X_2$ and $F_{X_1} = F_{X_2} = F$.  
+Goal: Given $F: \mathbb{R} \to [0, 1]$ CDF, construct $X_1, X_2$ such that $X_1\perp X_2$ and $F_{X_1} = F_{X_2} = F$.  
 - $X_1: \Omega \times \Omega \rightarrow \mathbb{R}$, $X_1(\omega_1, \omega_2) = X(\omega_1)$.
 - $X_2: \Omega \times \Omega \rightarrow \mathbb{R}$, $X_2(\omega_1, \omega_2) = X(\omega_2)$.
 
@@ -636,8 +636,8 @@ Fubini's theorem provides a sufficient condition.
 
 *Theorem [Fubini 1].*
 Suppose $X\ge 0$, a.s.. Then
-1. For almost every $\omega_1 \in \Omega_1$, $X(\omega_1, \omega_2): \Omega_2 \mapsto \mathbb{R}$ is measurable.
-2. For almost every $\omega_2 \in \Omega_2$, $X(\omega_1, \omega_2): \Omega_1 \mapsto \mathbb{R}$ is measurable.
+1. For almost every $\omega_1 \in \Omega_1$, $X(\omega_1, \omega_2): \Omega_2 \to \mathbb{R}$ is measurable.
+2. For almost every $\omega_2 \in \Omega_2$, $X(\omega_1, \omega_2): \Omega_1 \to \mathbb{R}$ is measurable.
 3. $\int X(\omega_1, \omega_2) d\mathbb{P}_2$ is a measurable function of $\omega_1$.
 4. $\int X(\omega_1, \omega_2) d\mathbb{P}_1$ is a measurable function of $\omega_2$.
 5. $\int _{\Omega_1} [\int _{\Omega_2} X(\omega_1, \omega_2) d\mathbb{P}_2] d\mathbb{P}_1 = \int _{\Omega_2} [\int _{\Omega_1} X(\omega_1, \omega_2) d\mathbb{P}_1] d\mathbb{P}_2 = \int _{\Omega\times \Omega_2} X(\omega_1, \omega_2) d\mathbb{P}_1 \times \mathbb{P}_2$.
@@ -671,7 +671,7 @@ Binomial distribution becomes Poisson distribution when $n\rightarrow \infty$ an
 ### Indicator random variables
 
 *Definition.*
-$I_A: \Omega \mapsto \lbrace 0, 1\rbrace$.
+$I_A: \Omega \to \lbrace 0, 1\rbrace$.
 
 - $I_{A^c} = 1 - I_A$.
 - $I_{A\cap B} = I_A \cdot I_B$.
@@ -770,7 +770,7 @@ Bivariate random variables $X$ and $Y$ are independent iff $\rho = 0$.
 
 ### Derived distributions
 
-Let $X$ be a random vector, i.e. $X = (X_1, \cdots, X_n) \in \mathbb{R}^n$. $X_i$ are jointly continuous. $f_X(x)$ is known for $x \in \mathbb{R}^n$. Let $g: \mathbb{R}^n \mapsto \mathbb{R}^n$. 
+Let $X$ be a random vector, i.e. $X = (X_1, \cdots, X_n) \in \mathbb{R}^n$. $X_i$ are jointly continuous. $f_X(x)$ is known for $x \in \mathbb{R}^n$. Let $g: \mathbb{R}^n \to \mathbb{R}^n$. 
 **Note** that even if $X$ is continuous, $g(X)$ need not be so.  
 Question: what is the density of $Y = g(X)$?
 
@@ -800,7 +800,7 @@ To show this, we need some linear algebra. Fix $x_0 = (x^0_1, \cdots, x^0_n) \in
 
 $X \perp Y \stackrel{d}{=} N(0, 1)$. Our goal is to derive the joint density of $(R, \Theta)$ is polar coordinates.
 
-$g: (X, Y) \mapsto (R, \Theta)$. Then $g^{-1}(r, \theta) = (r\cos(\theta), r\sin(\theta))$. $|J_{g^{-1}}| = r$.
+$g: (X, Y) \to (R, \Theta)$. Then $g^{-1}(r, \theta) = (r\cos(\theta), r\sin(\theta))$. $|J_{g^{-1}}| = r$.
 Therefore, 
 $$
 \begin{aligned}
@@ -823,7 +823,7 @@ f_{X + Y}(z) = \int_{-\infty}^{+\infty} f_X(z) f_Y(z - t) dt.
 $$
 
 *Proof.*
-1. Consider $g: (x, y) \mapsto (x + y, y)$, and use derived distribution.
+1. Consider $g: (x, y) \to (x + y, y)$, and use derived distribution.
 2. Take marginal density.
 
 ### Moment generating function

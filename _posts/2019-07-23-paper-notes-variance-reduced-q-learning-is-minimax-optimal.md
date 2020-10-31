@@ -71,7 +71,7 @@ where $V_{k} :=\widehat{\mathcal{T}}_{k}\left(\theta^{\star}\right)-\mathcal{T}\
 The variance can be reduced with the trick of recentering, i.e. substracting a term and then adding another.
 
 $$
-\theta \mapsto \mathcal{V}_{k}\left(\theta ; \lambda, \overline{\theta}, \widetilde{\mathcal{T}}_{N}\right) :=(1-\lambda) \theta+\lambda\left\{\widehat{\mathcal{T}}_{k}(\theta)-\widehat{\mathcal{T}}_{k}(\overline{\theta})+\widetilde{\mathcal{T}}_{N}(\overline{\theta})\right\},
+\theta \to \mathcal{V}_{k}\left(\theta ; \lambda, \overline{\theta}, \widetilde{\mathcal{T}}_{N}\right) :=(1-\lambda) \theta+\lambda\left\{\widehat{\mathcal{T}}_{k}(\theta)-\widehat{\mathcal{T}}_{k}(\overline{\theta})+\widetilde{\mathcal{T}}_{N}(\overline{\theta})\right\},
 $$
 
 where $\overline{\theta}$ is a surrogate for the oracle $\theta^{\star}$, and 
