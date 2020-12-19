@@ -68,9 +68,9 @@ A *string* is a finite sequence of symbols in $\Sigma$. A *language* is a finite
 Define $L(M)$ to the set of strings accepted by $M$. $L(M)$ is said to be the language of $M$, or $M$ recognizes $L(M)$. A language is *regular* if some finite automaton recognizes it.
 
 *Regular operations:* ($A$ and $B$ are languages)
-- Union: $A\cup B = \{w: w\in A \text{ or } w\in B\}$;
-- Concatenation: $A\circ B = \{xy: x\in A \text{ and } y\in B \}$ or $AB$;
-- Star $A^{\ast} = \{x_1\cdots x_k: k\ge 0, \text{ and } x_i\in A \text{ for all } i\in [k]\}$. $\epsilon \in A^{\ast}$ always.
+- Union: $A\cup B = \lbrace w: w\in A \text{ or } w\in B\rbrace $;
+- Concatenation: $A\circ B = \lbrace xy: x\in A \text{ and } y\in B \rbrace $ or $AB$;
+- Star $A^{\ast} = \lbrace x_1\cdots x_k: k\ge 0, \text{ and } x_i\in A \text{ for all } i\in [k]\rbrace $. $\epsilon \in A^{\ast}$ always.
 
 #### 1.1.2 Nondeterminism
 
@@ -81,7 +81,7 @@ Nondeterministic finite automata have three new features:
 
 Note that nondeterminism does not correspond to a physical machine that we can build. However, it is useful mathematically.
 
-Formally, a *nondeterministic finite automaton (NFA)* $N$ is a quintuple $(Q, \Sigma, \delta, q_0, F)$. Here $\delta: Q\times \Sigma_{\epsilon} \to \mathcal{P}(Q)$, where $\Sigma_{\epsilon} = \Sigma \cup \{\epsilon\}$ and $\mathcal{P}= \{R: R\subset Q\}$ is the power set.
+Formally, a *nondeterministic finite automaton (NFA)* $N$ is a quintuple $(Q, \Sigma, \delta, q_0, F)$. Here $\delta: Q\times \Sigma_{\epsilon} \to \mathcal{P}(Q)$, where $\Sigma_{\epsilon} = \Sigma \cup \lbrace \epsilon\rbrace $ and $\mathcal{P}= \lbrace R: R\subset Q\rbrace $ is the power set.
 
 Three ways to think about nondeterminism:
 - Computational: fork parallel threads (caveat: the threads cannot merge);
@@ -110,14 +110,15 @@ Theorem. If $A$ is regular then $A = L(R)$ for some regular expression $R$. Proo
 
 #### 1.1.4 Nonregular languages
 
-Pumping lemma. For every regular language $A$, there is a number $p$ (the pumping length) such that for every $s\in A$ and $|s| > p$ then $s = xyz$ where 1) $xy^iz\in A$ for all $i\ge 0$, and notably $i$ can be zero; 2) $y\neq \epsilon$; 3) $|xy|\le p$. Proof. Let $p$ be the number of states in DFA $M$. Then for any string $s$, let $y$ be the substring between two repetitions (guaranteed by the pigeonhold principle) of the same symbol.
+Pumping lemma. For every regular language $A$, there is a number $p$ (the pumping length) such that for every $s\in A$ and $\vert s\vert > p$ then $s = xyz$ where 1) $xy^iz\in A$ for all $i\ge 0$, and notably $i$ can be zero; 2) $y\neq \epsilon$; 3) $\vert xy\vert\le p$. 
+Proof. Let $p$ be the number of states in DFA $M$. Then for any string $s$, let $y$ be the substring between two repetitions (guaranteed by the pigeonhold principle) of the same symbol.
 
-Example 1. $D = \{ 0^k1^k: k\ge 0 \}$ is nonregular. Proof. Consider $s = 0^p1^p$.
+Example 1. $D = \lbrace  0^k1^k: k\ge 0 \rbrace $ is nonregular. Proof. Consider $s = 0^p1^p$.
 
-Example 2. $F = \{ ww: w\in \Sigma^{\ast} \}$ is nonregular. Say $\Sigma = \{0, 1\}$. Proof. Consider $s = 0^p 1 0^p 1$.
+Example 2. $F = \lbrace  ww: w\in \Sigma^{\ast} \rbrace $ is nonregular. Say $\Sigma = \lbrace 0, 1\rbrace $. Proof. Consider $s = 0^p 1 0^p 1$.
 
 Example 3 (combine closure properties with the pumping lemma).
-$B = \{w: w \text{ has equal numbers of $0$s and $1$s}\}$ is nonregular.
+$B = \lbrace w: w \text{ has equal numbers of $0$s and $1$s}\rbrace $ is nonregular.
 Proof: by contradiction. If $B$ is regular then $B\cap 0^{\ast} 1^{\ast}$ is regular, which is Example 1 in this section.
 
 ### 1.2 Context-free languages
@@ -128,7 +129,7 @@ Grammar $G$ generates strings: 1) Write down the start variable. 2) Replace any 
 
 A *CFG* $G$ is a quadruple $(V, \Sigma, R, S)$, where $V$ is a finite set of variables, $\Sigma$ is a finite set of terminals, $R$ is a finite set of rules $V \to (V\cup \Sigma)^{\ast}$, $S$ is a start variable.
 
-$u$ yields $v$ if $u$ to $v$ with one substitution step: $u \Rightarrow v$. $u$ derives $v$ if $u$ to $v$ with some number of substitution steps: $u \stackrel{\ast}{\Rightarrow} v$. $u$ derives itself. Formally, $L(G) = \{ w\in \Sigma^{\ast}: S \stackrel{\ast}{\Rightarrow} w \}$.
+$u$ yields $v$ if $u$ to $v$ with one substitution step: $u \Rightarrow v$. $u$ derives $v$ if $u$ to $v$ with some number of substitution steps: $u \stackrel{\ast}{\Rightarrow} v$. $u$ derives itself. Formally, $L(G) = \lbrace  w\in \Sigma^{\ast}: S \stackrel{\ast}{\Rightarrow} w \rbrace $.
 
 If a string has two different parse trees then it is derived ambiguously and we say that the grammar is *ambiguous*.
 
@@ -160,16 +161,16 @@ Theorem. The intersection of a CFL and a regular language is a CFL.
 Proof. $A$ is a CGL and $B$ is regular. When reading the input, the finite control of the PDA for $A$ simulates the DFA for $B$.
 
 If $A, B$ are CGLs then $A\cap B$ may not be a CFL. 
-Proof. $A_1 = \{ 0^k 1^k 2^l: k, l\ge 0 \}$ and $A_2 = \{0^l 1^k 2^k: k, l\ge 0\}$ are CFLs, but $A_1 \cap A_2$ is not a CFL.
+Proof. $A_1 = \lbrace  0^k 1^k 2^l: k, l\ge 0 \rbrace $ and $A_2 = \lbrace 0^l 1^k 2^k: k, l\ge 0\rbrace $ are CFLs, but $A_1 \cap A_2$ is not a CFL.
 
 #### 1.2.3 Non-context-free languages
 
-Pumping lemma for CFLs. For every CFL $A$, there is a $p$ such that if $s\in A$ and $|s| \ge p$ then $s = uvxyz$ where 1) $uv^ixy^iz \in A$ for all $i\ge 0$, 2) $vy \neq \epsilon$, 3) $|vxy| \le p$. 
-Proof. Let $b$ be the length of the longest RHS of a rule. Then let $p = b^{|V|} + 1$. The height of the parse tree $h > |V|$, so some variable must repeat on a path.
+Pumping lemma for CFLs. For every CFL $A$, there is a $p$ such that if $s\in A$ and $\vert s\vert \ge p$ then $s = uvxyz$ where 1) $uv^ixy^iz \in A$ for all $i\ge 0$, 2) $vy \neq \epsilon$, 3) $\vert vxy\vert \le p$. 
+Proof. Let $b$ be the length of the longest RHS of a rule. Then let $p = b^{\vert V\vert} + 1$. The height of the parse tree $h > \vert V\vert$, so some variable must repeat on a path.
 
-Example 1. $B = \{0^k 1^k 2^k: k\ge 0\}$ is not a CFL. Proof. Consider $s = 0^p 1^p 2^p$.
+Example 1. $B = \lbrace 0^k 1^k 2^k: k\ge 0\rbrace $ is not a CFL. Proof. Consider $s = 0^p 1^p 2^p$.
 
-Example 2. $F = \{ww: w\in \Sigma^{\ast}\}$ is not a CFL. Proof. Consider $0^p 1^p 0^p 1^p$.
+Example 2. $F = \lbrace ww: w\in \Sigma^{\ast}\rbrace $ is not a CFL. Proof. Consider $0^p 1^p 0^p 1^p$.
 
 ## 2 Computability Theory
 
@@ -184,15 +185,15 @@ Turing machine:
 - Infinitely many blanks $\sqcup$ following input.
 - Can accept or reject at any time (not only at the end of input).
 
-Example. Recognize $a^k b^k c^k$ by erasing single $a, b, c$. The erasing effect is achieved by including $\cancel{a}, \cancel{b}, \cancel{c}$ in the tape alphabet $\Gamma$.
+Example. Recognize $a^k b^k c^k$ by erasing single $a, b, c$. The erasing effect is achieved by including $\require{cancel} \cancel{a}, \cancel{b}, \cancel{c}$ in the tape alphabet $\Gamma$.
 
-A *Turing machine* is a septuple $(Q, \Sigma, \Gamma, \delta, q_0, q_{acc}, q_{rej})$, where $Q$ is the set of states, $\Sigma$ is the input alphabet not containing the blank symbol $\sqcup$, $\Gamma$ is the tape alphabet with $\sqcup\in \Gamma$ and $\Sigma \subset \Gamma$, $\delta: Q\times \Gamma \to Q \times \Gamma \times \{L, R\}$ is the transition function, $q_0$ is the start state, $q_{acc}$ is the accept state, and $q_{rej} \neq q_{acc}$ is the reject state.
+A *Turing machine* is a septuple $(Q, \Sigma, \Gamma, \delta, q_0, q_{acc}, q_{rej})$, where $Q$ is the set of states, $\Sigma$ is the input alphabet not containing the blank symbol $\sqcup$, $\Gamma$ is the tape alphabet with $\sqcup\in \Gamma$ and $\Sigma \subset \Gamma$, $\delta: Q\times \Gamma \to Q \times \Gamma \times \lbrace L, R\rbrace $ is the transition function, $q_0$ is the start state, $q_{acc}$ is the accept state, and $q_{rej} \neq q_{acc}$ is the reject state.
 
 3 possible outcomes for each input $w$: 1) Accept $w$ (enter $q_{acc}$); 2) Reject $w$ by halting (enter $q_{rej}$); 3)  Rejecting $w$ by looping (running forever).
 
 A *configuration* of a TM is its current state $q$, the current tape content $t$, and the current head location $p$. Start configuration, accepting configuration, rejecting configuration. Accepting and rejecting configurations are halting configurations.
 
-Let $M$ be a TM. Then $L(M) = \{w: M \text{ accepts } w\}$. $M$ recognizes $A$ if $A = L(M)$. $A$ is *T-recognizable* if $A = L(M)$ for some TM $M$. TM $M$ is a *decider* if $M$ halts on all inputs. $A$ is *T-decidable* if $A = L(M)$ for some TM decider $M$.
+Let $M$ be a TM. Then $L(M) = \lbrace w: M \text{ accepts } w\rbrace $. $M$ recognizes $A$ if $A = L(M)$. $A$ is *T-recognizable* if $A = L(M)$ for some TM $M$. TM $M$ is a *decider* if $M$ halts on all inputs. $A$ is *T-decidable* if $A = L(M)$ for some TM decider $M$.
 
 #### 2.1.2 Variants of Turing machines
 
@@ -204,7 +205,7 @@ Theorem. $A$ is T-recognizable if and only if some multi-tape TM recognizes $A$.
 
 **Nondeterministic Turing machines.**
 
-A *nondeterministic Turing machine (NTM)* is similar to a deterministic TM except for its transition function $\delta: Q \times \Gamma \to \mathcal{P}(Q\times \Gamma \times \{L, R\})$.
+A *nondeterministic Turing machine (NTM)* is similar to a deterministic TM except for its transition function $\delta: Q \times \Gamma \to \mathcal{P}(Q\times \Gamma \times \lbrace L, R\rbrace )$.
 
 Theorem. $A$ is T-recognizable if and only if some NTM recognizes $A$.
 Proof. The forward direction is immediate. For the backward direction, convert an NTM to a TM by storing threads in blocks.
@@ -216,7 +217,7 @@ Proof. By the equivalence of TMs and NTMs shown in the proof above.
 
 **Turing enumerators.**
 
-A *Turing enumerator* is a deterministic TM with a printer. It starts on a blank tape and it can print strings $w_1, w_2, \cdots$ possibly going forever (an infinite list of strings). The language is the set of all strings it prints. It is a generator, not a recognizer. For enumerator $E$ we say $L(E) = \{ w: E \text{ prints } w \}$. It may generate the strings of the language in any order, possibly with repetitions.
+A *Turing enumerator* is a deterministic TM with a printer. It starts on a blank tape and it can print strings $w_1, w_2, \cdots$ possibly going forever (an infinite list of strings). The language is the set of all strings it prints. It is a generator, not a recognizer. For enumerator $E$ we say $L(E) = \lbrace  w: E \text{ prints } w \rbrace $. It may generate the strings of the language in any order, possibly with repetitions.
 
 Theorem. $A$ is T-recognizable if and only if $A = L(E)$ for some T-enumerator $E$. 
 Proof. 
@@ -239,7 +240,7 @@ If $O$ is some object, then let $\langle O \rangle$ denote the encoding of $O$ a
 
 #### 2.2.1 Decidable languages
 
-Acceptance problem for DFAs/NFAs. Let $A_{DFA} = \{ \langle B, w \rangle: B \text{ is a DFA and } B \text{ accepts } w \}$.
+Acceptance problem for DFAs/NFAs. Let $A_{DFA} = \lbrace  \langle B, w \rangle: B \text{ is a DFA and } B \text{ accepts } w \rbrace $.
 
 $A_{DFA}$ is decidable. Proof. Simulate the computation of $B$ on $w$.
 
@@ -253,7 +254,7 @@ Proof. Construct a DFA $C$ that recognizes the *symmetric difference* of the lan
 
 The equivalence problem of regular expressions $EQ_{REX}$ is also decidable, since we can use a TM to convert regular expressions to DFAs.
 
-Acceptance problem for CFGs. $A_{CFG}$ is decidable. Proof. Recall the two lemmas about the Chomsky normal form (CNF). On input $\langle G, w \rangle$, convert $G$ into CNF and try all derivations of length $2|w| - 1$.
+Acceptance problem for CFGs. $A_{CFG}$ is decidable. Proof. Recall the two lemmas about the Chomsky normal form (CNF). On input $\langle G, w \rangle$, convert $G$ into CNF and try all derivations of length $2\vert w\vert - 1$.
 
 As a corollary, every CFL is decidable.
 
@@ -272,7 +273,7 @@ $\mathbb{R}$ is uncountable. Proof. Diagonalization.
 
 Corollary. Let $\mathcal{L}$ denote all languages. Then $\mathcal{L}$ is uncountable. Proof. There is a 1-1 correspondence from $\mathcal{L}$ to $\mathbb{R}$.
 
-The set of all TMs is countable. Proof. $\Sigma^{\ast}$ is countable, and $\{\langle M \rangle: M \text{ is a TM } \} \subset \Sigma^{\ast}$.
+The set of all TMs is countable. Proof. $\Sigma^{\ast}$ is countable, and $\lbrace \langle M \rangle: M \text{ is a TM } \rbrace  \subset \Sigma^{\ast}$.
 
 $A_{TM}$ is not decidable. Proof. Diagonalization. Construct $D$ that on input $\langle M \rangle$ accepts if $M$ rejects $\langle M \rangle$ (known from decider for $A_{TM}$).
 
@@ -348,7 +349,7 @@ Example 1. A new proof for the undecidability of $A_{TM}$.
 
 Example 2 (fixed point problem). For any computable function $f$, there is a TM $R$ such that $L(R) = L(S)$ where $f(\langle R \rangle) = \langle S \rangle$.
 
-$M$ is a *minimal* TM if $|\langle M' \rangle| < |\langle M \rangle|$ implies $L(M') \neq L(M)$.
+$M$ is a *minimal* TM if $\vert\langle M' \rangle\vert < \vert\langle M \rangle\vert$ implies $L(M') \neq L(M)$.
 
 Example 3. $MIN_{TM}$ is T-unrecognizable. Proof. Assume some TM $E$ enumerates $MIN_{TM}$.
 
@@ -364,9 +365,9 @@ Computability does not depend on computational models by Church-Turing Thesis. B
 
 TM $M$ *runs in time* $t(n)$ if $M$ always halts with $t(n)$ steps on all inputs of length $n$.
 
-$TIME(t(n)) = \{B: \text{some deterministic 1-tape TM $M$ decides $B$ and $M$ runs in time $O(t(n))$} \}$.
+$TIME(t(n)) = \lbrace B: \text{some deterministic 1-tape TM $M$ decides $B$ and $M$ runs in time $O(t(n))$} \rbrace $.
 
-Theorem. $A = \{a^kb^k: k\ge 0\} \in TIME(n \log n)$. Proof. Repeat crossing every other $a$ and $b$. Reject if even/odd parities disagree. Tight in light of the following theorem.
+Theorem. $A = \lbrace a^kb^k: k\ge 0\rbrace  \in TIME(n \log n)$. Proof. Repeat crossing every other $a$ and $b$. Reject if even/odd parities disagree. Tight in light of the following theorem.
 
 Theorem. If a language is decidable in $o(n \log n)$ time by a one-tape TM then it is regular.
 
@@ -378,7 +379,7 @@ All reasonable deterministic models are polynomially related, e.g., 1-tape TMs, 
 
 Class $P := \bigcup_{k} TIME(n^k)$: polynomial-time decidable languages. $P$ is invariant for all reasonably deterministic models and corresponds roughly to realistically solvable problems.
 
-$PATH = \{ \langle G, s, t \rangle: G$ is a directed graph with a path from $s$ to $t \}$.
+$PATH = \lbrace  \langle G, s, t \rangle: G$ is a directed graph with a path from $s$ to $t \rbrace $.
 
 Theorem. $PATH \in P$. Proof. Iteratively mark reachable nodes.
 
@@ -386,29 +387,29 @@ Theorem. $PATH \in P$. Proof. Iteratively mark reachable nodes.
 
 An NTM *runs in time* $t(n)$ if all branches halt within $t(n)$ steps on all inputs of length $n$.
 
-$NTIME(t(n)) = \{B: \text{some deterministic 1-tape NTM $M$ decides $B$ and $M$ runs in time $O(t(n))$} \}$.
+$NTIME(t(n)) = \lbrace B: \text{some deterministic 1-tape NTM $M$ decides $B$ and $M$ runs in time $O(t(n))$} \rbrace $.
 
 Class $NP := \bigcup_k NTIME(n^k)$. $NP$ is invariant for all reasonable nondeterministic models and corresponds roughly to easily verifiable problems.
 
-$HAMPATH := \{ \langle G, s, t \rangle: G$ is a directed graph with a path from $s$ to $t$ that goes through every node of $G \}$.
+$HAMPATH := \lbrace  \langle G, s, t \rangle: G$ is a directed graph with a path from $s$ to $t$ that goes through every node of $G \rbrace $.
 
 Theorem. $HAMPATH \in NP$. Proof. Nondeterministically guess a sequence of $m$ nodes (say $G$ has $m$ nodes).
 
-$COMPOSITES = \{x: x$ is not prime and $x$ is written in binary$\}$.
+$COMPOSITES = \lbrace x: x$ is not prime and $x$ is written in binary$\rbrace $.
 
 Clearly, $COMPOSITES \in NP$. Theorem (2002). $COMPOSITES \in P$. 
 Proof. Not covered. 
 
 Corollary. $PRIME \in P$.
 
-Theorem. $A_{CFG} \in NP$. Proof. Concert to Chomsky Normal Form. Try all derivations of length $2|w| - 1$.
+Theorem. $A_{CFG} \in NP$. Proof. Concert to Chomsky Normal Form. Try all derivations of length $2\vert w\vert - 1$.
 
 Theorem. $A_{CFG} \in TIME(n^5) \subset P$. 
 Proof. Dynamic programming: recursion + memory (the result of $\langle G, w, R \rangle$).
 
 A Boolean formula $\phi$ is *satisfiable* if $\phi$ evaluates to be true for some assignment to its variables.
 
-$SAT = \{\langle \phi \rangle: \phi$ is a satisfiable Boolean formula$\}$.
+$SAT = \lbrace \langle \phi \rangle: \phi$ is a satisfiable Boolean formula$\rbrace $.
 
 $A$ is polynomial-time reducible to $B$ ($A \le_P B$) if $A\le_m B$ by a reduction function that is computable in polynomial time.
 
@@ -427,11 +428,11 @@ A Boolean formula $\phi$ is in *Conjuctive Normal Form (CNF)* if it has the form
 
 A 3CNF is a CNF with exactly 3 literals in each clause.
 
-$3SAT = \{\langle \phi \rangle: \phi$ is a satisfiable 3CNF formula$\}$.
+$3SAT = \lbrace \langle \phi \rangle: \phi$ is a satisfiable 3CNF formula$\rbrace $.
 
 A *$k$-clique* in a graph is a subset of $k$ nodes all directly connected by edges.
 
-$CLIQUE = \{ \langle G, k \rangle: \text{graph $G$ contains a $k$-clique} \}$.
+$CLIQUE = \lbrace  \langle G, k \rangle: \text{graph $G$ contains a $k$-clique} \rbrace $.
 
 Theorem. $3SAT\le_P CLIQUE$. Proof. Make each literal a node and add proper edges.
 
@@ -443,7 +444,7 @@ Theorem. $3SAT \le_P UHAMPATH$.
 
 To show some language $C$ is NP-complete, we often show $3SAT \le_P C$ by constructing gadgets that simulate variables and clauses.
 
-$coNP := \{\overline{A}: A\in NP\}$.
+$coNP := \lbrace \overline{A}: A\in NP\rbrace $.
 
 ### 3.2 Space complexity
 
@@ -451,9 +452,9 @@ $coNP := \{\overline{A}: A\in NP\}$.
 
 Let $f(n)\ge n$. A TM $M$ *runs in space* $f(n)$ if $N$ always halts and uses at most $f(n)$ *tape cells* on all inputs of length $n$. An NTM $M$ *runs in space* $f(n)$ if all branches halt and each branch uses at most $f(n)$ tape cells on all inputs of length $n$.
 
-$SPACE(f(n)) := \{B: \text{some deterministic 1-tape TM $M$ decides $B$ and $M$ runs in space $O(f(n))$} \}$.
+$SPACE(f(n)) := \lbrace B: \text{some deterministic 1-tape TM $M$ decides $B$ and $M$ runs in space $O(f(n))$} \rbrace $.
 
-$NSPACE(f(n)) := \{B: \text{some 1-tape NTM $M$ decides $B$ and $M$ runs in space $O(f(n))$} \}$.
+$NSPACE(f(n)) := \lbrace B: \text{some 1-tape NTM $M$ decides $B$ and $M$ runs in space $O(f(n))$} \rbrace $.
 
 $PSPACE := \bigcup_{k} SPACE(n^k)$.
 
@@ -473,7 +474,7 @@ A *quantified Boolean formula (QBF)* is a Boolean formula with leading exists $\
 
 A QBF is true or false.
 
-$TQBF = \{\langle \phi \rangle: \phi$ is a QBF that is true$\}$.
+$TQBF = \lbrace \langle \phi \rangle: \phi$ is a QBF that is true$\rbrace $.
 
 Theorem. $TQBF \in SPACE(n) \subset PSPACE$. Proof. Evaluate a QBF by recursion on each variable.
 
@@ -481,13 +482,13 @@ Theorem. $TQBF \in SPACE(n) \subset PSPACE$. Proof. Evaluate a QBF by recursion 
 
 A *ladder* is a sequence of strings of a common length where consecutive strings differ in a single symbol.
 
-$LADDER_{DFA} = \{ \langle B, u, v \rangle: B$ is a DFA and $L(B)$ contains a ladder $y_1, \cdots, y_k$ (consecutive strings differ in a single symbol) where $y_1 = u$ and $y_k = v \}$.
+$LADDER_{DFA} = \lbrace  \langle B, u, v \rangle: B$ is a DFA and $L(B)$ contains a ladder $y_1, \cdots, y_k$ (consecutive strings differ in a single symbol) where $y_1 = u$ and $y_k = v \rbrace $.
 
 Theorem. $LADDER_{DFA} \in NPSPACE(n)$. 
-Proof. Nondeterministic guess the sequence from $u$ to $v$ by guessing one string at a time (cannot store sequence) and for at most $|\Sigma|^{|u|}$ steps (must terminate).
+Proof. Nondeterministic guess the sequence from $u$ to $v$ by guessing one string at a time (cannot store sequence) and for at most $\vert\Sigma\vert^{\vert u\vert}$ steps (must terminate).
 
 Theorem. $LADDER_{DFA} \in SPACE(n^2) \subset PSPACE$. 
-Proof. Recursively solve $BOUNDED-LADDER_{DFA} = \{\langle B, u, v, b \rangle: \text{ladder of length} \le b\}$. Each recursive level uses $O(n)$ space and the recursion depth is $O(\log (|\Sigma|^{|u|})) = O(n)$.
+Proof. Recursively solve $BOUNDED-LADDER_{DFA} = \lbrace \langle B, u, v, b \rangle: \text{ladder of length} \le b\rbrace $. Each recursive level uses $O(n)$ space and the recursion depth is $O(\log (\vert\Sigma\vert^{\vert u\vert})) = O(n)$.
 
 Savitch's theorem. $NSPACE(f(n)) \subset SPACE(f^2(n))$. 
 Proof. Convert an NTM to an equivalent TM by an argument similar to that for $LADDER_{DFA \in PSPACE}$ where each string is a configuration. *Modify the TM to erase work tape and move heads to left end upon accepting to have a single accepting configuration.* The construction requires knowing $f(n)$; to this end we can try $f(n) = 1, 2, \cdots$.
@@ -504,11 +505,11 @@ $TQBF \in PSPACE$. 2) For all $A\in PSPACE$, let $M$ decide it in $n^k$ space. O
 
 *The Generalized Geography Game*. Played on any directed graph. Players take turns picking nodes that form a simple path. The first player stuck loses.
 
-$GG = \{\langle G, a \rangle$ Player I has a *forced win* (winning strategy if both players play optimally) in Generalized Geography on graph $G$ starting at node $a\}$. Note that in GG, one of the players has a forced win.
+$GG = \lbrace \langle G, a \rangle$ Player I has a *forced win* (winning strategy if both players play optimally) in Generalized Geography on graph $G$ starting at node $a\rbrace $. Note that in GG, one of the players has a forced win.
 
 *The Formula Game*. Given QBF $\phi$, there are two Players $\exists$ and $\forall$. Player $\exists$ assigns values to the $\exists$-quantified variables. Player $\forall$ assigns values to the $\forall$-quantified variables. The players choose the values according to the order of the quantifiers in $\phi$ (not alternately). After all variables have been assigned values, we determine the winner: Player $\exists$ wins if the assignment satisfies $\phi$. Player $\forall$ wins if not.
 
-Claim. Player $\exists$ has a forced win in the formula game on $\phi$ iff $\phi$ is true. Therefore, $\{\langle \phi \rangle:$ Player $\exists$ has a forced win on $\phi\} = TQBF$.
+Claim. Player $\exists$ has a forced win in the formula game on $\phi$ iff $\phi$ is true. Therefore, $\lbrace \langle \phi \rangle:$ Player $\exists$ has a forced win on $\phi\rbrace  = TQBF$.
 
 Theorem. $GG$ is PSPACE-complete. 
 Proof. 1) $GG\in PSPACE$ recursively. 2) $TQBF\le_P GG$ by constructing a GG $G$ to mimic the formula game on $\phi$. Use a gadget to simulate a variable and another gadget to simulate a clause.
@@ -519,7 +520,7 @@ To define sublinear space computation, do not count input as part of space used.
 
 Define $L := SPACE(\log n)$, $NL := NSPACE(\log n)$. Log space can represent a constant number of pointers into the input.
 
-Theorem. $\{ww^R: w\in \Sigma^{\ast}\}\in L$. Proof. Store points.
+Theorem. $\lbrace ww^R: w\in \Sigma^{\ast}\rbrace \in L$. Proof. Store points.
 
 Theorem. $PATH \in NL$. Proof. Nondeterministically guess the path (store the current node).
 
@@ -551,7 +552,7 @@ Proof. 1) $2SAT \in NL$ and by closure to complementation. 2) Show $PATH \le_L \
 
 Theorem (Immerman-Szelepcsényi). $NL = coNL$. 
 Proof. Show $\overline{PATH} \in NL$. 
-Say *NTM $M$ computes function* $f: \Sigma^{\ast} \to \Sigma^{\ast}$ if for all $w$ 1) All branches of $M$ on $w$ either halt with $f(w)$ on the tape or reject. 2) Some branch of $M$ on $w$ does not reject. Claim that some NL machine (log-space NTM) computes $path_d$ (as a function that outputs YES or NO) if and only if some NL machine computes $c_d = c_d(G, s) = \#$ nodes reachable from $s$ via a path of length $\le d$ (key to the proof). Iteratively compute $c_{d+1}$ from $c_d$ until $d = \#$ nodes in $G$. Then compute function $path_m$.
+Say *NTM $M$ computes function* $f: \Sigma^{\ast} \to \Sigma^{\ast}$ if for all $w$ 1) All branches of $M$ on $w$ either halt with $f(w)$ on the tape or reject. 2) Some branch of $M$ on $w$ does not reject. Claim that some NL machine (log-space NTM) computes $path_d$ (as a function that outputs YES or NO) if and only if some NL machine computes $c_d = c_d(G, s) =$ \# nodes reachable from $s$ via a path of length $\le d$ (key to the proof). Iteratively compute $c_{d+1}$ from $c_d$ until $d =$ \# nodes in $G$. Then compute function $path_m$.
 
 ### 3.3 Intractability
 
@@ -580,13 +581,13 @@ Theorem. If $B$ is EXPTIME-complete then $B\notin P$.
 
 Theorem: If $B$ is EXPSPACE-complete then $B\notin PSPACE$.
 
-$EQ_{REX} := \{\langle R_1, R_2 \rangle: R_1$ and $R_2$ are equivalent regular expressions$\}$.
+$EQ_{REX} := \lbrace \langle R_1, R_2 \rangle: R_1$ and $R_2$ are equivalent regular expressions$\rbrace $.
 
 Theorem: $EQ_{REX} \in PSPACE$. Proof: Show $\overline{EQ_{REX}} \in NPSPACE$.
 
 Exponentiation: $R^k$ to mean $RR\cdots R$.
 
-$EQ_{REX\uparrow} := \{\langle R_1, R_2 \rangle: R_1$ and $R_2$ are equivalent regular expressions with exponentiation$\}$.
+$EQ_{REX\uparrow} := \lbrace \langle R_1, R_2 \rangle: R_1$ and $R_2$ are equivalent regular expressions with exponentiation$\rbrace $.
 
 Theorem (a provably intractable problem). $EQ_{REX\uparrow}$ is EXPSPACE-complete. 
 Proof. 1) $EQ_{REX\uparrow} \in EXPSPACE$ by expanding exponentiation and $EQ_{REX} \in PSPACE$. 2) Say $M$ decides $A\in EXPSPACE$ in space $2^{n^k}$. Give a polynomial-time reduction $f: A\to EQ_{REX\uparrow}$. $f(w) = \langle R_1, R_2 \rangle$ where $R_2 = \Delta^{\ast}$ and $R_1$ accepts all strings except a rejecting computation history for $M$ on $w$: bad-start, or bad-move, or bad-reject.
@@ -595,13 +596,13 @@ Proof. 1) $EQ_{REX\uparrow} \in EXPSPACE$ by expanding exponentiation and $EQ_{R
 
 Let $A$ be any language. A TM $M$ with oracle for $A$, written $M^A$, is a TM equipped with a black box that can answer queries "is $x\in A$?" for free.
 
-$P^A := \{B: B$ is decidable in polynomial time with an oracle for $A\}$.
+$P^A := \lbrace B: B$ is decidable in polynomial time with an oracle for $A\rbrace $.
 
 Example. $NP \in P^{SAT}$. $coNP \in P^{SAT}$. If $NP = P^{SAT}$ then $NP = coNP$.
 
-$NP^A := \{B: B$ is decidable in nondeterministic polynomial time with an oracle for $A\}$.
+$NP^A := \lbrace B: B$ is decidable in nondeterministic polynomial time with an oracle for $A\rbrace $.
 
-$MIN-FORMULA = \{\langle \phi \rangle: \phi$ is a minimal Boolean formula $\}$.
+$MIN-FORMULA = \lbrace \langle \phi \rangle: \phi$ is a minimal Boolean formula $\rbrace $.
 
 Theorem. $\overline{MIN-FORMULA} \in NP^{SAT}$. Proof. Guess a shorter formula and use SAT oracle to solve the coNP problem $EQ_{FORMULA}$.
 
@@ -621,7 +622,7 @@ $\mathbb{P}(M \text{ rejects } w) = 1 - \mathbb{P}(M \text{ accepts } w)$.
 
 For $\epsilon \ge 0$, say *PTM $M$ decides language $A$ with error probability $\epsilon$* if for every $w$, the probability of giving the wrong answer about $w\in A$ is $\le \epsilon$.
 
-$BPP := \{A:$ some polynomial-time PTM decides $A$ with error $\epsilon = 1/3\}$.
+$BPP := \lbrace A:$ some polynomial-time PTM decides $A$ with error $\epsilon = 1/3\rbrace $.
 
 Amplification lemma. If $M$ is a poly-time PTM with error $\epsilon_1 \le 1/2$ then on input of length $n$ for any $0 < \epsilon < 2^{-poly(n)}$, there is an equivalent poly-time PTM $M$ with error $\epsilon_2$. Proof. Repeat and take the majority response.
 
@@ -629,11 +630,11 @@ Theorem. BPP is closed under union, complementation. $P \subset BPP \subset PSPA
 
 A *branching program (BP)* is a directed, acyclic graph that has 1) query nodes labeled $x_i$ and having two outgoing edges labeled $0$ and $1$, 2) two output nodes labeled 0 and 1 and having no outgoing edges, 3) a designated start node.
 
-BP $B$ with query nodes $x_1, \cdots, x_m$ describes a Boolean function $f: \{0, 1\}^m \to \{0, 1\}$.
+BP $B$ with query nodes $x_1, \cdots, x_m$ describes a Boolean function $f: \lbrace 0, 1\rbrace ^m \to \lbrace 0, 1\rbrace $.
 
 BPs are equivalent if they describe the same Boolean function.
 
-$EQ_{BP} := \{ \langle B_1, B_2 \rangle: B_1$ and $B_2$ are equivalent BPs (written as $B_1 \equiv B_2$) $\}$.
+$EQ_{BP} := \lbrace  \langle B_1, B_2 \rangle: B_1$ and $B_2$ are equivalent BPs (written as $B_1 \equiv B_2$) $\rbrace $.
 
 Theorem. $EQ_{BP}$ is coNP-complete. Proof. Show that $\overline{EQ_{BP}}$ is NP-complete by reducing $3SAT$ to it.
 
@@ -641,7 +642,7 @@ If $EQ_{BP} \in BPP$ then $NP \subset BPP$. This would be surprising since we co
 
 A BP is *read-once* if it never queries a variable more than once on any path from the start node to an output.
 
-$EQ_{ROBP} := \langle B_1, B_2 \rangle: B_1$ and $B_2$ are equivalent read-once BPs $\}$.
+$EQ_{ROBP} := \langle B_1, B_2 \rangle: B_1$ and $B_2$ are equivalent read-once BPs $\rbrace $.
 
 Theorem. $EQ_{ROBP} \in BPP$. Proof. Arithmetization: convert the Boolean formula to a polynomial and run $B_1$ and $B_2$ on a non-Boolean input, drawn uniformly at random in the filed $\mathbb{F}_q$ for a prime $q\ge 3m$ where $m$ is the number of variables. We need the following lemmas.
 
@@ -655,22 +656,22 @@ Theorem (Schwartz-Zippel). If $p(x_1, \cdots, x_m)\neq 0$ has degree $\le d$ in 
 
 Undirected graphs $G$ and $H$ are *isomorphic* if they are identical except for a permutation (rearrangement) of the nodes.
 
-$ISO = \{ \langle G, H \rangle: G$ and $H$ are isomorphic graphs $\}$. $ISO \in NP$ is obvious, but we do not know whether $ISO \in P, ISO$ is NP-complete, or $\overline{ISO} \in NP$.
+$ISO = \lbrace  \langle G, H \rangle: G$ and $H$ are isomorphic graphs $\rbrace $. $ISO \in NP$ is obvious, but we do not know whether $ISO \in P, ISO$ is NP-complete, or $\overline{ISO} \in NP$.
 
 In an *interative proof system*, there are two interacting parties: a verifier $V$ which is a probabilistic polynomial-time TM and a prover $P$ that has unlimited computational power. Both $P$ and $V$ see input $w$. They exchange a polynomial number of polynomial-size messages. Then $V$ accepts or rejects.
 
-$IP := \{ A:$ for some $V$ and $P$ (This $P$ is an "honest" prover) $w\in A \Rightarrow \mathbb{P}((V\leftrightarrow P)$ accepts $w) \ge 2/3$; $w \notin A \Rightarrow$ for any prover $\tilde{P}$ ($\tilde{P}$ is a "crooked" prover trying to make V accept when it shouldn't) $\mathbb{P}((V \leftrightarrow P)$ accepts $w) \le 1/3 \}$. 
+$IP := \lbrace  A:$ for some $V$ and $P$ (This $P$ is an "honest" prover) $w\in A \Rightarrow \mathbb{P}((V\leftrightarrow P)$ accepts $w) \ge 2/3$; $w \notin A \Rightarrow$ for any prover $\tilde{P}$ ($\tilde{P}$ is a "crooked" prover trying to make V accept when it shouldn't) $\mathbb{P}((V \leftrightarrow P)$ accepts $w) \le 1/3 \rbrace $. 
 Note that an amplification lemma can improve the error probability from $1/3$ to $1/2^{poly(n)}$.
 
 Theorem. $\overline{ISO} \in IP$. Proof. $V$ randomly send permuted $G$ or $H$ to $P$ and see if $P$ identifies the correct one. Repeat another time. Accept if $P$ is correct both times. Reject otherwise.
 
 Theorem. $IP = PSPACE$. Proof. $IP \subset PSPACE$ obviously. The other direction is similar to the proof of $coNP \subset IP$ below.
 
-$\#SAT := \{ \langle \phi. k \rangle:$ Boolean formula $\phi$ has $k$ satisfying assignments $\}$.
+\#$SAT := \lbrace  \langle \phi. k \rangle:$ Boolean formula $\phi$ has $k$ satisfying assignments $\rbrace $.
 
 Language $B$ is *NP-hard* if $A \le_P B$ for every $A \in NP$.
 
-Theorem. $\#SAT$ is coNP-hard. Proof. Show $\overline{SAT} \le_P \#SAT$ by $f(\langle \phi \rangle) = \langle \phi, 0 \rangle$.
+Theorem. $SAT$ is coNP-hard. Proof. Show $\overline{SAT} \le_P$ \#$SAT$ by $f(\langle \phi \rangle) = \langle \phi, 0 \rangle$.
 
 Theorem. $coNP \subset IP$. 
-Proof. Show $\#SAT \in IP$. Let $\phi$ has variables $x_1, \cdots, x_m$. Let $\phi(a_1\cdots a_i)$ be $\phi$ with $(x_1, \cdots, x_i) = (a_1, \cdots, a_i)$. Call $a_1, \cdots, a_i$ *presets*. The remaining variables stay unset. Let $\#\phi(a_1\cdots a_i)$ be the number of satisfying assignments of $\phi(a_1\cdots a_i)$. We claim that $\#\phi(a_1\cdots a_i) = \sum_{a_{i+1}, \cdots, a_m \in \{0, 1\}} \phi(a_1, \cdots, a_m)$. The rest goes by arithmetization. The resulting polynomial $\phi$ has a degree of at most $|\phi|$.
+Proof. Show \#$SAT \in IP$. Let $\phi$ has variables $x_1, \cdots, x_m$. Let $\phi(a_1\cdots a_i)$ be $\phi$ with $(x_1, \cdots, x_i) = (a_1, \cdots, a_i)$. Call $a_1, \cdots, a_i$ *presets*. The remaining variables stay unset. Let \#$\phi(a_1\cdots a_i)$ be the number of satisfying assignments of $\phi(a_1\cdots a_i)$. We claim that \#$\phi(a_1\cdots a_i) = \sum_{a_{i+1}, \cdots, a_m \in \lbrace 0, 1\rbrace } \phi(a_1, \cdots, a_m)$. The rest goes by arithmetization. The resulting polynomial $\phi$ has a degree of at most $\vert\phi\vert$.
