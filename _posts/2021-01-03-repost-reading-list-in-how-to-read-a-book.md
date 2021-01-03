@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Reading List in *How to Read a Book*"
+title:  "The Reading List in How to Read a Book"
 date:   2021-01-03 16:50:00 -0500
 author: Mortimer J. Adler and Charles Van Doren
 categories: essay
