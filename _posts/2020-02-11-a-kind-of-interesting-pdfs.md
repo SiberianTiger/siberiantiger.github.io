@@ -50,7 +50,7 @@ Since $g \cdot I_{\mathcal{S}}$ is bounded, it is integrable on $\mathcal{S}$ (F
 Essentially, $\hat{f} = g - g \cdot I_{\mathcal{S}}$, and thus $\hat{f}$ is also Lebesgue integrable (Fact 6).
 
 We proceed to show that for any real numbers $x_1 < x_2$, the Lebesgue integral $\int_{x_1}^{x_2} \hat{f}(x) ~\mathrm{d}x > 0$.
-Since $(x_1, x_2)$ is an open interval and $\mathcal{S}$ is a closed set that does not contain any open interval (Fact 1), $(x_1, x_2) \backslash \mathcal{S}$ is a non-empty open set (Fact 7), where '$\backslash$' denote set substraction.
+Since $(x_1, x_2)$ is an open interval and $\mathcal{S}$ is a closed set that does not contain any open interval (Fact 1), $(x_1, x_2) \backslash \mathcal{S}$ is a non-empty open set (Fact 7), where '$\backslash$' denote set subtraction.
 Therefore, $\mu((x_1, x_2) \backslash \mathcal{S}) > 0$ (Fact 8), and $\int_{x_1}^{x_2} \hat{f}(x) ~\mathrm{d}x > 0$ (Fact 9).
 
 Specifically, $0 < \int_{-\infty}^{\infty} \hat{f}(x) ~\mathrm{d}x = I \le 1$.
