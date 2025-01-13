@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How I Furnished my First Apartment under \$1,000"
+title:  "How I Furnished my First Apartment under $1,000"
 date:   2025-01-12 23:00:00 -0800
 author: Siberian Tiger
 categories: living
